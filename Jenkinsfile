@@ -21,16 +21,23 @@ pipeline {
         stage('Checkout') {
             steps{
                 echo "------------>Checkout<------------"
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+		doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:
+		'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId:
+		'GitHub_jsanch81', url:
+		'https://github.com/jsanch81/Estacionamiento.git']]])
             }
         }
         stage('Unit Tests') {
             steps{
               echo "------------>Unit Tests<------------"
+	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
             }
         }
         stage('Integration Tests') {
             steps {
                 echo "------------>Integration Tests<------------"
+		sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
             }
         }
         stage('Static Code Analysis') {

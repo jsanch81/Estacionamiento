@@ -1,0 +1,35 @@
+simular elcomportamiento de un vigilante en un parqueadero
+
+- Vigilante -> Persona -> 
+- Parqueadero
+Vehiculos ->- Motos cantidad -> 10
+            - Carros cantidad -> 20
+
+condiciones q comienzan por la letra A ingresan domingo y lunes
+
+- Calendario
+
+valor hora carro = 1000
+moto = 500
+dia carro = 8000
+moto = 4000
+
+atributo de motocicleta
+
+- cilindraje -> si es mayor a 500cc paga 2000 mas
+
+-dia comienza 9 horas depues de la hora de ingreso
+finaliza 24 horas depues del ingreso
+
+Requisitos no funcionales
+
+-La aplicación debe ser construida para la Web
+-La interfaz gráfica Web se debe adaptar a los celulares -> (USANDO ANGULAR)
+
+-Los servicios REST deben aceptar mínimo 100 peticiones concurrentes por minuto con un tiempo 
+de respuesta cada una no mayor a 1,5 seg -> (PRUEBAS DE CARGA USANDO JMETER)
+-Todo el software se debe construir con pruebas automatizadas, para validar cada una de las capas. 
+Por ejemplo, pruebas unitarias, integración, carga y funcionales.
+-Todas las pruebas y el proceso debe quedar automatizado en Jenkins
+
+-El servidor de producción sobre el que se instalará la aplicación tiene Linux (Ubuntu 12) con 2 Gb de memoria RAM y 4 cores de procesamiento
