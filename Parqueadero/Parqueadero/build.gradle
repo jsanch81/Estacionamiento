@@ -29,6 +29,10 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('com.fasterxml.jackson.core:jackson-core')
+	compile('com.fasterxml.jackson.core:jackson-annotations')
+	compile('com.fasterxml.jackson.core:jackson-databind')
+	compile("org.springframework:spring-webmvc")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
