@@ -53,7 +53,8 @@ pipeline {
         stage('Build') {
             steps {
                  echo "------------>Build<------------"
-            }
+		 sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle -x test'	 
+	    }
         }
     }
 
@@ -63,13 +64,17 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
+	    junit '**/Parqueadero/Parqueadero/build/test-results/test/*.xml'
         }
         failure {
             echo 'This will run only if failed'
         }
         unstable {
             echo 'This will run only if the run was marked as unstable'
-        }
+	    mail (to: 'jose.sanchez@ceiba.com.co',subject: "Failed
+	    Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong
+	    with ${env.BUILD_URL}")
+	}
         changed {
             echo 'This will run only if the state of the Pipeline has changed'
             echo 'For example, if the Pipeline was previously failing but is now successful'

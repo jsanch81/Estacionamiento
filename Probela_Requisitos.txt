@@ -29,7 +29,7 @@ Requisitos no funcionales
 -Los servicios REST deben aceptar mínimo 100 peticiones concurrentes por minuto con un tiempo 
 de respuesta cada una no mayor a 1,5 seg -> (PRUEBAS DE CARGA USANDO JMETER)
 -Todo el software se debe construir con pruebas automatizadas, para validar cada una de las capas. 
-Por ejemplo, pruebas unitarias, integración, carga y funcionales.
+Por ejemplo, pruebas unitarias, integración, carga y funcionales. (JUNIT, MOCKITO, SELENIUM)
 -Todas las pruebas y el proceso debe quedar automatizado en Jenkins
 
 -El servidor de producción sobre el que se instalará la aplicación tiene Linux (Ubuntu 12) con 2 Gb de memoria RAM y 4 cores de procesamiento
