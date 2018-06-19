@@ -69,9 +69,7 @@ pipeline {
         }
         unstable {
             echo 'This will run only if the run was marked as unstable'
-	    mail (to: 'jose.sanchez@ceiba.com.co',subject: "Failed
-	    Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong
-	    with ${env.BUILD_URL}")
+	    mail (to: 'jose.sanchez@ceiba.com.co', subject: "Failed Pipeline:${currentBuild.fullDisplayName}", body: "Something is wrong with ${env.BUILD_URL}")
 	}
         changed {
             echo 'This will run only if the state of the Pipeline has changed'
