@@ -20,8 +20,6 @@ public class Estacionamiento {
 	private Parqueadero parqueadero = new Parqueadero();
 
     
-
-    
     /**
      * 
      * @param map Objects of body that receive from a post
