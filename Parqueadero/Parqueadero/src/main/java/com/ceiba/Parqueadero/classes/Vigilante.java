@@ -2,30 +2,27 @@ package com.ceiba.Parqueadero.classes;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
+
+@Service
+@Configurable
 public class Vigilante {
-	private String name;
-	private String cc;
-	public static String NO_PUEDE_INGRESAR_HOY = "No puede ingresar hoy";
-	public Vigilante(String name, String cc) {
-		this.name = name;
-		this.cc = cc;
-	}
 	
-	public String getName() {
-		return this.name;
-	}
+	@Autowired
+	private Registro registro;
+	private static String NO_PUEDE_INGRESAR_HOY = "No puede ingresar hoy";
 	
-	public String getCC() {
-		return this.cc;
-	}
+	
 	/**
 	 * 
 	 * @param parqueadero
 	 * @param map
 	 */
 	public String registrar(Parqueadero parqueadero, Map<String , String> map) {
-        Vehiculo vehiculo;
-        Registro registro;
+        
+		Vehiculo vehiculo;
         Tiempo tiempo = new Tiempo();
         String placa = map.get("placa");
         String cilindraje = map.get("cilindraje");
@@ -34,13 +31,11 @@ public class Vigilante {
 		
         if(cilindraje.equals("")) {
         	vehiculo = new Carro(placa);
-        	registro = new Registro(parqueadero);
-        	return registro.registrar(true, vehiculo);
+        	return registro.registrar(parqueadero, true, vehiculo);
         }else {
         	short value = Short.parseShort(cilindraje);
         	vehiculo = new Moto(placa,value);
-        	registro = new Registro(parqueadero);
-        	return registro.registrar(false, vehiculo);
+        	return registro.registrar(parqueadero, false, vehiculo);
         }
 		
 	}
