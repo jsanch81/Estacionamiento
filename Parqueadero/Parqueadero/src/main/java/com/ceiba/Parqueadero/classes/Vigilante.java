@@ -5,6 +5,7 @@ import java.util.Map;
 public class Vigilante {
 	private String name;
 	private String cc;
+	public static String NO_PUEDE_INGRESAR_HOY = "No puede ingresar hoy";
 	public Vigilante(String name, String cc) {
 		this.name = name;
 		this.cc = cc;
@@ -22,20 +23,24 @@ public class Vigilante {
 	 * @param parqueadero
 	 * @param map
 	 */
-	public void registrar(Parqueadero parqueadero, Map<String , String> map) {
+	public String registrar(Parqueadero parqueadero, Map<String , String> map) {
         Vehiculo vehiculo;
         Registro registro;
-		if(map.get("cilindraje").equals("")) {
-        	System.out.println("Carro");
-        	vehiculo = new Carro(map.get("placa"));
+        Tiempo tiempo = new Tiempo();
+        String placa = map.get("placa");
+        String cilindraje = map.get("cilindraje");
+        
+        if(tiempo.canPark(placa)) return NO_PUEDE_INGRESAR_HOY;
+		
+        if(cilindraje.equals("")) {
+        	vehiculo = new Carro(placa);
         	registro = new Registro(parqueadero);
-        	registro.registrar(true, vehiculo);
+        	return registro.registrar(true, vehiculo);
         }else {
-        	System.out.println("Moto");
-        	short value = Short.parseShort(map.get("cilindraje"));
-        	vehiculo = new Moto(map.get("placa"),value);
+        	short value = Short.parseShort(cilindraje);
+        	vehiculo = new Moto(placa,value);
         	registro = new Registro(parqueadero);
-        	registro.registrar(false, vehiculo);
+        	return registro.registrar(false, vehiculo);
         }
 		
 	}

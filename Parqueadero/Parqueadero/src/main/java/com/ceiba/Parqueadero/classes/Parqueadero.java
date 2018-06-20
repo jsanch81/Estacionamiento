@@ -16,18 +16,34 @@ public class Parqueadero {
 		this.totalMotorbikes = 0;
 	}
 	
+	/**
+	 * 
+	 * @return  return the limit of motorbikes that the parking can receive
+	 */
 	public short getMaxMotorbike() {
 		return this.maxMotorbike;
 	}
 	
+	/**
+	 * 
+	 * @return return the limit of cars that the parking can receive
+	 */
 	public short getMaxCars() {
 		return this.maxCars;
 	}
 	
+	/**
+	 * 
+	 * @return total cars in the parking
+	 */
 	public short getTotalCars() {
 		return this.totalCars;
 	}
 	
+	/**
+	 * 
+	 * @return total Motorbikes in the parking
+	 */
 	public short getTotalMotorbikes() {
 		return this.totalMotorbikes;
 	}
@@ -50,5 +66,21 @@ public class Parqueadero {
 	 */	
 	public void setTotalCars(short totalCars) {
 		this.totalCars = (this.totalCars<this.maxCars) ? totalCars : this.totalCars;
+	}
+	
+	/**
+	 * 
+	 * @return true if there are quota to cars
+	 */
+	public boolean hayCupoCarro() {
+		return this.totalCars<this.maxCars;
+	}
+	
+	/**
+	 * 
+	 * @return true if there are quota to motorbikes
+	 */
+	public boolean hayCupoMoto() {
+		return this.totalMotorbikes<this.maxMotorbike;
 	}
 }
