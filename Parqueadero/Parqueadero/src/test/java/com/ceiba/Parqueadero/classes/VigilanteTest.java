@@ -40,7 +40,6 @@ public class VigilanteTest {
 		Mockito.when(registro.registrar(Mockito.any(Parqueadero.class), Mockito.anyBoolean(), Mockito.any(Vehiculo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
 		String resultado = vigilante.registrar(new Parqueadero(), map);
-		System.out.println(resultado);
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
 	}
@@ -60,7 +59,6 @@ public class VigilanteTest {
 		Mockito.when(registro.registrar(Mockito.any(Parqueadero.class), Mockito.anyBoolean(), Mockito.any(Vehiculo.class))).thenReturn("No puede ingresar hoy");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
 		String resultado = vigilante.registrar(new Parqueadero(), map);
-		System.out.println(resultado);
 		//Assert
 		Assert.assertEquals("No puede ingresar hoy", resultado);
 	}

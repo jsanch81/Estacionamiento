@@ -46,9 +46,7 @@ public class Vigilante {
         	return registro.registrar(parqueadero, true, vehiculo);
         }else {
         	short value = Short.parseShort(cilindraje);
-        	System.out.println(value);
         	vehiculo = new Moto(placa,value);
-        	System.out.println(registro.registrar(parqueadero, false, vehiculo));
         	return registro.registrar(parqueadero, false, vehiculo);
         }
 		
