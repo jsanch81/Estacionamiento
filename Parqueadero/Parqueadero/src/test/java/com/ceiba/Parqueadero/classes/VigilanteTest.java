@@ -1,21 +1,16 @@
 package com.ceiba.Parqueadero.classes;
 
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
-import com.ceiba.testdatabuilder.VehiculoTestDataBuilder;
-
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.junit.Assert;
-import org.junit.Before;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,15 +22,7 @@ public class VigilanteTest {
 	private Registro registro;
 	
 	
-	private Vehiculo vehiculo;
 	
-	
-	
-	@Before
-	public void setup() {
-		
-		vehiculo = new VehiculoTestDataBuilder().withcilindraje((short)125).buildMoto();
-	}
 	
 	@Test
 	public void registroVigilante() {
@@ -57,5 +44,6 @@ public class VigilanteTest {
 		Assert.assertEquals("Registro realizado", resultado);
 	}
 	
+
 	
 }

@@ -18,8 +18,9 @@ public class Vigilante {
 	
 	//para pruebas
 	public void setRegistro(Registro registro) {
-		this.registro = registro; 
+		this.registro = registro;
 	}
+	
 	
 	
 	
@@ -49,6 +50,8 @@ public class Vigilante {
         }
 		
 	}
+	
+	
 	
 	private boolean canPark(String placa) {
 		return (placa.toUpperCase().charAt(0)=='A' && (tiempo.getDayWeek() == 1 ||  tiempo.getDayWeek() == 2));

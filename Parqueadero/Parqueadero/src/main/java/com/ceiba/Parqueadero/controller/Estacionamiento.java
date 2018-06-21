@@ -9,23 +9,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.ceiba.Parqueadero.classes.Vigilante;
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.classes.Parqueadero;
 
 @Controller
 public class Estacionamiento {
 	
-	@Autowired
-	private VehiculoCRUD vehiculoCRUD;
+
 	
 	@Autowired
 	private Vigilante vigilante;
 	
 	
-	
-	private Parqueadero parqueadero = new Parqueadero();
+	private Parqueadero parqueadero;
 
+
+	public Estacionamiento() {
+		parqueadero = new Parqueadero();
+		//System.out.println(vigilante.reportarNumVehiculosParqueados());
+	}	
 	
     
     /**
@@ -37,6 +40,8 @@ public class Estacionamiento {
     public String getDescription(@RequestBody Map<String,String> map){
         return vigilante.registrar(this.parqueadero, map);
     }
+    
+
 
     
 }

@@ -29,6 +29,11 @@ public class Registro {
 	 */
 	public String registrar(Parqueadero parqueadero, boolean tipoVehiculo, Vehiculo vehiculo) {
 		String placa = vehiculo.getPlaca();
+		if(parqueadero.getTotalCars()==0 && parqueadero.getTotalMotorbikes()==0) {
+			parqueadero.setTotalCars(vehiculoCRUD.numCarsInParking()[1]);
+			parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
+		}
+		System.out.println("salida ejemplo: "+vehiculoCRUD.numCarsInParking()[0]);
 		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) return EL_VEHICULO_YA_INGRESO;
 		
 		if(tipoVehiculo) {
@@ -60,6 +65,7 @@ public class Registro {
 			return REGISTRO_REALIZADO;
 		}
 	}
+	
 	
 	public void setVehiculoCRUD(VehiculoCRUD vehiculoCRUD) {
 		this.vehiculoCRUD = vehiculoCRUD;

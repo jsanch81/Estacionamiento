@@ -1,17 +1,15 @@
 package com.ceiba.Parqueadero.crud;
 
 import com.ceiba.Parqueadero.model.VehiculoModel;
+import com.ceiba.Parqueadero.repository.ParqueaderoRepository;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import com.ceiba.Parqueadero.classes.Tiempo;
 
-import com.ceiba.Parqueadero.repository.ParqueaderoRepository;
 
 @Service
 @Configurable
@@ -95,10 +93,10 @@ public class VehiculoCRUD {
 	 * @param estado
 	 * @return
 	 */
-	public int[] numCarsInParking() {
-		
+	public short[] numCarsInParking() {
+		System.out.println("Entre");
 		listVehiculos = parqueaderoRepository.findAll();
-		int vehiculos[] = new int[2];
+		short vehiculos[] = new short[2];
 		for(VehiculoModel dato: listVehiculos) {
 			if(dato.getEstado().equals("true")) {
 				if(dato.getTipo().equals("moto")) {
