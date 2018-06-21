@@ -26,7 +26,7 @@ public class VigilanteTest {
 	
 	
 	@Test
-	public void registroVigilante() {
+	public void registroVigilanteMoto() {
 		// Arrange
 		String placa = "EHG44B";
 		String cilindraje = "125";
@@ -37,15 +37,17 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrar(Mockito.any(Parqueadero.class), Mockito.anyBoolean(), Mockito.any(Vehiculo.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
-		String resultado = vigilante.registrar(new Parqueadero(), map);
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
 	}
 	
 	@Test
-	public void registroVigilante2() {
+	public void fechaIngresoAMoto() {
+		
 		// Arrange
 		String placa = "AHG44B";
 		String cilindraje = "125";
@@ -56,10 +58,139 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrar(Mockito.any(Parqueadero.class), Mockito.anyBoolean(), Mockito.any(Vehiculo.class))).thenReturn("No puede ingresar hoy");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
-		String resultado = vigilante.registrar(new Parqueadero(), map);
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(1);
+		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
 		//Assert
-		Assert.assertEquals("No puede ingresar hoy", resultado);
+		Assert.assertEquals("Registro realizado", resultado);
+	}
+	
+	@Test
+	public void fechaIngresoA2Moto() {
+		
+		// Arrange
+		String placa = "AHG44B";
+		String cilindraje = "125";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(2);		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Registro realizado", resultado);
+	}
+	
+	@Test
+	public void fechaNoIngresoAMoto() {
+		
+		// Arrange
+		String placa = "AHG44B";
+		String cilindraje = "125";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(3);		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("no puede ingresar porque no está en un dia hábil", resultado);
+	}
+	
+	@Test
+	public void registroVigilanteCarro() {
+		
+		// Arrange
+		String placa = "EHG44B";
+		String cilindraje = "";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Registro realizado", resultado);
+	}
+	
+	@Test
+	public void fechaIngresoACarro() {
+		
+		// Arrange
+		String placa = "AHG44B";
+		String cilindraje = "";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(1);
+		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Registro realizado", resultado);
+	}
+	
+	@Test
+	public void fechaIngresoA2Carro() {
+		
+		// Arrange
+		String placa = "AHG44B";
+		String cilindraje = "";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(2);		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Registro realizado", resultado);
+	}
+	
+	@Test
+	public void fechaNoIngresoACarro() {
+		
+		// Arrange
+		String placa = "AHG44B";
+		String cilindraje = "";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(3);		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("no puede ingresar porque no está en un dia hábil", resultado);
 	}
 }

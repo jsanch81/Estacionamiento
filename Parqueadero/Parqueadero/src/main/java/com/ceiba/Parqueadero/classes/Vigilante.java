@@ -12,7 +12,7 @@ public class Vigilante {
 	
 	@Autowired
 	private Registro registro;
-	private static String NO_PUEDE_INGRESAR_HOY = "No puede ingresar hoy";
+	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
 	
 	private Tiempo tiempo; 
 	
@@ -32,22 +32,18 @@ public class Vigilante {
 	 * @param parqueadero
 	 * @param map
 	 */
-	public String registrar(Parqueadero parqueadero, Map<String , String> map) {
+	public String registrar(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
         
-		Vehiculo vehiculo;
-        tiempo = new Tiempo();
         String placa = map.get("placa");
         String cilindraje = map.get("cilindraje");
         
-        if(canPark(placa)) return NO_PUEDE_INGRESAR_HOY;
+        if(canPark(placa)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
 		
         if(cilindraje.equals("")) {
-        	vehiculo = new Carro(placa);
-        	return registro.registrar(parqueadero, true, vehiculo);
+        	return registro.registrarCarro(parqueadero, new Carro(placa));
         }else {
         	short value = Short.parseShort(cilindraje);
-        	vehiculo = new Moto(placa,value);
-        	return registro.registrar(parqueadero, false, vehiculo);
+        	return registro.registrarMoto(parqueadero, new Moto(placa,value));
         }
 		
 	}
@@ -55,6 +51,6 @@ public class Vigilante {
 	
 	
 	private boolean canPark(String placa) {
-		return (placa.toUpperCase().charAt(0)=='A' && (tiempo.getDayWeek() == 1 ||  tiempo.getDayWeek() == 2));
+		return (placa.toUpperCase().charAt(0)=='A' && tiempo.getDayWeek() != 1 &&  tiempo.getDayWeek() != 2);
 	}
 }

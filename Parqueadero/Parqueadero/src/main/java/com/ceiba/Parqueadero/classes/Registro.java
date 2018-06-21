@@ -27,17 +27,12 @@ public class Registro {
 	 * @param vehiculo
 	 * @return
 	 */
-	public String registrar(Parqueadero parqueadero, boolean tipoVehiculo, Vehiculo vehiculo) {
-		String placa = vehiculo.getPlaca();
-		if(parqueadero.getTotalCars()==0 && parqueadero.getTotalMotorbikes()==0) {
-			parqueadero.setTotalCars(vehiculoCRUD.numCarsInParking()[1]);
-			parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
-		}
-		System.out.println("salida ejemplo: "+vehiculoCRUD.numCarsInParking()[0]);
+	public String registrarCarro(Parqueadero parqueadero, Carro carro) {
+		String placa = carro.getPlaca();
+		if(parqueadero.getTotalCars()==0 ) parqueadero.setTotalCars(vehiculoCRUD.numCarsInParking()[1]);
+
 		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) return EL_VEHICULO_YA_INGRESO;
 		
-		if(tipoVehiculo) {
-			
 			if(!parqueadero.hayCupoCarro()) return NO_HAY_CUPO;
 			short cilindrajeCarro = 0;
 			
@@ -50,21 +45,32 @@ public class Registro {
 
 			return REGISTRO_REALIZADO;
 			
-		} else {
-			if(!parqueadero.hayCupoMoto()) return NO_HAY_CUPO;
-			
-			Moto moto = (Moto)vehiculo;
-			
-			if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-				if(!vehiculoCRUD.updateVehiculo(placa)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
-			}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje())) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
-			
-			parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
-			System.out.println("Total Motos en el parqueadero: "+parqueadero.getTotalMotorbikes());
-			
-			return REGISTRO_REALIZADO;
-		}
+	
 	}
+	
+	
+	public String registrarMoto(Parqueadero parqueadero, Moto moto) {
+		String placa = moto.getPlaca();
+		
+		if(parqueadero.getTotalMotorbikes()==0) parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
+
+		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) return EL_VEHICULO_YA_INGRESO;
+		
+		
+		if(!parqueadero.hayCupoMoto()) return NO_HAY_CUPO;
+		
+	
+		
+		if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
+			if(!vehiculoCRUD.updateVehiculo(placa)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje())) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		
+		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
+		System.out.println("Total Motos en el parqueadero: "+parqueadero.getTotalMotorbikes());
+		
+		return REGISTRO_REALIZADO;
+	}
+	
 	
 	
 	public void setVehiculoCRUD(VehiculoCRUD vehiculoCRUD) {

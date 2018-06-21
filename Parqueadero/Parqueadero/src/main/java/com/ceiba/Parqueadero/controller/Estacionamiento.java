@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ceiba.Parqueadero.classes.Vigilante;
 import com.ceiba.Parqueadero.classes.Parqueadero;
+import com.ceiba.Parqueadero.classes.Tiempo;
 
 @Controller
 public class Estacionamiento {
@@ -23,7 +24,8 @@ public class Estacionamiento {
 	
 	
 	private Parqueadero parqueadero;
-
+	
+	
 
 	public Estacionamiento() {
 		parqueadero = new Parqueadero();
@@ -38,7 +40,7 @@ public class Estacionamiento {
      */
     @ResponseBody @RequestMapping(value = "/description", method = RequestMethod.POST)
     public String getDescription(@RequestBody Map<String,String> map){
-        return vigilante.registrar(this.parqueadero, map);
+        return vigilante.registrar(this.parqueadero, map,new Tiempo());
     }
     
 
