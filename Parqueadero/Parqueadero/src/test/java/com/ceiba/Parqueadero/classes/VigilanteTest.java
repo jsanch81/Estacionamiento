@@ -20,7 +20,8 @@ public class VigilanteTest {
 	private Vigilante vigilante;
 	@Mock
 	private Registro registro;
-	
+	@Mock
+	private Tiempo tiempo;
 	
 	
 	
@@ -33,17 +34,34 @@ public class VigilanteTest {
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
 		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrar(Mockito.any(Parqueadero.class), Mockito.anyBoolean(), Mockito.any(Vehiculo.class))).thenReturn("Registro realizado");
-				
+		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
 		String resultado = vigilante.registrar(new Parqueadero(), map);
 		System.out.println(resultado);
 		//Assert
-		
 		Assert.assertEquals("Registro realizado", resultado);
 	}
 	
-
-	
+	@Test
+	public void registroVigilante2() {
+		// Arrange
+		String placa = "AHG44B";
+		String cilindraje = "125";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		vigilante.setRegistro(registro);
+		vigilante.setTiempo(tiempo);
+		
+		//Act
+		Mockito.when(registro.registrar(Mockito.any(Parqueadero.class), Mockito.anyBoolean(), Mockito.any(Vehiculo.class))).thenReturn("No puede ingresar hoy");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
+		String resultado = vigilante.registrar(new Parqueadero(), map);
+		System.out.println(resultado);
+		//Assert
+		Assert.assertEquals("No puede ingresar hoy", resultado);
+	}
 }

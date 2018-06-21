@@ -21,6 +21,9 @@ public class Vigilante {
 		this.registro = registro;
 	}
 	
+	public void setTiempo(Tiempo tiempo) {
+		this.tiempo = tiempo;
+	}
 	
 	
 	
