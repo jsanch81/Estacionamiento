@@ -23,7 +23,5 @@ public class Tiempo {
 		return date.getTimeInMillis();
 	}
 	
-	public boolean canPark(String placa) {
-		return (placa.toUpperCase().charAt(0)=='A' && (getDayWeek() == 1 ||  getDayWeek() == 2));
-	}
+	
 }

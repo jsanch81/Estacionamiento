@@ -14,10 +14,14 @@ public class Vigilante {
 	private Registro registro;
 	private static String NO_PUEDE_INGRESAR_HOY = "No puede ingresar hoy";
 	
+	private Tiempo tiempo; 
+	
 	//para pruebas
 	public void setRegistro(Registro registro) {
 		this.registro = registro; 
 	}
+	
+	
 	
 	/**
 	 * 
@@ -27,11 +31,11 @@ public class Vigilante {
 	public String registrar(Parqueadero parqueadero, Map<String , String> map) {
         
 		Vehiculo vehiculo;
-        Tiempo tiempo = new Tiempo();
+        tiempo = new Tiempo();
         String placa = map.get("placa");
         String cilindraje = map.get("cilindraje");
         
-        if(tiempo.canPark(placa)) return NO_PUEDE_INGRESAR_HOY;
+        if(canPark(placa)) return NO_PUEDE_INGRESAR_HOY;
 		
         if(cilindraje.equals("")) {
         	vehiculo = new Carro(placa);
@@ -44,5 +48,9 @@ public class Vigilante {
         	return registro.registrar(parqueadero, false, vehiculo);
         }
 		
+	}
+	
+	private boolean canPark(String placa) {
+		return (placa.toUpperCase().charAt(0)=='A' && (tiempo.getDayWeek() == 1 ||  tiempo.getDayWeek() == 2));
 	}
 }

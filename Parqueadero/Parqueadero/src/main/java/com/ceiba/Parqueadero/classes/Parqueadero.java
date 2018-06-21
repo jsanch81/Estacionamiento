@@ -16,6 +16,13 @@ public class Parqueadero {
 		this.totalMotorbikes = 0;
 	}
 	
+	public Parqueadero(short totalCars, short totalMotorbikes) {
+		this.maxCars = 20;
+		this.maxMotorbike = 10;
+		this.totalCars = totalCars;
+		this.totalMotorbikes = totalMotorbikes;
+	}
+	
 	/**
 	 * 
 	 * @return  return the limit of motorbikes that the parking can receive
@@ -51,7 +58,7 @@ public class Parqueadero {
 	/**
 	 * 
 	 * @param totalMotorbikes: length of motorbikes in the parking.
-	 * this method validate that the total of motorbikes don´t overcome the max 
+	 * this method validate that the total of motorbikes do not overcome the max 
 	 * of motorbikes in the parking
 	 */
 	public void setTotalMotorbikes(short totalMotorbikes) {
@@ -61,7 +68,7 @@ public class Parqueadero {
 	/**
 	 * 
 	 * @param totalCars: length of cars in the parking.
- 	 * this method validate that the total of cars don´t overcome the max 
+ 	 * this method validate that the total of cars do not overcome the max 
 	 * of cars in the parking
 	 */	
 	public void setTotalCars(short totalCars) {

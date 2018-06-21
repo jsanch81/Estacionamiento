@@ -2,6 +2,9 @@ package com.ceiba.Parqueadero.crud;
 
 import com.ceiba.Parqueadero.model.VehiculoModel;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
@@ -19,9 +22,15 @@ public class VehiculoCRUD {
 	
 	private VehiculoModel vehiculoModel;
 	private Tiempo tiempo = new Tiempo();
-
-
 	
+	private List<VehiculoModel> listVehiculos;
+	/**
+	 * 
+	 * @param placa
+	 * @param tipo
+	 * @param cilindraje
+	 * @return true if save correctly in the data base
+	 */
 	public boolean save(String placa, String tipo, short cilindraje) {
 		vehiculoModel = new VehiculoModel(placa, tipo, cilindraje);
 		vehiculoModel.setFechaIngreso(tiempo.getDate());
@@ -34,5 +43,71 @@ public class VehiculoCRUD {
 			System.err.println(e);
 			return false;
 		}
+	}
+	
+	/**
+	 * 
+	 * @param placa
+	 * @return true if the car or motorbike exist in the data base
+	 */
+	public boolean findIntoParking(String placa) {
+		return parqueaderoRepository.existsById(placa);
+	}
+	
+	/**
+	 * 
+	 * @param placa
+	 * @return validate the state of the car or motorbike, if it is in or out of the parking
+	 */
+	public boolean validateVehiculo(String placa) {
+		vehiculoModel = parqueaderoRepository.getOne(placa);
+		return vehiculoModel.getEstado().equals("true");
+	}
+	
+	/**
+	 * 
+	 * @param placa
+	 * @return the car o motorbike
+	 */
+	public VehiculoModel findVehiculo(String placa) {
+		return parqueaderoRepository.getOne(placa);
+ 
+	}
+	
+	/**
+	 * 
+	 * @param placa
+	 * @return true if the update was success
+	 */
+	public boolean updateVehiculo(String placa) {
+		vehiculoModel = parqueaderoRepository.getOne(placa);
+		vehiculoModel.setEstado("true");
+		try {
+			parqueaderoRepository.save(vehiculoModel);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param estado
+	 * @return
+	 */
+	public int[] numCarsInParking() {
+		
+		listVehiculos = parqueaderoRepository.findAll();
+		int vehiculos[] = new int[2];
+		for(VehiculoModel dato: listVehiculos) {
+			if(dato.getEstado().equals("true")) {
+				if(dato.getTipo().equals("moto")) {
+					vehiculos[0]++;
+				}else{
+					vehiculos[1]++;
+				}
+			}
+		}
+		return vehiculos;
 	}
 }
