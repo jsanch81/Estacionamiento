@@ -27,7 +27,7 @@ public class Registro {
 	 * @param vehiculo
 	 * @return
 	 */
-	public String registrarCarro(Parqueadero parqueadero, Carro carro) {
+	public String registrarCarro(Parqueadero parqueadero, Carro carro, Tiempo tiempo) {
 		String placa = carro.getPlaca();
 		if(parqueadero.getTotalCars()==0 ) parqueadero.setTotalCars(vehiculoCRUD.numCarsInParking()[1]);
 
@@ -37,8 +37,8 @@ public class Registro {
 			short cilindrajeCarro = 0;
 			
 			if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-				if(!vehiculoCRUD.updateVehiculo(placa)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
-			}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+				if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+			}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 
 			parqueadero.setTotalCars((short)(parqueadero.getTotalCars()+1));
 			System.out.println("Total Carros en el parqueadero: "+parqueadero.getTotalCars());
@@ -49,7 +49,7 @@ public class Registro {
 	}
 	
 	
-	public String registrarMoto(Parqueadero parqueadero, Moto moto) {
+	public String registrarMoto(Parqueadero parqueadero, Moto moto, Tiempo tiempo) {
 		String placa = moto.getPlaca();
 		
 		if(parqueadero.getTotalMotorbikes()==0) parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
@@ -62,8 +62,8 @@ public class Registro {
 	
 		
 		if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-			if(!vehiculoCRUD.updateVehiculo(placa)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
-		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje())) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+			if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje(), tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 		
 		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
 		System.out.println("Total Motos en el parqueadero: "+parqueadero.getTotalMotorbikes());

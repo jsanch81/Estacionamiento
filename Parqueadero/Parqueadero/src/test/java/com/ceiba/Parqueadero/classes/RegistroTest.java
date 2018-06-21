@@ -30,6 +30,9 @@ public class RegistroTest {
 	@Mock
 	private Moto moto;
 	
+	@Mock
+	private Tiempo tiempo;
+	
 	@Test
 	public void registrarTest() {
 		
@@ -48,9 +51,9 @@ public class RegistroTest {
 		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);
 		Mockito.when(vehiculoCRUD.findIntoParking(placa)).thenReturn(false);
 		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(false);
-		Mockito.when(vehiculoCRUD.updateVehiculo(placa)).thenReturn(false);
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort())).thenReturn(true);
-		String resultado = registro.registrarCarro(parqueadero, carro);
+		Mockito.when(vehiculoCRUD.updateVehiculo(placa, Mockito.any(Tiempo.class))).thenReturn(false);
+		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(), Mockito.any(Tiempo.class))).thenReturn(true);
+		String resultado = registro.registrarCarro(parqueadero, carro, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);

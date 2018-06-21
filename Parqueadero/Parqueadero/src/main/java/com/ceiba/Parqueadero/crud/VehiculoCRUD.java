@@ -19,7 +19,6 @@ public class VehiculoCRUD {
 	private ParqueaderoRepository parqueaderoRepository;
 	
 	private VehiculoModel vehiculoModel;
-	private Tiempo tiempo = new Tiempo();
 	
 	private List<VehiculoModel> listVehiculos;
 	/**
@@ -29,7 +28,7 @@ public class VehiculoCRUD {
 	 * @param cilindraje
 	 * @return true if save correctly in the data base
 	 */
-	public boolean save(String placa, String tipo, short cilindraje) {
+	public boolean save(String placa, String tipo, short cilindraje,Tiempo tiempo) {
 		vehiculoModel = new VehiculoModel(placa, tipo, cilindraje);
 		vehiculoModel.setFechaIngreso(tiempo.getDate());
 		vehiculoModel.setEstado("true");
@@ -41,6 +40,7 @@ public class VehiculoCRUD {
 			System.err.println(e);
 			return false;
 		}
+		
 	}
 	
 	/**
@@ -69,7 +69,6 @@ public class VehiculoCRUD {
 	 */
 	public VehiculoModel findVehiculo(String placa) {
 		return parqueaderoRepository.getOne(placa);
- 
 	}
 	
 	/**
@@ -77,9 +76,10 @@ public class VehiculoCRUD {
 	 * @param placa
 	 * @return true if the update was success
 	 */
-	public boolean updateVehiculo(String placa) {
+	public boolean updateVehiculo(String placa, Tiempo tiempo) {
 		vehiculoModel = parqueaderoRepository.getOne(placa);
 		vehiculoModel.setEstado("true");
+		vehiculoModel.setFechaIngreso(tiempo.getDate());
 		try {
 			parqueaderoRepository.save(vehiculoModel);
 			return true;

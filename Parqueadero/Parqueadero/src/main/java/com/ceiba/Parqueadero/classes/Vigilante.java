@@ -12,9 +12,10 @@ public class Vigilante {
 	
 	@Autowired
 	private Registro registro;
+	
 	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
 	
-	private Tiempo tiempo; 
+	private Tiempo tiempo = new Tiempo(); 
 	
 	//para pruebas
 	public void setRegistro(Registro registro) {
@@ -40,10 +41,10 @@ public class Vigilante {
         if(canPark(placa)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
 		
         if(cilindraje.equals("")) {
-        	return registro.registrarCarro(parqueadero, new Carro(placa));
+        	return registro.registrarCarro(parqueadero, new Carro(placa), tiempo);
         }else {
         	short value = Short.parseShort(cilindraje);
-        	return registro.registrarMoto(parqueadero, new Moto(placa,value));
+        	return registro.registrarMoto(parqueadero, new Moto(placa,value), tiempo);
         }
 		
 	}

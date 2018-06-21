@@ -37,7 +37,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
@@ -58,7 +58,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(1);
 		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
@@ -80,7 +80,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(2);		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
@@ -101,7 +101,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(3);		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
@@ -122,7 +122,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
@@ -143,7 +143,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(1);
 		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
@@ -165,7 +165,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(2);		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
@@ -186,7 +186,7 @@ public class VigilanteTest {
 		vigilante.setTiempo(tiempo);
 		
 		//Act
-		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class))).thenReturn("Registro realizado");
+		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		Mockito.when(tiempo.getDayWeek()).thenReturn(3);		
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		

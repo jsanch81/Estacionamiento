@@ -25,7 +25,6 @@ public class Estacionamiento {
 	
 	private Parqueadero parqueadero;
 	
-	
 
 	public Estacionamiento() {
 		parqueadero = new Parqueadero();
@@ -40,7 +39,8 @@ public class Estacionamiento {
      */
     @ResponseBody @RequestMapping(value = "/description", method = RequestMethod.POST)
     public String getDescription(@RequestBody Map<String,String> map){
-        return vigilante.registrar(this.parqueadero, map,new Tiempo());
+    	Tiempo tiempo = new Tiempo();
+        return vigilante.registrar(this.parqueadero, map,tiempo);
     }
     
 
