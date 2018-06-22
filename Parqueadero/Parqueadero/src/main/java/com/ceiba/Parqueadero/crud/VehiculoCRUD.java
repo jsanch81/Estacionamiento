@@ -40,7 +40,6 @@ public class VehiculoCRUD {
 			System.err.println(e);
 			return false;
 		}
-		
 	}
 	
 	/**
@@ -49,7 +48,11 @@ public class VehiculoCRUD {
 	 * @return true if the car or motorbike exist in the data base
 	 */
 	public boolean findIntoParking(String placa) {
-		return parqueaderoRepository.existsById(placa);
+		try{
+			return parqueaderoRepository.existsById(placa);
+		}catch(Exception e) {
+			return false;
+		}
 	}
 	
 	/**
@@ -58,8 +61,13 @@ public class VehiculoCRUD {
 	 * @return validate the state of the car or motorbike, if it is in or out of the parking
 	 */
 	public boolean validateVehiculo(String placa) {
-		vehiculoModel = parqueaderoRepository.getOne(placa);
-		return vehiculoModel.getEstado().equals("true");
+		try {
+			vehiculoModel = parqueaderoRepository.getOne(placa);
+			return vehiculoModel.getEstado().equals("true");
+		}catch(Exception e) {
+			return false;
+		}
+
 	}
 	
 	/**
@@ -68,7 +76,11 @@ public class VehiculoCRUD {
 	 * @return the car o motorbike
 	 */
 	public VehiculoModel findVehiculo(String placa) {
-		return parqueaderoRepository.getOne(placa);
+		try {
+			return parqueaderoRepository.getOne(placa);
+		}catch(Exception e) {
+			return null;
+		}
 	}
 	
 	/**
@@ -77,10 +89,11 @@ public class VehiculoCRUD {
 	 * @return true if the update was success
 	 */
 	public boolean updateVehiculo(String placa, Tiempo tiempo) {
-		vehiculoModel = parqueaderoRepository.getOne(placa);
-		vehiculoModel.setEstado("true");
-		vehiculoModel.setFechaIngreso(tiempo.getDate());
 		try {
+			vehiculoModel = parqueaderoRepository.getOne(placa);
+			vehiculoModel.setEstado("true");
+			vehiculoModel.setFechaIngreso(tiempo.getDate());
+			vehiculoModel.setIngresoTimestamp(tiempo.getTimestamp());
 			parqueaderoRepository.save(vehiculoModel);
 			return true;
 		}catch(Exception e) {
@@ -107,5 +120,14 @@ public class VehiculoCRUD {
 			}
 		}
 		return vehiculos;
+	}
+	
+	//paraTests
+	public void setParqueaderoRepository(ParqueaderoRepository parqueaderoRepository) {
+		this.parqueaderoRepository = parqueaderoRepository;
+	}
+	
+	public void setVehiculoModel(VehiculoModel vehiculoModel) {
+		this.vehiculoModel = vehiculoModel;
 	}
 }
