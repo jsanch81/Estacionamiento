@@ -22,13 +22,15 @@ public class Estacionamiento {
 	@Autowired
 	private Vigilante vigilante;
 	
+	private Tiempo tiempo;
 	
 	private Parqueadero parqueadero;
 	
-
+	private static final String EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO = "El vehiculo no esta en el parqueadero"; 
+	private static final String ERROR_AL_GENERAR_LA_SALIDA_EN_LA_BASE_DE_DATOS = "Error al generar la salida de la base de datos";
+	
 	public Estacionamiento() {
 		parqueadero = new Parqueadero();
-		//System.out.println(vigilante.reportarNumVehiculosParqueados());
 	}	
 	
     
@@ -37,13 +39,23 @@ public class Estacionamiento {
      * @param map Objects of body that receive from a post
      * @return status
      */
-    @ResponseBody @RequestMapping(value = "/description", method = RequestMethod.POST)
-    public String getDescription(@RequestBody Map<String,String> map){
-    	Tiempo tiempo = new Tiempo();
+    @ResponseBody @RequestMapping(value = "/entrada", method = RequestMethod.POST)
+    public String entrada(@RequestBody Map<String,String> map){
+    	tiempo = new Tiempo();
         return vigilante.registrar(this.parqueadero, map,tiempo);
     }
     
-
-
+    @ResponseBody @RequestMapping(value = "/salida", method = RequestMethod.POST)
+    public String salida(@RequestBody Map<String,String> map) {
+    	tiempo = new Tiempo();
+    	int resultado = vigilante.cobrar(parqueadero, map, tiempo);
+    	if(resultado == -1) {
+    		return EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO;
+    	}else if(resultado == -2) {
+    		return ERROR_AL_GENERAR_LA_SALIDA_EN_LA_BASE_DE_DATOS;
+    	}else {
+    		return Integer.toString(resultado);
+    	}
+    }
     
 }

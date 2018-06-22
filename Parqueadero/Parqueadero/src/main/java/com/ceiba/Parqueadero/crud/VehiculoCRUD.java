@@ -101,6 +101,20 @@ public class VehiculoCRUD {
 		}
 	}
 	
+	
+	public boolean updateSalidaVehiculo(String placa) {
+		
+		try {
+			vehiculoModel = parqueaderoRepository.getOne(placa);
+			vehiculoModel.setEstado("false");
+			parqueaderoRepository.save(vehiculoModel);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+
+
+	}
 	/**
 	 * 
 	 * @param estado

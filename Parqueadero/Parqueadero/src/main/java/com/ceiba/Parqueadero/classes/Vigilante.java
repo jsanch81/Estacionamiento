@@ -13,6 +13,9 @@ public class Vigilante {
 	@Autowired
 	private Registro registro;
 	
+	@Autowired
+	private Cobrar cobrar;
+	
 	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
 	
 	private Tiempo tiempo = new Tiempo(); 
@@ -47,6 +50,11 @@ public class Vigilante {
         	return registro.registrarMoto(parqueadero, new Moto(placa,value), tiempo);
         }
 		
+	}
+	
+	public int cobrar(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
+		String placa = map.get("placa");
+		return cobrar.genCobro(placa, tiempo, parqueadero);
 	}
 	
 	

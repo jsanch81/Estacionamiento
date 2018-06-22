@@ -23,5 +23,14 @@ public class Tiempo {
 		return date.getTimeInMillis();
 	}
 	
+	public int[] calculateDaysHoursMils(long ingreso, long salida) {
+		int[] dayHoursMils = new int[3];
+		long diferencia = salida-ingreso;
+		dayHoursMils[0] = (int)(diferencia/86400000);
+		dayHoursMils[1]= (int) ((diferencia%86400000)/3600000);
+		dayHoursMils[2]= (int) ((diferencia%86400000)%3600000);
+		System.out.println("Dias: "+dayHoursMils[0]+" horas: "+dayHoursMils[1]+" mils: "+dayHoursMils[2]);
+		return dayHoursMils;
+	}
 	
 }
