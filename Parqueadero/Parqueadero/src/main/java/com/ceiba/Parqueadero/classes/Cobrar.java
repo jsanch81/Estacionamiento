@@ -28,26 +28,20 @@ public class Cobrar {
 		int total;
 		if(tipo.equals("carro")) {
 			total = dayHoursMils[0]*8000;
-			if(dayHoursMils[1]<9) {
-				total += dayHoursMils[1]*1000;
-			}else {
-				total += 8000;
-			}
-			
-			if(dayHoursMils[2]>0) total += 1000;
+			total += (dayHoursMils[1]<9)?dayHoursMils[1]*1000:8000;
+			total += (dayHoursMils[2]>0)?1000:0;
 		}else {
 			total = dayHoursMils[0]*4000;
-			if(dayHoursMils[1]<9) {
-				total += dayHoursMils[1]*500;
-			}else {
-				total += 4000;
-			}
-			
-			if(dayHoursMils[2]>0) total += 500;
-			if(cilindraje>500) total += 2000;
+			total += (dayHoursMils[1]<9)?dayHoursMils[1]*500:4000;
+			total += (dayHoursMils[2]>0)?500:0;
+			total += (cilindraje>500)?2000:0;
 		}
 		
 		return total;
+	}
+	
+	public void setSalida(Salida salida) {
+		this.salida = salida;
 	}
 
 }

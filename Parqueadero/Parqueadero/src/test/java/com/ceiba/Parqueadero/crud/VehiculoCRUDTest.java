@@ -273,5 +273,55 @@ public class VehiculoCRUDTest {
 		Assert.assertFalse(resultado);
 	}
 	
+	@Test
+	public void updateSalidaVehiculoTest() {
+		
+		//Arrange
+		String placa = "EHG44B";
+		vehiculoCRUD.setVehiculoModel(vehiculoModel);
+		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
+
+		//Act
+		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
+		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
+		
+		//Assert
+		Assert.assertTrue(resultado);
+	}
+	
+	@Test
+	public void updateSalidaVehiculoTestErrorNull() {
+		
+		//Arrange
+		String placa = "EHG44B";
+		vehiculoCRUD.setVehiculoModel(vehiculoModel);
+		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
+
+		//Act
+		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenThrow(NullPointerException.class);
+		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
+		
+		//Assert
+		Assert.assertFalse(resultado);
+	}
+	
+	@Test
+	public void updateSalidaVehiculoTestErrorEntity() {
+		
+		//Arrange
+		String placa = "EHG44B";
+		vehiculoCRUD.setVehiculoModel(vehiculoModel);
+		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
+
+		//Act
+		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
+		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
+		
+		//Assert
+		Assert.assertFalse(resultado);
+	}
 	
 }

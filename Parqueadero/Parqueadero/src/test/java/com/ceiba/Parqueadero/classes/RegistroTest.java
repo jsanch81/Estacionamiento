@@ -41,7 +41,7 @@ public class RegistroTest {
 	public void registrarTest() {
 		
 		//Arrage
-		String placa = "EHG441";
+		String placa = "EHG44A";
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
