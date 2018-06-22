@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2018-06-22T14:34:46" hostname="JOSE-SANCHEZ" time="0.041">
+  <properties/>
+  <testcase name="validateVehiculoError" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.005"/>
+  <testcase name="findVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="validateNotVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="testSave" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="findNotIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.003"/>
+  <testcase name="NotFindVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="updateVehiculoTestErrorNull" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.003"/>
+  <testcase name="updateVehiculoTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="validateVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="updateVehiculoTestErrorGetOne" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="testNotSave" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="findIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="findIntoParkingTestError" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <system-out><![CDATA[2018-06-22 09:34:46.372  INFO 9572 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.ceiba.Parqueadero.crud.VehiculoCRUDTest], using SpringBootContextLoader
+2018-06-22 09:34:46.373  INFO 9572 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.ceiba.Parqueadero.crud.VehiculoCRUDTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-06-22 09:34:46.373  INFO 9572 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.ceiba.Parqueadero.crud.VehiculoCRUDTest]: VehiculoCRUDTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2018-06-22 09:34:46.381  INFO 9572 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.ceiba.Parqueadero.ParqueaderoApplication for test class com.ceiba.Parqueadero.crud.VehiculoCRUDTest
+2018-06-22 09:34:46.383  INFO 9572 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-06-22 09:34:46.384  INFO 9572 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6ce87fc9, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4813b73d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@27db179, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3ad44563, org.springframework.test.context.support.DirtiesContextTestExecutionListener@156d73c7, org.springframework.test.context.transaction.TransactionalTestExecutionListener@40128408, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2f8b130a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@376ca4c5, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@49e10aa4, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1d87e554, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6a63a6ad, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@38fb6da8]
+null
+]]></system-out>
+  <system-err><![CDATA[java.lang.NullPointerException
+]]></system-err>
+</testsuite>

@@ -107,7 +107,6 @@ public class VehiculoCRUD {
 	 * @return
 	 */
 	public short[] numCarsInParking() {
-		System.out.println("Entre");
 		listVehiculos = parqueaderoRepository.findAll();
 		short vehiculos[] = new short[2];
 		for(VehiculoModel dato: listVehiculos) {

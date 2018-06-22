@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.junit.Assert;
 
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
+import com.ceiba.Parqueadero.model.VehiculoModel;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,6 +30,9 @@ public class RegistroTest {
 	
 	@Mock
 	private Moto moto;
+	
+	@Mock
+	private VehiculoModel vehiculoModel;
 	
 	
 	private Tiempo tiempo = new Tiempo();
@@ -129,6 +133,8 @@ public class RegistroTest {
 		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);
 		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
 		Mockito.when(vehiculoCRUD.validateVehiculo(Mockito.anyString())).thenReturn(false);
+		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
 		Mockito.when(vehiculoCRUD.updateVehiculo(Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(false);
 		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(), Mockito.any(Tiempo.class))).thenReturn(true);
 		String resultado = registro.registrarCarro(parqueadero, carro, tiempo);
@@ -261,6 +267,8 @@ public class RegistroTest {
 		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);
 		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
 		Mockito.when(vehiculoCRUD.validateVehiculo(Mockito.anyString())).thenReturn(false);
+		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoCRUD.updateVehiculo(Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(false);
 		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(), Mockito.any(Tiempo.class))).thenReturn(true);
 		String resultado = registro.registrarMoto(parqueadero, moto, tiempo);
