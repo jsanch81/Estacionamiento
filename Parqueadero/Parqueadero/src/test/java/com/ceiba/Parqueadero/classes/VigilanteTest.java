@@ -4,26 +4,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.MockitoAnnotations;
 import org.junit.Assert;
+import org.junit.Before;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class VigilanteTest {
 
-	@Autowired
+	@InjectMocks
 	private Vigilante vigilante;
+	
 	@Mock
 	private Registro registro;
+	
 	@Mock
 	private Tiempo tiempo;
 	
-	
+	@Before
+	public void initMocks() {
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void registroVigilanteMoto() {

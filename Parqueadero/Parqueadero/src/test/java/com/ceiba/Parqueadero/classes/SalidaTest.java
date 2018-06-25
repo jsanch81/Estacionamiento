@@ -1,12 +1,11 @@
 package com.ceiba.Parqueadero.classes;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.MockitoAnnotations;
+
 
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
@@ -14,13 +13,13 @@ import com.ceiba.Parqueadero.model.VehiculoModel;
 import java.util.Calendar;
 
 import org.junit.Assert;
+import org.junit.Before;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class SalidaTest {
-
-	@Autowired
+	
+	@InjectMocks
 	private Salida salida;
 	
 	@Mock
@@ -32,6 +31,10 @@ public class SalidaTest {
 	@Mock
 	private Parqueadero parqueadero;
 	
+	@Before
+	public void initMocks() {
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void genSalidaCarroTest() {

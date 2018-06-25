@@ -3,12 +3,9 @@ package com.ceiba.Parqueadero.classes;
 import java.util.Calendar;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
+
 public class TiempoTest {
 
 	private Tiempo tiempo = new Tiempo();

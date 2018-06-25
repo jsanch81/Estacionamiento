@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.Parqueadero.classes.SalidaTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-06-25T20:06:17" hostname="JOSE-SANCHEZ" time="0.007">
+  <properties/>
+  <testcase name="genSalidaCarroTest" classname="com.ceiba.Parqueadero.classes.SalidaTest" time="0.002"/>
+  <testcase name="genSalidaMotoTest" classname="com.ceiba.Parqueadero.classes.SalidaTest" time="0.001"/>
+  <testcase name="genSalidaNotCarroTest" classname="com.ceiba.Parqueadero.classes.SalidaTest" time="0.002"/>
+  <testcase name="genSalidaNotUpdateCarroTest2" classname="com.ceiba.Parqueadero.classes.SalidaTest" time="0.001"/>
+  <testcase name="genSalidaNotCarroTest2" classname="com.ceiba.Parqueadero.classes.SalidaTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

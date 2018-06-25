@@ -1,22 +1,19 @@
 package com.ceiba.Parqueadero.classes;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.MockitoAnnotations;
 import org.junit.Assert;
+import org.junit.Before;
 
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
 public class RegistroTest {
 	
-	@Autowired
+	@InjectMocks
 	private Registro registro;
 	
 	@Mock
@@ -34,6 +31,11 @@ public class RegistroTest {
 	@Mock
 	private VehiculoModel vehiculoModel;
 	
+
+	@Before
+	public void initMocks() {
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	private Tiempo tiempo = new Tiempo();
 	

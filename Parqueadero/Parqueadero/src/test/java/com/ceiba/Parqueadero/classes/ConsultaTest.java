@@ -5,23 +5,22 @@ package com.ceiba.Parqueadero.classes;
 import java.util.Date;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.MockitoAnnotations;
+
 
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
 
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class ConsultaTest {
 
-	@Autowired
+	@InjectMocks
 	private Consulta consulta;
 	
 	@Mock
@@ -32,6 +31,12 @@ public class ConsultaTest {
 	
 	@Mock
 	private Tiempo tiempo;
+	
+
+	@Before
+	public void initMocks() {
+		MockitoAnnotations.initMocks(this);
+	}
 	
 	@Test
 	public void genConsultaTestError() {
