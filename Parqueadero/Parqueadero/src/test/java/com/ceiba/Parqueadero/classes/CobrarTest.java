@@ -96,7 +96,6 @@ public class CobrarTest {
 
 		// Arrage
 		String placa = "EHG44B";
-		cobrar.setSalida(salida);
 		int[] dayHoursMils = new int[3];
 		dayHoursMils[0] = 0;
 		dayHoursMils[1] = 10;
