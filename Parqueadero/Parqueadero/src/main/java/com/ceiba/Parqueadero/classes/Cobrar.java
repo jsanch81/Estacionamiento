@@ -17,6 +17,11 @@ public class Cobrar {
 	 * @param tiempo
 	 * @return
 	 */
+	
+	public Cobrar(Salida salida) {
+		this.salida = salida;
+	}
+	
 	public int genCobro(String placa, Tiempo tiempo, Parqueadero parqueadero) {
 		long ingreso = salida.genSalida(placa, parqueadero);
 		if(ingreso==-1) return -1;

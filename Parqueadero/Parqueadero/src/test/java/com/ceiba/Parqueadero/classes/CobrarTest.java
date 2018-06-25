@@ -16,14 +16,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class CobrarTest {
 
-	@Autowired
+	@Mock
+	private Salida salida;
+	
 	private Cobrar cobrar;
 	
 	@Mock
 	private Tiempo tiempo;
 	
-	@Mock
-	private Salida salida;
+	
 	
 	@Mock
 	private Parqueadero parqueadero;
@@ -63,7 +64,8 @@ public class CobrarTest {
 		
 		//Arrage
 		String placa = "EHG44B";
-		cobrar.setSalida(salida);
+		
+		cobrar = new Cobrar(salida);
 		int[] dayHoursMils = new int[3];
 		dayHoursMils[0]=0;
 		dayHoursMils[1]=10;
