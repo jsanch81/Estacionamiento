@@ -47,7 +47,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(carro.getPlaca()).thenReturn(placa);
@@ -73,7 +72,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(carro.getPlaca()).thenReturn(placa);
@@ -99,7 +97,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(carro.getPlaca()).thenReturn(placa);
@@ -125,7 +122,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(carro.getPlaca()).thenReturn(placa);
@@ -152,7 +148,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(carro.getPlaca()).thenReturn(placa);
@@ -178,7 +173,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(moto.getPlaca()).thenReturn(placa);
@@ -204,7 +198,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(moto.getPlaca()).thenReturn(placa);
@@ -231,7 +224,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(moto.getPlaca()).thenReturn(placa);
@@ -258,7 +250,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(moto.getPlaca()).thenReturn(placa);
@@ -286,7 +277,6 @@ public class RegistroTest {
 		short[] valor = new short[2];
 		valor[0] = 1;
 		valor [1] = 1;
-		registro.setVehiculoCRUD(vehiculoCRUD);
 		
 		//Act
 		Mockito.when(moto.getPlaca()).thenReturn(placa);

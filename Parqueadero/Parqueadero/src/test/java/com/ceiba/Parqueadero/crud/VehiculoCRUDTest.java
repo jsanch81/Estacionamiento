@@ -2,14 +2,10 @@ package com.ceiba.Parqueadero.crud;
 
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ceiba.Parqueadero.classes.Tiempo;
 import com.ceiba.Parqueadero.model.VehiculoModel;
@@ -49,8 +45,6 @@ public class VehiculoCRUDTest {
 		String tipo = "carro";
 		short cilindraje = 125;
 		Calendar calendar = Calendar.getInstance();
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
 		
 		//Act
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
@@ -71,8 +65,6 @@ public class VehiculoCRUDTest {
 		String tipo = "carro";
 		short cilindraje = 125;
 		Calendar calendar = Calendar.getInstance();
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
 		
 		//Act
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
@@ -90,7 +82,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.existsById(placa)).thenReturn(true);
@@ -106,7 +97,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.existsById(placa)).thenThrow(IllegalArgumentException.class);
@@ -122,7 +112,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.existsById(placa)).thenReturn(false);
@@ -138,8 +127,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -157,8 +144,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
@@ -176,8 +161,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -193,7 +176,6 @@ public class VehiculoCRUDTest {
 	public void findVehiculo() {		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 		
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -208,7 +190,6 @@ public class VehiculoCRUDTest {
 	public void NotFindVehiculo() {		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 		
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
@@ -225,8 +206,6 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		Calendar calendar = Calendar.getInstance();
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -245,8 +224,6 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		Calendar calendar = Calendar.getInstance();
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
@@ -265,8 +242,6 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		Calendar calendar = Calendar.getInstance();
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -284,8 +259,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -302,7 +275,6 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
@@ -319,7 +291,6 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		vehiculoCRUD.setVehiculoModel(vehiculoModel);
-		vehiculoCRUD.setParqueaderoRepository(parqueaderoRepository);
 
 		//Act
 		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);

@@ -20,7 +20,7 @@ import org.junit.Before;
 public class SalidaTest {
 	
 	@InjectMocks
-	private Salida salida;
+	private SalidaParqueadero salida;
 	
 	@Mock
 	private VehiculoCRUD vehiculoCRUD;
@@ -37,12 +37,11 @@ public class SalidaTest {
 	}
 	
 	@Test
-	public void genSalidaCarroTest() {
+	public void generarSalidaCarroTest() {
 		
 		//Arrange
 		String placa = "HKG137";
 		Calendar calendar = Calendar.getInstance();
-		salida.setVehiculoCRUD(vehiculoCRUD);
 		
 		
 		//Act
@@ -53,7 +52,7 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
-		long resultado = salida.genSalida(placa, parqueadero);
+		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
 		Assert.assertEquals(calendar.getTimeInMillis(), resultado);
@@ -61,11 +60,10 @@ public class SalidaTest {
 	}
 	
 	@Test
-	public void genSalidaMotoTest() {
+	public void generarSalidaMotoTest() {
 		
 		//Arrange
 		String placa = "EHG44B";
-		salida.setVehiculoCRUD(vehiculoCRUD);
 		Calendar calendar = Calendar.getInstance();
 		
 		//Act
@@ -76,7 +74,7 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
-		long resultado = salida.genSalida(placa, parqueadero);
+		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
 		Assert.assertEquals(calendar.getTimeInMillis(), resultado);
@@ -84,11 +82,10 @@ public class SalidaTest {
 	}
 	
 	@Test
-	public void genSalidaNotCarroTest() {
+	public void generarSalidaNotCarroTest() {
 		
 		//Arrange
 		String placa = "HKG127";
-		salida.setVehiculoCRUD(vehiculoCRUD);
 		Calendar calendar = Calendar.getInstance();
 		
 		//Act
@@ -99,7 +96,7 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
-		long resultado = salida.genSalida(placa, parqueadero);
+		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
 		Assert.assertEquals(-1, resultado);
@@ -107,11 +104,10 @@ public class SalidaTest {
 	}
 	
 	@Test
-	public void genSalidaNotCarroTest2() {
+	public void generarSalidaNotCarroTest2() {
 		
 		//Arrange
 		String placa = "EHG44D";
-		salida.setVehiculoCRUD(vehiculoCRUD);
 		Calendar calendar = Calendar.getInstance();
 		
 		//Act
@@ -122,7 +118,7 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
-		long resultado = salida.genSalida(placa, parqueadero);
+		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
 		Assert.assertEquals(-1, resultado);
@@ -131,11 +127,10 @@ public class SalidaTest {
 	}
 	
 	@Test
-	public void genSalidaNotUpdateCarroTest2() {
+	public void generarSalidaNotUpdateCarroTest2() {
 		
 		//Arrange
 		String placa = "EHG44E";
-		salida.setVehiculoCRUD(vehiculoCRUD);
 		Calendar calendar = Calendar.getInstance();
 		
 		//Act
@@ -146,7 +141,7 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
-		long resultado = salida.genSalida(placa, parqueadero);
+		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
 		Assert.assertEquals(-2, resultado);

@@ -8,13 +8,14 @@ import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 
 @Service
 @Configurable
-public class Salida {
+public class SalidaParqueadero {
 
 	@Autowired
 	private VehiculoCRUD vehiculoCRUD;
-
 	
-	public long genSalida(String placa, Parqueadero parqueadero) {
+	private final String carro = "carro"
+	;
+	public long generarSalida(String placa, Parqueadero parqueadero) {
 		
 		if(!vehiculoCRUD.findIntoParking(placa)) return -1;
 				
@@ -22,7 +23,7 @@ public class Salida {
 		
 		if(!vehiculoCRUD.updateSalidaVehiculo(placa)) return -2;
 		
-		if(vehiculoCRUD.findVehiculo(placa).getTipo().equals("carro")) {
+		if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(carro)) {
 			parqueadero.setTotalCars((short) (parqueadero.getTotalCars()-1));
 		}else {
 			parqueadero.setTotalCars((short) (parqueadero.getTotalMotorbikes()-1));

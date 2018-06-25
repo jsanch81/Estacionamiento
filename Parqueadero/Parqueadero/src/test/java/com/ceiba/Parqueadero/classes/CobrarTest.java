@@ -13,13 +13,13 @@ import org.mockito.MockitoAnnotations;
 public class CobrarTest {
 
 	@Mock
-	private Salida salida;
+	private SalidaParqueadero salida;
 
 	@Mock
 	private Tiempo tiempo;
 
 	@InjectMocks
-	private Cobrar cobrar;
+	private CobroSalidaParqueadero cobrar;
 
 	@Mock
 	private Parqueadero parqueadero;
@@ -30,7 +30,7 @@ public class CobrarTest {
 	}
 
 	@Test
-	public void genCobroTestCarro() {
+	public void generarCobroTestCarro() {
 		
 
 		// Arrage
@@ -43,12 +43,12 @@ public class CobrarTest {
 		Calendar calendar = Calendar.getInstance();
 
 		// Act
-		Mockito.when(salida.genSalida(placa, parqueadero)).thenReturn(calendar.getTimeInMillis());
+		Mockito.when(salida.generarSalida(placa, parqueadero)).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(salida.tipoVehiculo(placa)).thenReturn("carro");
 		Mockito.when(salida.getCilindraje(placa)).thenReturn((short) 0);
 		Mockito.when(tiempo.calculateDaysHoursMils(Mockito.anyLong(), Mockito.anyLong())).thenReturn(dayHoursMils);
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
-		int valor = cobrar.genCobro(placa, tiempo, parqueadero);
+		int valor = cobrar.generarCobro(placa, tiempo, parqueadero);
 		System.out.println(valor);
 
 		int esperado = dayHoursMils[0] * 8000;
@@ -61,25 +61,25 @@ public class CobrarTest {
 	}
 
 	@Test
-	public void genCobroTestMoto() {
+	public void generarCobroTestMoto() {
 
 		// Arrage
 		String placa = "EHG44B";
-		cobrar = new Cobrar(salida);
 		int[] dayHoursMils = new int[3];
 		dayHoursMils[0] = 0;
 		dayHoursMils[1] = 10;
 		dayHoursMils[2] = 0;
 		Calendar calendar = Calendar.getInstance();
 		short cilindraje = 650;
+		
 		// Act
-		Mockito.when(salida.genSalida(placa, parqueadero)).thenReturn(calendar.getTimeInMillis());
+		Mockito.when(salida.generarSalida(placa, parqueadero)).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(salida.tipoVehiculo(placa)).thenReturn("moto");
 		Mockito.when(salida.getCilindraje(placa)).thenReturn(cilindraje);
 		Mockito.when(tiempo.calculateDaysHoursMils(Mockito.anyLong(), Mockito.anyLong())).thenReturn(dayHoursMils);
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 
-		int valor = cobrar.genCobro(placa, tiempo, parqueadero);
+		int valor = cobrar.generarCobro(placa, tiempo, parqueadero);
 		System.out.println(valor);
 		int esperado = dayHoursMils[0] * 4000;
 		esperado += (dayHoursMils[1] < 9) ? dayHoursMils[1] * 500 : 4000;
@@ -92,7 +92,7 @@ public class CobrarTest {
 	}
 
 	@Test
-	public void genCobroTestMoto2() {
+	public void generarCobroTestMoto2() {
 
 		// Arrage
 		String placa = "EHG44B";
@@ -104,13 +104,13 @@ public class CobrarTest {
 		Calendar calendar = Calendar.getInstance();
 		short cilindraje = 250;
 		// Act
-		Mockito.when(salida.genSalida(placa, parqueadero)).thenReturn(calendar.getTimeInMillis());
+		Mockito.when(salida.generarSalida(placa, parqueadero)).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(salida.tipoVehiculo(placa)).thenReturn("moto");
 		Mockito.when(salida.getCilindraje(placa)).thenReturn(cilindraje);
 		Mockito.when(tiempo.calculateDaysHoursMils(Mockito.anyLong(), Mockito.anyLong())).thenReturn(dayHoursMils);
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 
-		int valor = cobrar.genCobro(placa, tiempo, parqueadero);
+		int valor = cobrar.generarCobro(placa, tiempo, parqueadero);
 		System.out.println(valor);
 		int esperado = dayHoursMils[0] * 4000;
 		esperado += (dayHoursMils[1] < 9) ? dayHoursMils[1] * 500 : 4000;

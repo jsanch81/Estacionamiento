@@ -36,8 +36,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -57,8 +55,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -79,8 +75,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -100,8 +94,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -121,8 +113,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -142,8 +132,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -164,8 +152,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
@@ -185,8 +171,6 @@ public class VigilanteTest {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		vigilante.setRegistro(registro);
-		vigilante.setTiempo(tiempo);
 		
 		//Act
 		Mockito.when(registro.registrarCarro(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");

@@ -26,7 +26,7 @@ public class Consulta {
 		return " Placa: "+vehiculoModel.getPlaca()+"\n Tipo Vehiculo: "+vehiculoModel.getTipo()+"\n Fecha ingreso: "+ date;
 	}
 	
-	//Para Test
+
 	public void setTiempo(Tiempo tiempo) {
 		this.tiempo = tiempo;
 	}

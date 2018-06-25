@@ -15,8 +15,8 @@ public class Registro {
 	private VehiculoCRUD vehiculoCRUD;
 	
 	private static final String NO_HAY_CUPO = "No hay cupo";
-	private static final String CARRO = "carro";
-	private static final String MOTO = "moto";
+	private final String CARRO = "carro";
+	private final String MOTO = "moto";
 	private static final String REGISTRO_REALIZADO = "Registro realizado";
 	private static final String ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS = "Error al guardar en la base de datos";
 	private static final String EL_VEHICULO_YA_INGRESO = "El vehiculo ya ingreso";
@@ -38,12 +38,11 @@ public class Registro {
 			short cilindrajeCarro = 0;
 			
 			if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-				if(vehiculoCRUD.findVehiculo(placa).getTipo().equals("moto")) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_MOTO;
+				if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(MOTO)) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_MOTO;
 				if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 			}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 
 			parqueadero.setTotalCars((short)(parqueadero.getTotalCars()+1));
-			System.out.println("Total Carros en el parqueadero: "+parqueadero.getTotalCars());
 
 			return REGISTRO_REALIZADO;
 			
@@ -64,12 +63,11 @@ public class Registro {
 	
 		
 		if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-			if(vehiculoCRUD.findVehiculo(placa).getTipo().equals("carro")) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO;
+			if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(CARRO)) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO;
 			if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje(), tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 		
 		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
-		System.out.println("Total Motos en el parqueadero: "+parqueadero.getTotalMotorbikes());
 		
 		return REGISTRO_REALIZADO;
 	}

@@ -42,7 +42,6 @@ public class ConsultaTest {
 	public void genConsultaTestError() {
 		//Arrange
 		String placa = "ASD123";
-		consulta.setVehiculoCRUD(vehiculoCRUD);
 		//Act
 		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
 		String resultado = consulta.genConsulta(placa);
@@ -55,9 +54,7 @@ public class ConsultaTest {
 		//Arrange
 		String placa = "ASD123";
 		Date date = new Date();
-		consulta.setVehiculoCRUD(vehiculoCRUD);
-		consulta.setTiempo(tiempo);
-		consulta.setVehiculoModel(vehiculoModel);
+		
 		//Act
 		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
 		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);

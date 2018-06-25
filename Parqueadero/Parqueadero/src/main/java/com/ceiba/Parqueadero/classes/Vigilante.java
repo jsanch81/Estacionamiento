@@ -14,20 +14,15 @@ public class Vigilante {
 	private Registro registro;
 	
 	@Autowired
-	private Cobrar cobrar;
+	private CobroSalidaParqueadero cobrar;
 	
 	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
-	
-	private Tiempo tiempo = new Tiempo(); 
-	
+		
 	//para pruebas
 	public void setRegistro(Registro registro) {
 		this.registro = registro;
 	}
 	
-	public void setTiempo(Tiempo tiempo) {
-		this.tiempo = tiempo;
-	}
 	
 	
 	
@@ -41,7 +36,7 @@ public class Vigilante {
         String placa = map.get("placa");
         String cilindraje = map.get("cilindraje");
         
-        if(canPark(placa)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
+        if(canPark(placa,tiempo)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
 		
         if(cilindraje.equals("")) {
         	return registro.registrarCarro(parqueadero, new Carro(placa), tiempo);
@@ -54,12 +49,12 @@ public class Vigilante {
 	
 	public int cobrar(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
 		String placa = map.get("placa");
-		return cobrar.genCobro(placa, tiempo, parqueadero);
+		return cobrar.generarCobro(placa, tiempo, parqueadero);
 	}
 	
 	
 	
-	private boolean canPark(String placa) {
+	private boolean canPark(String placa, Tiempo tiempo) {
 		return (placa.toUpperCase().charAt(0)=='A' && tiempo.getDayWeek() != 1 &&  tiempo.getDayWeek() != 2);
 	}
 }
