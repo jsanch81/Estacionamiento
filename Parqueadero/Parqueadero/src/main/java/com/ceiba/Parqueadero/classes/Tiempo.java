@@ -1,5 +1,7 @@
 package com.ceiba.Parqueadero.classes;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -31,6 +33,12 @@ public class Tiempo {
 		dayHoursMils[2]= (int) ((diferencia%86400000)%3600000);
 		System.out.println("Dias: "+dayHoursMils[0]+" horas: "+dayHoursMils[1]+" mils: "+dayHoursMils[2]);
 		return dayHoursMils;
+	}
+	
+	
+	public String dateToString(Date date) {
+		DateFormat df2 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		return df2.format(date);
 	}
 	
 }

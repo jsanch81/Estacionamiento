@@ -52,8 +52,8 @@ public class CobrarTest {
 		int esperado = dayHoursMils[0]*8000;
 		esperado += (dayHoursMils[1]<9)?dayHoursMils[1]*1000:8000;
 		esperado += (dayHoursMils[2]>0)?1000:0;
-		//Assert
 		
+		//Assert
 		Assert.assertEquals(esperado, valor);
 		
 	}

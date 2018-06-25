@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.ceiba.Parqueadero.classes.Vigilante;
+import com.ceiba.Parqueadero.classes.Consulta;
 import com.ceiba.Parqueadero.classes.Parqueadero;
 import com.ceiba.Parqueadero.classes.Tiempo;
 
@@ -22,9 +23,13 @@ public class Estacionamiento {
 	@Autowired
 	private Vigilante vigilante;
 	
+	@Autowired
+	private Consulta consulta;
+	
 	private Tiempo tiempo;
 	
 	private Parqueadero parqueadero;
+	
 	
 	private static final String EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO = "El vehiculo no esta en el parqueadero"; 
 	private static final String ERROR_AL_GENERAR_LA_SALIDA_EN_LA_BASE_DE_DATOS = "Error al generar la salida de la base de datos";
@@ -57,5 +62,11 @@ public class Estacionamiento {
     		return Integer.toString(resultado);
     	}
     }
+    
+    @ResponseBody @RequestMapping(value = "/consulta", method = RequestMethod.POST)
+    public String consulta(@RequestBody Map<String,String> map) {
+    	return consulta.genConsulta(map.get("placa"));
+    }
+    
     
 }
