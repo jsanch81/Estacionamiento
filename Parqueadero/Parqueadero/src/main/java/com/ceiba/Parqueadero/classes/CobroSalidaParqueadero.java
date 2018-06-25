@@ -49,8 +49,5 @@ public class CobroSalidaParqueadero {
 		return total;
 	}
 	
-	public void setSalida(SalidaParqueadero salida) {
-		this.salida = salida;
-	}
 
 }

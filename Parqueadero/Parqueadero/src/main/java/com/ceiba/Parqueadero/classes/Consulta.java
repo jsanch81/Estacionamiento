@@ -26,16 +26,4 @@ public class Consulta {
 		return " Placa: "+vehiculoModel.getPlaca()+"\n Tipo Vehiculo: "+vehiculoModel.getTipo()+"\n Fecha ingreso: "+ date;
 	}
 	
-
-	public void setTiempo(Tiempo tiempo) {
-		this.tiempo = tiempo;
-	}
-	
-	public void setVehiculoModel(VehiculoModel vehiculoModel) {
-		this.vehiculoModel = vehiculoModel;
-	}
-	
-	public void setVehiculoCRUD(VehiculoCRUD vehiculoCRUD) {
-		this.vehiculoCRUD = vehiculoCRUD;
-	}
 }

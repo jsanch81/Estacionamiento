@@ -33,16 +33,5 @@ public class SalidaParqueadero {
 		return vehiculoCRUD.findVehiculo(placa).getIngresoTimestamp();
 	}
 	
-	public String tipoVehiculo(String placa) {
-		return vehiculoCRUD.findVehiculo(placa).getTipo();
-	}
-	
-	public short getCilindraje(String placa) {
-		return vehiculoCRUD.findVehiculo(placa).getCilindraje();
-	}
-	
-	public void setVehiculoCRUD(VehiculoCRUD vehiculoCRUD) {
-		this.vehiculoCRUD = vehiculoCRUD;
-	}
 
 }

@@ -18,11 +18,7 @@ public class Vigilante {
 	
 	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
 		
-	//para pruebas
-	public void setRegistro(Registro registro) {
-		this.registro = registro;
-	}
-	
+
 	
 	
 	
