@@ -1,0 +1,23 @@
+<div class="col-md-6">
+    <h2> Detalle de vehiculos</h2>
+    
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">placa</th>
+        <th>fechaIngreso</th>
+        <th>tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vehiculo of vehiculos">
+        <!-- [class.selected]="vehiculo === selectedVehiculo" -->
+        <td class="hidden"></td>
+        <td>{{vehiculo.placa}}</td>
+        <td>{{vehiculo.fechaIngreso}}</td>
+        <td>{{vehiculo.tipo}}</td>
+        <td><button class="btn btn-danger" (click)="sacarVehiculo(vehiculo)"> Sacar Vehiculo</button></td>
+      </tr>
+      </tbody>
+    </table>
+    </div>

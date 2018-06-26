@@ -1,0 +1,20 @@
+<div class="col-md-6">
+  <h2 class="text-center">Registrar vehiculo</h2>
+<form>
+  
+  <div class="form-group">
+    <label for="placa">First Name:</label>
+    <input [(ngModel)]="vehiculo.placa" placeholder="placa" name="placa" value="algo" class="form-control" id="placa"  minlength="6" maxlength="6" pattern="[A-Za-z]{3}[0-9]{3}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="cilindraje">Last Name:</label>
+   <input [(ngModel)]="vehiculo.cilindraje" placeholder="cilindraje" value=""  name="cilindraje" class="form-control" id="cilindraje" required>
+  </div>
+
+  <button class="btn btn-success" (click)="registrarVehiculo()">Ingresar</button>
+</form>
+</div>
+<div>
+    <app-list-vehiculos [vehiculos]="vehiculos"></app-list-vehiculos>
+</div>

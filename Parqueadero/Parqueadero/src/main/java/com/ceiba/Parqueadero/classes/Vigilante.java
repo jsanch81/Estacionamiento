@@ -35,7 +35,7 @@ public class Vigilante {
         
         if(canPark(placa,tiempo)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
 		
-        if(cilindraje.equals("")) {
+        if(cilindraje == null || cilindraje.equals("")) {
         	return registro.registrarCarro(parqueadero, new Carro(placa), tiempo);
         }else {
         	short value = Short.parseShort(cilindraje);

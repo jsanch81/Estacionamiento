@@ -23,10 +23,12 @@ public class SalidaParqueadero {
 		
 		if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(carro)) {
 			parqueadero.setTotalCars((short) (parqueadero.getTotalCars()-1));
+			System.out.println("Total de carros: "+parqueadero.getTotalCars());
+
 		}else {
 			parqueadero.setTotalCars((short) (parqueadero.getTotalMotorbikes()-1));
+			System.out.println("Total de motos: "+parqueadero.getTotalMotorbikes());
 		}
-		
 		
 		return vehiculoCRUD.findVehiculo(placa).getIngresoTimestamp();
 	}

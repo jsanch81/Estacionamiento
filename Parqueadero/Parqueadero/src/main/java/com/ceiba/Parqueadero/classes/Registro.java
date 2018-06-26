@@ -41,6 +41,7 @@ public class Registro {
 			}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 
 			parqueadero.setTotalCars((short)(parqueadero.getTotalCars()+1));
+			System.out.println("Total de carros: "+parqueadero.getTotalCars());
 
 			return REGISTRO_REALIZADO;
 			
@@ -66,7 +67,8 @@ public class Registro {
 		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje(), tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 		
 		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
-		
+		System.out.println("Total de motos: "+parqueadero.getTotalMotorbikes());
+
 		return REGISTRO_REALIZADO;
 	}
 	
