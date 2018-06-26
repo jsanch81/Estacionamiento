@@ -4,11 +4,9 @@ import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.classes.Moto;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 @Service
-@Configurable
 public class Registro {
 	
 	@Autowired
@@ -73,10 +71,6 @@ public class Registro {
 	}
 	
 	
-	
-	public void setVehiculoCRUD(VehiculoCRUD vehiculoCRUD) {
-		this.vehiculoCRUD = vehiculoCRUD;
-	}
 	 
 	
 }

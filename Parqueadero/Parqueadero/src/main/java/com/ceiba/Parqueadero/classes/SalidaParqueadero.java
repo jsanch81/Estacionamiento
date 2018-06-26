@@ -1,20 +1,18 @@
 package com.ceiba.Parqueadero.classes;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 
 @Service
-@Configurable
 public class SalidaParqueadero {
 
 	@Autowired
 	private VehiculoCRUD vehiculoCRUD;
 	
-	private final String carro = "carro"
-	;
+	private final String carro = "carro";
+	
 	public long generarSalida(String placa, Parqueadero parqueadero) {
 		
 		if(!vehiculoCRUD.findIntoParking(placa)) return -1;

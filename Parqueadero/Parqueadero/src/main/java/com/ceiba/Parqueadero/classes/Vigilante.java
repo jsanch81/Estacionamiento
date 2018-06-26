@@ -3,11 +3,10 @@ package com.ceiba.Parqueadero.classes;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
+
 @Service
-@Configurable
 public class Vigilante {
 	
 	@Autowired
@@ -15,6 +14,8 @@ public class Vigilante {
 	
 	@Autowired
 	private CobroSalidaParqueadero cobrar;
+	
+	@Autowired
 	
 	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
 		
@@ -47,8 +48,7 @@ public class Vigilante {
 		String placa = map.get("placa");
 		return cobrar.generarCobro(placa, tiempo, parqueadero);
 	}
-	
-	
+
 	
 	private boolean canPark(String placa, Tiempo tiempo) {
 		return (placa.toUpperCase().charAt(0)=='A' && tiempo.getDayWeek() != 1 &&  tiempo.getDayWeek() != 2);

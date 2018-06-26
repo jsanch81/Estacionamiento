@@ -1,35 +1,40 @@
 package com.ceiba.Parqueadero.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.ceiba.Parqueadero.classes.Vigilante;
+import com.ceiba.Parqueadero.mensajes.Mensajes;
+import com.ceiba.Parqueadero.model.Vehiculos;
 import com.ceiba.Parqueadero.classes.Consulta;
 import com.ceiba.Parqueadero.classes.Parqueadero;
 import com.ceiba.Parqueadero.classes.Tiempo;
 
-@Controller
+@RestController
+@CrossOrigin(origins="http://localhost:4200")
 public class Estacionamiento {
 	
 
 	
 	@Autowired
 	private Vigilante vigilante;
-	
+		
 	@Autowired
 	private Consulta consulta;
-	
 	private Tiempo tiempo;
 	
 	private Parqueadero parqueadero;
 	
+	private Mensajes mensaje;
 	
 	private static final String EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO = "El vehiculo no esta en el parqueadero"; 
 	private static final String ERROR_AL_GENERAR_LA_SALIDA_EN_LA_BASE_DE_DATOS = "Error al generar la salida de la base de datos";
@@ -45,9 +50,10 @@ public class Estacionamiento {
      * @return status
      */
     @ResponseBody @RequestMapping(value = "/entrada", method = RequestMethod.POST)
-    public String entrada(@RequestBody Map<String,String> map){
+    public Mensajes entrada(@RequestBody Map<String,String> map){
     	tiempo = new Tiempo();
-        return vigilante.registrar(this.parqueadero, map,tiempo);
+        mensaje = new Mensajes(vigilante.registrar(this.parqueadero, map,tiempo));
+    	return mensaje;
     }
     
     @ResponseBody @RequestMapping(value = "/salida", method = RequestMethod.POST)
@@ -64,8 +70,19 @@ public class Estacionamiento {
     }
     
     @ResponseBody @RequestMapping(value = "/consulta", method = RequestMethod.POST)
-    public String consulta(@RequestBody Map<String,String> map) {
+    public Vehiculos consulta(@RequestBody Map<String,String> map) {
     	return consulta.genConsulta(map.get("placa"));
+    }
+    
+    @RequestMapping(value = "/vehiculos", method = RequestMethod.GET)
+    public List<Vehiculos> vehiculos(){
+    	return consulta.consultarVehiculosEnElParqueadero();
+    }
+
+    
+    @RequestMapping("/Eje")
+    public String ejemplo() {
+    	return "ejemplo";
     }
     
     

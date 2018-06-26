@@ -1,9 +1,12 @@
 package com.ceiba.Parqueadero.crud;
 
 import com.ceiba.Parqueadero.model.VehiculoModel;
+import com.ceiba.Parqueadero.model.Vehiculos;
 import com.ceiba.Parqueadero.repository.ParqueaderoRepository;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
@@ -19,6 +22,10 @@ public class VehiculoCRUD {
 	private ParqueaderoRepository parqueaderoRepository;
 	
 	private VehiculoModel vehiculoModel;
+	
+	private List<Vehiculos> listIntoVehiculos;
+
+	private Vehiculos vehiculos;
 	
 	private List<VehiculoModel> listVehiculos;
 	/**
@@ -37,7 +44,6 @@ public class VehiculoCRUD {
 			parqueaderoRepository.save(vehiculoModel);
 			return true;
 		}catch(Exception e) {
-			System.err.println(e);
 			return false;
 		}
 	}
@@ -133,6 +139,18 @@ public class VehiculoCRUD {
 			}
 		}
 		return vehiculos;
+	}
+	
+	public List<Vehiculos> vehiculosIntoParking() {
+		listIntoVehiculos = new ArrayList<Vehiculos>();
+		listVehiculos = parqueaderoRepository.findAll();
+		for(VehiculoModel dato: listVehiculos) {
+			if(dato.getEstado().equals("true")) {
+				vehiculos = new Vehiculos(dato.getPlaca(),dato.getFechaIngreso(),dato.getTipo());
+				listIntoVehiculos.add(vehiculos);
+			}
+		}
+		return listIntoVehiculos;
 	}
 	
 	//paraTests

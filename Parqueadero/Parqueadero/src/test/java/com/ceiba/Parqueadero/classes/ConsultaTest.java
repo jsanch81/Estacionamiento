@@ -15,6 +15,7 @@ import org.mockito.MockitoAnnotations;
 
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
+import com.ceiba.Parqueadero.model.Vehiculos;
 
 
 
@@ -44,9 +45,9 @@ public class ConsultaTest {
 		String placa = "ASD123";
 		//Act
 		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
-		String resultado = consulta.genConsulta(placa);
+		Vehiculos resultado = consulta.genConsulta(placa);
 		//Assert
-		Assert.assertEquals("El vihiculo no esta en la base de datos", resultado);
+		Assert.assertNull(resultado);
 	}
 	
 	@Test
@@ -63,9 +64,9 @@ public class ConsultaTest {
 		Mockito.when(vehiculoModel.getPlaca()).thenReturn(placa);
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 
-		String resultado = consulta.genConsulta(placa);
+		Vehiculos resultado = consulta.genConsulta(placa);
 		//Assert
-		Assert.assertEquals(" Placa: "+placa +"\n Tipo Vehiculo: moto" +"\n Fecha ingreso: 25-06-2018 08:03:27", resultado);
+		Assert.assertNotNull(resultado);
 	}
 	
 }
