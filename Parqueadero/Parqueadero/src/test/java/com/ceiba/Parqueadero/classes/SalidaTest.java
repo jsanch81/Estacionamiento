@@ -53,6 +53,8 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
+		Mockito.when(parqueadero.getTotalMotorbikes()).thenReturn((short)5);
+
 		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
@@ -75,6 +77,8 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
+		Mockito.when(parqueadero.getTotalMotorbikes()).thenReturn((short)5);
+
 		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
@@ -97,8 +101,10 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
+		Mockito.when(parqueadero.getTotalMotorbikes()).thenReturn((short)5);
+
 		long resultado = salida.generarSalida(placa, parqueadero);
-		
+		System.out.println(resultado);
 		//Assert
 		Assert.assertEquals(-1, resultado);
 		
@@ -119,6 +125,8 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
+		Mockito.when(parqueadero.getTotalMotorbikes()).thenReturn((short)5);
+
 		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
@@ -142,6 +150,8 @@ public class SalidaTest {
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short)5);
+		Mockito.when(parqueadero.getTotalMotorbikes()).thenReturn((short)5);
+
 		long resultado = salida.generarSalida(placa, parqueadero);
 		
 		//Assert
