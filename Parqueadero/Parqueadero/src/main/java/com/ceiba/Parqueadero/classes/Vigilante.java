@@ -30,8 +30,8 @@ public class Vigilante {
 	 */
 	public String registrar(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
         
-        String placa = map.get("placa");
-        String cilindraje = map.get("cilindraje");
+        String placa = map.get("placa").toUpperCase();
+        String cilindraje = map.get("cilindraje").toUpperCase();
         
         if(canPark(placa,tiempo)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
 		

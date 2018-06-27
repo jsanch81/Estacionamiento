@@ -27,7 +27,7 @@ export class AddVehiculoComponent {
       this.vehiculoService.getVehiculos().subscribe(data => {
         this.vehiculos = data;
       });
-     if(res.mensaje === "Registro realizado"){
+     /*if(res.mensaje === "Registro realizado"){
         this.falla = false;
         this.success = true;
         this.registroExitoso = res.mensaje;
@@ -35,7 +35,7 @@ export class AddVehiculoComponent {
         this.falla = true;
         this.success = false;
         this.registroFallido = res.mensaje;
-      }
+      }*/
     });
   }
 

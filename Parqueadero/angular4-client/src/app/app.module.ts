@@ -12,12 +12,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {AddVehiculoComponent} from './vehiculo/add-vehiculo.component';
 import {VehiculoComponent} from './vehiculo/vehiculo.component';
 import { PopupModule } from '@progress/kendo-angular-popup';
-
+import { MyFilterPipe } from './pipe/my-filter.pipe'
 @NgModule({
   declarations: [
     AppComponent,
     AddVehiculoComponent,
-    VehiculoComponent
+    VehiculoComponent,
+    MyFilterPipe
   ],
   imports: [
     BrowserModule,
