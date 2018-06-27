@@ -6,7 +6,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-
+import com.ceiba.Parqueadero.classes.Parqueadero;
+import com.ceiba.Parqueadero.classes.SalidaParqueadero;
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
 

@@ -1,8 +1,8 @@
 package com.ceiba.testdatabuilder;
 
-import com.ceiba.Parqueadero.classes.Vehiculo;
-import com.ceiba.Parqueadero.classes.Moto;
 import com.ceiba.Parqueadero.classes.Carro;
+import com.ceiba.Parqueadero.classes.Moto;
+import com.ceiba.Parqueadero.classes.Vehiculo;
 
 public class VehiculoTestDataBuilder {
 	private String placa;

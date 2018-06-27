@@ -1,9 +1,5 @@
 package com.ceiba.Parqueadero.crud;
 
-import com.ceiba.Parqueadero.model.VehiculoModel;
-import com.ceiba.Parqueadero.model.Vehiculos;
-import com.ceiba.Parqueadero.repository.ParqueaderoRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +8,9 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import com.ceiba.Parqueadero.classes.Tiempo;
+import com.ceiba.Parqueadero.model.VehiculoModel;
+import com.ceiba.Parqueadero.model.Vehiculos;
+import com.ceiba.Parqueadero.repository.ParqueaderoRepository;
 
 
 @Service

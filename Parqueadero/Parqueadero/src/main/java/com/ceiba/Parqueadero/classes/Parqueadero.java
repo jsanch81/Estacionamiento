@@ -62,7 +62,7 @@ public class Parqueadero {
 	 * of motorbikes in the parking
 	 */
 	public void setTotalMotorbikes(short totalMotorbikes) {
-		this.totalMotorbikes = (this.totalMotorbikes<this.maxMotorbike) ? totalMotorbikes : this.totalMotorbikes;
+		this.totalMotorbikes =  totalMotorbikes;
 	}
 	
 	/**
@@ -72,7 +72,7 @@ public class Parqueadero {
 	 * of cars in the parking
 	 */	
 	public void setTotalCars(short totalCars) {
-		this.totalCars = (this.totalCars<this.maxCars) ? totalCars : this.totalCars;
+		this.totalCars = totalCars;
 	}
 	
 	/**

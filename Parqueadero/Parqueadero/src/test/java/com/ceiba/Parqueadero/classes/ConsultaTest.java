@@ -12,7 +12,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-
+import com.ceiba.Parqueadero.classes.Consulta;
+import com.ceiba.Parqueadero.classes.Tiempo;
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
 import com.ceiba.Parqueadero.model.Vehiculos;

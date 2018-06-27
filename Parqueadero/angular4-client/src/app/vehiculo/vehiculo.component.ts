@@ -2,19 +2,22 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {Vehiculo2} from '../model/vehiculo2.model';
-import {Vehiculo} from '../model/vehiculo.model';
 
 import {VehiculoService} from './vehiculo.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-list-vehiculos',
     templateUrl: './vehiculo.component.html',
-    styles: []
+    styles: ['./vehiculo.component.html']
 })
 
 export class VehiculoComponent implements OnInit{
    @Input() vehiculos: Vehiculo2[];
-    constructor(private router: Router, private vehiculoService: VehiculoService){
+   totalPagar: any;
+   show: boolean;
+
+    constructor(private modalService: NgbModal, private router: Router, private vehiculoService: VehiculoService){
 
     }
     
@@ -27,10 +30,16 @@ export class VehiculoComponent implements OnInit{
 
 
     sacarVehiculo(vehiculo: Vehiculo2): void{
-        console.log(this.vehiculos);
-        
-        this.vehiculoService.sacarVehiculo(vehiculo).subscribe((data) => {
+        this.vehiculoService.sacarVehiculo(vehiculo).subscribe(data => {
+            console.log(data);
+            this.totalPagar =  data;
             this.vehiculos = this.vehiculos.filter(v => v.placa!==vehiculo.placa);
         });
+        this.show = true;
     };
+
+    public onToggle(): void {
+        this.show = false;
+    }
+
 }

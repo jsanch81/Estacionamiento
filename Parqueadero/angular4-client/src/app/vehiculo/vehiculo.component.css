@@ -1,0 +1,36 @@
+#table-wrapper {
+    position:relative;
+  }
+  #table-scroll {
+    overflow-y: auto;
+    height: 100px;
+  }
+  #table-wrapper table {
+    width:100%;
+  }
+  #table-wrapper table * {
+    background:yellow;
+    color:black;
+  }
+  #table-wrapper table thead th .text {
+    position:absolute;   
+    top:-20px;
+    z-index:2;
+    height:20px;
+    width:35%;
+    border:1px solid red;
+  }
+
+  
+.ScrollStyle{
+    height: 100px;
+    overflow-y: auto;
+}
+
+.content {
+    padding: 100px;
+    color: #787878;
+    background-color: #fcf7f8;
+    border: 1px solid rgba(0,0,0,.05);
+  }
+               

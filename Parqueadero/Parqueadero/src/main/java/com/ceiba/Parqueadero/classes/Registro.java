@@ -1,10 +1,10 @@
 package com.ceiba.Parqueadero.classes;
 
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
-import com.ceiba.Parqueadero.classes.Moto;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.ceiba.Parqueadero.classes.Moto;
+import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 
 @Service
 public class Registro {
@@ -19,7 +19,7 @@ public class Registro {
 	private static final String ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS = "Error al guardar en la base de datos";
 	private static final String EL_VEHICULO_YA_INGRESO = "El vehiculo ya ingreso";
 	private static final String ESTE_VEHICULO_YA_SE_REGISTRO_COMO_MOTO = "Este vehiculo ya se registro como una moto";
-	private static final String ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO = "Este vehiculo ya se registro como una carro";
+	private static final String ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO = "Este vehiculo ya se registro como un carro";
 	/**
 	 * 
 	 * @param tipoVehiculo

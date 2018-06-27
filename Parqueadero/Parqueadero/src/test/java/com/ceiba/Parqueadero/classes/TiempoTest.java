@@ -4,6 +4,8 @@ import java.util.Calendar;
 
 import org.junit.Test;
 
+import com.ceiba.Parqueadero.classes.Tiempo;
+
 
 
 public class TiempoTest {

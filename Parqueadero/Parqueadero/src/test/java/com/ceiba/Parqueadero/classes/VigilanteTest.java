@@ -8,6 +8,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
+import com.ceiba.Parqueadero.classes.Carro;
+import com.ceiba.Parqueadero.classes.Moto;
+import com.ceiba.Parqueadero.classes.Parqueadero;
+import com.ceiba.Parqueadero.classes.Registro;
+import com.ceiba.Parqueadero.classes.Tiempo;
+import com.ceiba.Parqueadero.classes.Vigilante;
+
 import org.junit.Assert;
 import org.junit.Before;
 

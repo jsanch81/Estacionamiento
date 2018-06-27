@@ -10,6 +10,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import com.ceiba.Parqueadero.classes.CobroSalidaParqueadero;
+import com.ceiba.Parqueadero.classes.Parqueadero;
+import com.ceiba.Parqueadero.classes.SalidaParqueadero;
+import com.ceiba.Parqueadero.classes.Tiempo;
+
 public class CobrarTest {
 
 	@Mock

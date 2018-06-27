@@ -5,11 +5,17 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.junit.Assert;
-import org.junit.Before;
 
+import com.ceiba.Parqueadero.classes.Carro;
+import com.ceiba.Parqueadero.classes.Moto;
+import com.ceiba.Parqueadero.classes.Parqueadero;
+import com.ceiba.Parqueadero.classes.Registro;
+import com.ceiba.Parqueadero.classes.Tiempo;
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
+
+import org.junit.Assert;
+import org.junit.Before;
 
 public class RegistroTest {
 	
