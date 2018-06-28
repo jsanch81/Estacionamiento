@@ -4,7 +4,7 @@
 
   #table-scroll {
     overflow-y: auto;
-    height: 400px;
+    height: 300px;
   }
   #table-wrapper table {
     width:100%;
@@ -14,15 +14,19 @@
       width: 50%;
   }
 
+  .divcenter{
+      float: left;
+      width: 49%;
+  }
 </style>
-<div>
+<div class="divcenter">
     <h2> Detalle de vehiculos</h2>
-
+    <div class="tamanoFilter">
+            <input [(ngModel)]="filter" placeholder="filtrar por placa" value=""  name="filter" class="form-control" id="filter" required>        
+    </div>
+    <br>
        <div id="table-wrapper">
         <div id="table-scroll">
-                <div class="tamanoFilter">
-                        <input [(ngModel)]="filter" placeholder="filtrar por placa" value=""  name="filter" class="form-control" id="filter" required>        
-                </div>
             <table class="table table-striped">
 
                 <thead>
@@ -48,10 +52,13 @@
             </table>
         </div>
     </div>
-    <div>
-        <kendo-popup [anchor]="anchor" [popupClass]="'content popup'" *ngIf="show">
-            <h1>Total a pagar: {{totalPagar}}</h1>
-            <button #anchor (click)="onToggle()" class="btn btn-danger">Cerrar</button>
-        </kendo-popup>
+    <div class="center-xs">
+            <kendo-popup [anchor]="anchor" [popupClass]="'content popup'" *ngIf="show">
+                <h1>Total a pagar: ${{totalPagar}}</h1>
+                <button #anchor (click)="onToggle()" class="btn btn-danger">Cerrar</button>
+            </kendo-popup>
     </div>
 </div>
+    <app-consulta-vwhiculo></app-consulta-vwhiculo>
+
+

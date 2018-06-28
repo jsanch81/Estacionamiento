@@ -27,6 +27,7 @@ public class VehiculoCRUD {
 	private Vehiculos vehiculos;
 	
 	private List<VehiculoModel> listVehiculos;
+	
 	/**
 	 * 
 	 * @param placa
@@ -140,12 +141,13 @@ public class VehiculoCRUD {
 		return vehiculos;
 	}
 	
-	public List<Vehiculos> vehiculosIntoParking() {
+	public List<Vehiculos> vehiculosIntoParking(Tiempo tiempo) {
 		listIntoVehiculos = new ArrayList<Vehiculos>();
 		listVehiculos = parqueaderoRepository.findAll();
 		for(VehiculoModel dato: listVehiculos) {
 			if(dato.getEstado().equals("true")) {
-				vehiculos = new Vehiculos(dato.getPlaca(),dato.getFechaIngreso(),dato.getTipo());
+				String date = tiempo.dateToString(dato.getFechaIngreso());
+				vehiculos = new Vehiculos(dato.getPlaca(),date,dato.getTipo());
 				listIntoVehiculos.add(vehiculos);
 			}
 		}

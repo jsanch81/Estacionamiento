@@ -2,7 +2,9 @@ package com.ceiba.Parqueadero.classes;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -46,7 +48,7 @@ public class ConsultaTest {
 		String placa = "ASD123";
 		//Act
 		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
-		Vehiculos resultado = consulta.genConsulta(placa);
+		Vehiculos resultado = consulta.genConsulta(placa, tiempo);
 		//Assert
 		Assert.assertNull(resultado);
 	}
@@ -65,9 +67,19 @@ public class ConsultaTest {
 		Mockito.when(vehiculoModel.getPlaca()).thenReturn(placa);
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 
-		Vehiculos resultado = consulta.genConsulta(placa);
+		Vehiculos resultado = consulta.genConsulta(placa, tiempo);
 		//Assert
 		Assert.assertNotNull(resultado);
 	}
 	
+	@Test
+	public void ListVehiculos() {
+		//Arrange
+		List<Vehiculos> listVehiculos = new ArrayList<Vehiculos>();
+		//Act
+		Mockito.when(vehiculoCRUD.vehiculosIntoParking(Mockito.any(Tiempo.class))).thenReturn(listVehiculos);
+		List<Vehiculos> result = consulta.consultarVehiculosEnElParqueadero(tiempo);
+		//Assert
+		Assert.assertEquals(listVehiculos, result);
+	}
 }

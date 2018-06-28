@@ -17,8 +17,8 @@ public class Vigilante {
 	
 	@Autowired
 	
-	private static String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
-		
+	private static final String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
+	private static final String DEBE_DE_INGRESAR_MINIMO_LA_PLACA = "Debe de ingresar minimo la placa";	
 
 	
 	
@@ -30,8 +30,10 @@ public class Vigilante {
 	 */
 	public String registrar(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
         
+		if(map.get("placa") == null || (map.get("placa").equals(""))) return DEBE_DE_INGRESAR_MINIMO_LA_PLACA;
+		
         String placa = map.get("placa").toUpperCase();
-        String cilindraje = map.get("cilindraje").toUpperCase();
+        String cilindraje = map.get("cilindraje");
         
         if(canPark(placa,tiempo)) return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
 		

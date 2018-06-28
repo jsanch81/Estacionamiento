@@ -29,6 +29,7 @@ export class VehiculoComponent implements OnInit{
     };
 
 
+
     sacarVehiculo(vehiculo: Vehiculo2): void{
         this.vehiculoService.sacarVehiculo(vehiculo).subscribe(data => {
             console.log(data);

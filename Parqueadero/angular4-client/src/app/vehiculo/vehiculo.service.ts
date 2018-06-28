@@ -31,4 +31,8 @@ export class VehiculoService {
   public sacarVehiculo(vehiculo){
     return this.http.post<Vehiculo>(this.userUrl+'/salida',vehiculo);
   }
+
+  public getVehiculo(vehiculo){
+    return this.http.post<Vehiculo2>(this.userUrl+'/consulta', vehiculo);
+  }
 }

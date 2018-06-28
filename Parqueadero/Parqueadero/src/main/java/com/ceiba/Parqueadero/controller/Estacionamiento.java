@@ -30,7 +30,8 @@ public class Estacionamiento {
 		
 	@Autowired
 	private Consulta consulta;
-	private Tiempo tiempo;
+	
+	private Tiempo tiempo = new Tiempo();
 	
 	private Parqueadero parqueadero;
 	
@@ -71,12 +72,12 @@ public class Estacionamiento {
     
     @ResponseBody @RequestMapping(value = "/consulta", method = RequestMethod.POST)
     public Vehiculos consulta(@RequestBody Map<String,String> map) {
-    	return consulta.genConsulta(map.get("placa"));
+    	return consulta.genConsulta(map.get("placa").toUpperCase(), tiempo);
     }
     
     @RequestMapping(value = "/vehiculos", method = RequestMethod.GET)
     public List<Vehiculos> vehiculos(){
-    	return consulta.consultarVehiculosEnElParqueadero();
+    	return consulta.consultarVehiculosEnElParqueadero(tiempo);
     }
 
     

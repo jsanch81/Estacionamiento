@@ -4,6 +4,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import {ConsultaVwhiculoComponent} from './consulta-vwhiculo/consulta-vwhiculo.component';
 import {VehiculoComponent} from './vehiculo/vehiculo.component';
 import {AddVehiculoComponent} from './vehiculo/add-vehiculo.component';
 

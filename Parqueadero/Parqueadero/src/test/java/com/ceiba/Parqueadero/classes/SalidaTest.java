@@ -158,4 +158,31 @@ public class SalidaTest {
 		Assert.assertEquals(-2, resultado);
 		
 	}
+	
+	@Test
+	public void tipoVehiculoTest() {
+		//Arrange
+		String placa = "EHG44B";
+		
+		//Act
+		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
+		String resultado = salida.tipoVehiculo(placa);
+		
+		//Assert
+		Assert.assertEquals("moto", resultado);
+	}
+	@Test
+	public void getCilindrajeTest() {
+		//Arrange
+		String placa = "EHG44B";
+		
+		//Act
+		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getCilindraje()).thenReturn((short) 125);
+		short resultado = salida.getCilindraje(placa);
+		
+		//Assert
+		Assert.assertEquals(125, resultado);
+	}
 }

@@ -37,7 +37,7 @@ public class Tiempo {
 	
 	
 	public String dateToString(Date date) {
-		DateFormat df2 = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		DateFormat df2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		return df2.format(date);
 	}
 	

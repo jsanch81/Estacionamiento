@@ -13,12 +13,16 @@ import {AddVehiculoComponent} from './vehiculo/add-vehiculo.component';
 import {VehiculoComponent} from './vehiculo/vehiculo.component';
 import { PopupModule } from '@progress/kendo-angular-popup';
 import { MyFilterPipe } from './pipe/my-filter.pipe'
+import {AppService} from './app.service';
+import { ConsultaVwhiculoComponent } from './consulta-vwhiculo/consulta-vwhiculo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     AddVehiculoComponent,
     VehiculoComponent,
-    MyFilterPipe
+    MyFilterPipe,
+    ConsultaVwhiculoComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { MyFilterPipe } from './pipe/my-filter.pipe'
     BrowserAnimationsModule,
     NgbModule.forRoot()
   ],
-  providers: [VehiculoService],
+  providers: [VehiculoService, AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -27,6 +27,7 @@ repositories {
 
 
 dependencies {
+	compile files('WEB-INF/lib/Superfinanciera.jar')
 	compile('org.springframework.boot:spring-boot-starter')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('com.fasterxml.jackson.core:jackson-core')

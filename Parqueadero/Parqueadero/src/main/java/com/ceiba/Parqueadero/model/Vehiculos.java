@@ -1,14 +1,13 @@
 package com.ceiba.Parqueadero.model;
 
-import java.util.Date;
 
 public class Vehiculos {
 	private String placa;
-	private Date fechaIngreso;
+	private String fechaIngreso;
 	private String tipo;
 	
 	
-	public Vehiculos(String placa, Date fechaIngreso, String tipo) {
+	public Vehiculos(String placa, String fechaIngreso, String tipo) {
 		super();
 		this.placa = placa;
 		this.fechaIngreso = fechaIngreso;
@@ -21,7 +20,7 @@ public class Vehiculos {
 	public String getPlaca() {
 		return placa;
 	}
-	public Date getFechaIngreso() {
+	public String getFechaIngreso() {
 		return fechaIngreso;
 	}
 	public String getTipo() {
@@ -30,7 +29,7 @@ public class Vehiculos {
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
-	public void setFechaIngreso(Date fechaIngreso) {
+	public void setFechaIngreso(String fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 	public void setTipo(String tipo) {

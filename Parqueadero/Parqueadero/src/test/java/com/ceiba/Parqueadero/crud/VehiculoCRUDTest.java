@@ -10,9 +10,13 @@ import org.mockito.MockitoAnnotations;
 import com.ceiba.Parqueadero.classes.Tiempo;
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
 import com.ceiba.Parqueadero.model.VehiculoModel;
+import com.ceiba.Parqueadero.model.Vehiculos;
 import com.ceiba.Parqueadero.repository.ParqueaderoRepository;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -300,6 +304,68 @@ public class VehiculoCRUDTest {
 		
 		//Assert
 		Assert.assertFalse(resultado);
+	}
+	
+	@Test
+	public void vehiculosIntoParkingTest() {
+		 //Arrange
+		 List<Vehiculos> listVehiculos = new ArrayList<Vehiculos>();
+		 List<VehiculoModel> listIntoVehiculos = new ArrayList<VehiculoModel>();
+		 listIntoVehiculos.add(vehiculoModel);
+		 listVehiculos.add(new Vehiculos("EHG44B","24/08/1997","carro"));
+		 
+		 //Act
+		 Mockito.when(parqueaderoRepository.findAll()).thenReturn(listIntoVehiculos);
+		 Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
+		 Mockito.when(vehiculoModel.getFechaIngreso()).thenReturn(new Date());
+		 Mockito.when(vehiculoModel.getPlaca()).thenReturn("EHG44B");
+		 Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
+		 Mockito.when(tiempo.dateToString(Mockito.any(Date.class))).thenReturn("24/08/1997");
+		 List<Vehiculos> resultado = vehiculoCRUD.vehiculosIntoParking(tiempo);
+		 
+		 //Assert
+		 Assert.assertEquals(listVehiculos.get(0).getPlaca(), resultado.get(0).getPlaca());
+		 Assert.assertEquals(listVehiculos.get(0).getTipo(), resultado.get(0).getTipo());
+		 Assert.assertEquals(listVehiculos.get(0).getFechaIngreso(), resultado.get(0).getFechaIngreso());
+
+	}
+	
+	@Test
+	public void numCarsInParkingTestCarro() {
+		
+		//Arrange
+		short[] salida = {1,0};
+		List<VehiculoModel> listIntoVehiculos = new ArrayList<VehiculoModel>();
+		listIntoVehiculos.add(vehiculoModel);
+		
+		//Act
+		Mockito.when(parqueaderoRepository.findAll()).thenReturn(listIntoVehiculos);
+		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
+		
+		short[] resultado = vehiculoCRUD.numCarsInParking();
+		// Assert
+		
+		Assert.assertArrayEquals(salida, resultado);
+	}
+	
+	@Test
+	public void numCarsInParkingTestMoto() {
+		
+		//Arrange
+		short[] salida = {1,0};
+		List<VehiculoModel> listIntoVehiculos = new ArrayList<VehiculoModel>();
+		listIntoVehiculos.add(vehiculoModel);
+		
+		//Act
+		Mockito.when(parqueaderoRepository.findAll()).thenReturn(listIntoVehiculos);
+		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
+		
+		short[] resultado = vehiculoCRUD.numCarsInParking();
+		// Assert
+		
+		Assert.assertArrayEquals(salida, resultado);
 	}
 	
 }

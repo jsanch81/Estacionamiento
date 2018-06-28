@@ -1,12 +1,17 @@
 package com.ceiba.Parqueadero;
 
+import java.rmi.RemoteException;
+import java.text.ParseException;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 @SpringBootApplication
 public class ParqueaderoApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException, ParseException {
+		
 		SpringApplication.run(ParqueaderoApplication.class, args);
 	}
 }

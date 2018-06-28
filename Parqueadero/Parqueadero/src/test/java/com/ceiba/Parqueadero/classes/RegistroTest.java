@@ -276,7 +276,8 @@ public class RegistroTest {
 		Assert.assertEquals("Error al guardar en la base de datos", resultado);
 	}
 	
-	public void registrarTest2ErroBaseDeDatos2() {
+	@Test
+	public void registrarTest2ErroRegistroMoto() {
 		
 		//Arrage
 		String placa = "EHG441";
@@ -291,14 +292,43 @@ public class RegistroTest {
 		Mockito.when(parqueadero.hayCupoMoto()).thenReturn(true);
 		Mockito.doNothing().when(parqueadero).setTotalMotorbikes(Mockito.anyShort());
 		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
+		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
+		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
 		Mockito.when(vehiculoCRUD.validateVehiculo(Mockito.anyString())).thenReturn(false);
 		Mockito.when(vehiculoCRUD.updateVehiculo(Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(false);
 		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(), Mockito.any(Tiempo.class))).thenReturn(false);
 		String resultado = registro.registrarMoto(parqueadero, moto, tiempo);
 		
 		//Assert
-		Assert.assertEquals("Error al guardar en la base de datos", resultado);
+		Assert.assertEquals("Este vehiculo ya se registro como un carro", resultado);
+	}
+	
+	@Test
+	public void registrarTest2ErroRegistroCarro() {
+		
+		//Arrage
+		String placa = "EHG441";
+		short[] valor = new short[2];
+		valor[0] = 1;
+		valor [1] = 1;
+		
+		//Act
+		Mockito.when(carro.getPlaca()).thenReturn(placa);
+		Mockito.when(parqueadero.getTotalCars()).thenReturn((short) 1);
+		Mockito.when(parqueadero.hayCupoCarro()).thenReturn(true);
+		Mockito.doNothing().when(parqueadero).setTotalCars(Mockito.anyShort());
+		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);
+		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
+		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.validateVehiculo(Mockito.anyString())).thenReturn(false);
+		Mockito.when(vehiculoCRUD.updateVehiculo(Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(false);
+		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(), Mockito.any(Tiempo.class))).thenReturn(false);
+		String resultado = registro.registrarCarro(parqueadero, carro, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Este vehiculo ya se registro como una moto", resultado);
 	}
 	
 }
