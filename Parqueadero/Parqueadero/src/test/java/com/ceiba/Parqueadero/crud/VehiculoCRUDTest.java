@@ -40,8 +40,6 @@ public class VehiculoCRUDTest {
 	@Mock
 	private Tiempo tiempo;
 	
-	
-	
 	@Before
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
@@ -156,7 +154,7 @@ public class VehiculoCRUDTest {
 		String placa = "EHG44B";
 
 		//Act
-		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
 		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
 		
@@ -203,7 +201,7 @@ public class VehiculoCRUDTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
 		VehiculoModel resultado = vehiculoCRUD.findVehiculo(placa);
 		System.out.println(resultado);
 		
@@ -238,7 +236,7 @@ public class VehiculoCRUDTest {
 		Calendar calendar = Calendar.getInstance();
 
 		//Act
-		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
@@ -308,7 +306,7 @@ public class VehiculoCRUDTest {
 		vehiculoCRUD.setVehiculoModel(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
 		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
 		
