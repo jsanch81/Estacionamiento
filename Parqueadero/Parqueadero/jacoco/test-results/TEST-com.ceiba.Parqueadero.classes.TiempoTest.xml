@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.classes.TiempoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-06-25T20:06:17" hostname="JOSE-SANCHEZ" time="0.0">
+<testsuite name="com.ceiba.Parqueadero.classes.TiempoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-06-29T12:56:02" hostname="JOSE-SANCHEZ" time="0.009">
   <properties/>
-  <testcase name="ejemploDayHourMils" classname="com.ceiba.Parqueadero.classes.TiempoTest" time="0.0"/>
+  <testcase name="dateToStringTest" classname="com.ceiba.Parqueadero.classes.TiempoTest" time="0.007"/>
+  <testcase name="ejemploDayHourMils" classname="com.ceiba.Parqueadero.classes.TiempoTest" time="0.002"/>
   <system-out><![CDATA[Dias: 6 horas: 7 mils: 300000
-Dias: 6   horas: 7    milis: 300000
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.classes.RegistroTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-06-25T20:06:17" hostname="JOSE-SANCHEZ" time="0.049">
+<testsuite name="com.ceiba.Parqueadero.classes.RegistroTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2018-06-29T12:56:02" hostname="JOSE-SANCHEZ" time="0.059">
   <properties/>
   <testcase name="registrarTestErroBaseDeDatos" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.037"/>
   <testcase name="registrarTest2NoHayCupo" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
-  <testcase name="registrarTest2" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
-  <testcase name="registrarTestNoHayCupo" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.001"/>
-  <testcase name="registrarTest2ErroBaseDeDatos" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.001"/>
+  <testcase name="registrarTest2" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.004"/>
+  <testcase name="registrarTestNoHayCupo" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
+  <testcase name="registrarTest2ErroBaseDeDatos" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
   <testcase name="registrarTest2VehiculoYaIngreso" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
-  <testcase name="registrarTest" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.001"/>
+  <testcase name="registrarTest2ErroRegistroMoto" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
+  <testcase name="registrarTest" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.002"/>
+  <testcase name="registrarTest2ErroRegistroCarro" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.003"/>
   <testcase name="registrarTestVehiculoYaIngreso" classname="com.ceiba.Parqueadero.classes.RegistroTest" time="0.001"/>
-  <system-out><![CDATA[Total Motos en el parqueadero: 1
-Total Carros en el parqueadero: 1
+  <system-out><![CDATA[Total de motos: 1
+Total de carros: 1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

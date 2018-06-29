@@ -81,10 +81,6 @@ public class Estacionamiento {
     }
 
     
-    @RequestMapping("/Eje")
-    public String ejemplo() {
-    	return "ejemplo";
-    }
     
     
 }

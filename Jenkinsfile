@@ -36,7 +36,7 @@ pipeline {
         stage('Integration Tests') {
             steps {
                 echo "------------>Integration Tests<------------"
-		sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
+		sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle integrationTest'
             }
         }
         stage('Static Code Analysis') {

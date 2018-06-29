@@ -58,7 +58,7 @@ public class VigilanteTest {
 	public void fechaIngresoAMoto() {
 		
 		// Arrange
-		String placa = "AHG44B";
+		String placa = "MMM22B";
 		String cilindraje = "125";
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);

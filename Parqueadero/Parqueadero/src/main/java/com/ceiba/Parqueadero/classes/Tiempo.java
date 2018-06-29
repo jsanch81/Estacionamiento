@@ -13,6 +13,10 @@ public class Tiempo {
 		date = Calendar.getInstance();
 	}
 	
+	public Tiempo(Calendar date) {
+		this.date = date;
+	}
+	
 	public int getDayWeek() {
 		return date.get(Calendar.DAY_OF_WEEK);
 	}

@@ -3,10 +3,13 @@ buildscript {
 		springBootVersion = '2.0.3.RELEASE'
 	}
 	repositories {
-		mavenCentral()
+		jcenter()
 	}
 	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath(
+		"org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}",
+		'org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.4.5'
+		)
 	}
 }
 
@@ -15,14 +18,19 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'jacoco'
-
+apply plugin: 'org.unbroken-dome.test-sets'
 
 group = 'com.ceiba'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+
 repositories {
 	mavenCentral()
+}
+
+testSets {
+     integrationTest { dirName = 'integration-test' }
 }
 
 
@@ -37,7 +45,9 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile("org.mockito:mockito-core:2.19.0")
+	testCompile('org.mockito:mockito-core:2.19.0')
+	testCompile('com.h2database:h2')
+	integrationTestCompile('org.assertj:assertj-core:3.0.0')
 }
 
 jar { 
@@ -46,6 +56,7 @@ jar {
 				   'Implementation-Version': version
 	}
 }
+
 
 test{
 	jacoco{
@@ -56,3 +67,7 @@ test{
 }
 
 jacocoTestReport.dependsOn(test)
+
+check.dependsOn integrationTest
+integrationTest.mustRunAfter test
+

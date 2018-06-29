@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.ceiba.Parqueadero.TRMC.TRMCTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-06-29T12:56:02" hostname="JOSE-SANCHEZ" time="0.899">
+  <properties/>
+  <testcase name="TRMCtest" classname="com.ceiba.Parqueadero.TRMC.TRMCTest" time="0.899"/>
+  <system-out><![CDATA[2945.09
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
