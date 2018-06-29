@@ -21,10 +21,10 @@
    <input [(ngModel)]="vehiculo.cilindraje" placeholder="cilindraje" value=""  name="cilindraje" class="form-control" id="cilindraje" required>
   </div>
 
-  <button type="" class="btn btn-success" (click)="registrarVehiculo()">Ingresar</button>
+  <button id="boton1" type="" class="btn btn-success" (click)="registrarVehiculo()">Ingresar</button>
 </form>
 <br>
-<div *ngIf="success" class="alert alert-success">
+<div id="success" *ngIf="success" class="alert alert-success">
       <strong>Success!</strong> {{registroExitoso}} 
 </div>
 <div *ngIf="falla" class="alert alert-danger">

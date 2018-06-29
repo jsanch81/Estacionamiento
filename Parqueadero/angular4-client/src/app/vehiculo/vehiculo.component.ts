@@ -16,13 +16,14 @@ export class VehiculoComponent implements OnInit{
    @Input() vehiculos: Vehiculo2[];
    totalPagar: any;
    show: boolean;
-
+   i: number;
     constructor(private modalService: NgbModal, private router: Router, private vehiculoService: VehiculoService){
 
     }
     
     
     ngOnInit() {
+        this.i = 1;
         this.vehiculoService.getVehiculos().subscribe( data => {
             this.vehiculos = data;
         });

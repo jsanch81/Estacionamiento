@@ -6,7 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 
 import com.ceiba.Parqueadero.classes.Tiempo;
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
@@ -20,7 +19,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
 
 import org.junit.Assert;
 import org.junit.Before;
