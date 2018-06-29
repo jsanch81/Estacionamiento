@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 
 import com.ceiba.Parqueadero.classes.Tiempo;
 import com.ceiba.Parqueadero.crud.VehiculoCRUD;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -37,6 +39,8 @@ public class VehiculoCRUDTest {
 	
 	@Mock
 	private Tiempo tiempo;
+	
+	
 	
 	@Before
 	public void initMocks() {
@@ -132,9 +136,10 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
 		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
 		
@@ -151,7 +156,7 @@ public class VehiculoCRUDTest {
 		String placa = "EHG44B";
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
 		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
 		
@@ -166,9 +171,10 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("false");
 		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
 		
@@ -181,11 +187,11 @@ public class VehiculoCRUDTest {
 	public void findVehiculo() {		
 		//Arrange
 		String placa = "EHG44B";
-		
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		VehiculoModel resultado = vehiculoCRUD.findVehiculo(placa);
-		
+		System.out.println(resultado);
 		//Assert
 		Assert.assertNotNull(resultado);
 	}
@@ -197,7 +203,7 @@ public class VehiculoCRUDTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
 		VehiculoModel resultado = vehiculoCRUD.findVehiculo(placa);
 		System.out.println(resultado);
 		
@@ -211,9 +217,10 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		Calendar calendar = Calendar.getInstance();
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
@@ -231,7 +238,7 @@ public class VehiculoCRUDTest {
 		Calendar calendar = Calendar.getInstance();
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
@@ -247,9 +254,10 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		Calendar calendar = Calendar.getInstance();
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenThrow(NullPointerException.class);
@@ -264,9 +272,10 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
 		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
 		
@@ -280,9 +289,10 @@ public class VehiculoCRUDTest {
 		//Arrange
 		String placa = "EHG44B";
 		vehiculoCRUD.setVehiculoModel(vehiculoModel);
+		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenThrow(NullPointerException.class);
 		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
 		
@@ -298,7 +308,7 @@ public class VehiculoCRUDTest {
 		vehiculoCRUD.setVehiculoModel(vehiculoModel);
 
 		//Act
-		Mockito.when(parqueaderoRepository.getOne(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
+		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(EntityNotFoundException.class);
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
 		boolean resultado = vehiculoCRUD.updateSalidaVehiculo(placa);
 		
