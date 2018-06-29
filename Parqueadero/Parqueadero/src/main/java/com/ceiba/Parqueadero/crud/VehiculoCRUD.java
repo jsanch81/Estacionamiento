@@ -25,7 +25,7 @@ public class VehiculoCRUD {
 	private List<Vehiculos> listIntoVehiculos;
 
 	private Vehiculos vehiculos;
-	
+
 	private List<VehiculoModel> listVehiculos;
 	
 	/**
@@ -68,7 +68,7 @@ public class VehiculoCRUD {
 	 */
 	public boolean validateVehiculo(String placa) {
 		try {
-			vehiculoModel = parqueaderoRepository.getOne(placa);
+			vehiculoModel = parqueaderoRepository.findById(placa).get();
 			return vehiculoModel.getEstado().equals("true");
 		}catch(Exception e) {
 			return false;
@@ -83,7 +83,7 @@ public class VehiculoCRUD {
 	 */
 	public VehiculoModel findVehiculo(String placa) {
 		try {
-			return parqueaderoRepository.getOne(placa);
+			return parqueaderoRepository.findById(placa).get();
 		}catch(Exception e) {
 			return null;
 		}
@@ -96,7 +96,8 @@ public class VehiculoCRUD {
 	 */
 	public boolean updateVehiculo(String placa, Tiempo tiempo) {
 		try {
-			vehiculoModel = parqueaderoRepository.getOne(placa);
+			
+			vehiculoModel = parqueaderoRepository.findById(placa).get();
 			vehiculoModel.setEstado("true");
 			vehiculoModel.setFechaIngreso(tiempo.getDate());
 			vehiculoModel.setIngresoTimestamp(tiempo.getTimestamp());
@@ -111,7 +112,7 @@ public class VehiculoCRUD {
 	public boolean updateSalidaVehiculo(String placa) {
 		
 		try {
-			vehiculoModel = parqueaderoRepository.getOne(placa);
+			vehiculoModel = parqueaderoRepository.findById(placa).get();
 			vehiculoModel.setEstado("false");
 			parqueaderoRepository.save(vehiculoModel);
 			return true;

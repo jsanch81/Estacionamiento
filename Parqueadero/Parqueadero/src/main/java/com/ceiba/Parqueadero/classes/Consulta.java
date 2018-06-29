@@ -16,7 +16,12 @@ public class Consulta {
 	@Autowired
 	private VehiculoCRUD vehiculoCRUD;
 		
-	
+	/**
+	 * 
+	 * @param placa
+	 * @param tiempo
+	 * @return
+	 */
 	public Vehiculos genConsulta(String placa, Tiempo tiempo) {
 		if(!vehiculoCRUD.findIntoParking(placa)) return null;
 		VehiculoModel vehiculoModel = vehiculoCRUD.findVehiculo(placa);
@@ -25,6 +30,11 @@ public class Consulta {
 		return new Vehiculos(vehiculoModel.getPlaca(),date, vehiculoModel.getTipo());
 	}
 	
+	/**
+	 * 
+	 * @param tiempo
+	 * @return
+	 */
 	public List<Vehiculos> consultarVehiculosEnElParqueadero(Tiempo tiempo){
 		 return vehiculoCRUD.vehiculosIntoParking(tiempo);
 	}

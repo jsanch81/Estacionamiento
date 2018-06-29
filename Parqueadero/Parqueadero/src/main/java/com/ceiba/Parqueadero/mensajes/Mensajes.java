@@ -7,6 +7,7 @@ public class Mensajes {
 		super();
 		this.mensaje = mensaje;
 	}
+	
 	public Mensajes() {
 		
 	}
