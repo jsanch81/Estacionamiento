@@ -22,7 +22,7 @@ public class FunctionalTest {
 		if(sSistemaOperativo.indexOf("Windows")>=0) {
 			System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
 		}else {
-			System.setProperty("webdriver.chrome.driver","/opt/Jenkins/workspace/CeibaInduccion/Ceiba-Estacionamiento(jose.sanchez)/Parqueadero/Parqueadero/Driver/chromedriver");
+			System.setProperty("webdriver.chrome.driver","\\opt\\Jenkins\\workspace\\CeibaInduccion\\Ceiba-Estacionamiento(jose.sanchez)\\Parqueadero\\Parqueadero\\Driver\\chromedriver");
 		}
 		
 		ChromeOptions options = new ChromeOptions();
