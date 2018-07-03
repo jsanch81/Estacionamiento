@@ -8,19 +8,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 public class FunctionalTest {
 
 	private static WebDriver driver = null;
-/*	
 	
 	@BeforeClass
 	public static void inicializarDriver() {
 		
-		System.setProperty("webdriver.chrome.driver","\\Estacionamiento\\Parqueadero\\Parqueadero\\Driver\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver","\\Estacionamiento\\Parqueadero\\Parqueadero\\Driver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
 		
-		driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 	}
 	
 	@AfterClass
@@ -32,7 +35,7 @@ public class FunctionalTest {
 	public void ComprobarRegistroDeVehiculo() throws InterruptedException {
 		
 		//Arrange
-		driver.get("http://localhost:4200/");
+		driver.get("http://localhost:8000/");
 		
 		WebElement placaElement = driver.findElement(By.id("placa"));
 		placaElement.sendKeys("MNZ784");
@@ -56,7 +59,7 @@ public class FunctionalTest {
 	@Test
 	public void consultar() throws InterruptedException {
 		//Arrange
-		driver.get("http://localhost:4200/");
+		driver.get("http://localhost:8000/");
 		
 		WebElement placaElement = driver.findElement(By.id("placa2"));
 		placaElement.sendKeys("MNZ784");
@@ -72,5 +75,5 @@ public class FunctionalTest {
 		
 		//Assert
 		Assert.assertEquals("MNZ784", resultado);
-	}*/
+	}
 }
