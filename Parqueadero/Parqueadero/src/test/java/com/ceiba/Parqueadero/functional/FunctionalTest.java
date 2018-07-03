@@ -22,7 +22,7 @@ public class FunctionalTest {
 		if(sSistemaOperativo.indexOf("Windows")>=0) {
 			System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
 		}else {
-			System.setProperty("webdriver.chrome.driver","Driver\\chromedriver");
+			System.setProperty("webdriver.chrome.driver","Driver/chromedriver");
 		}
 		
 		ChromeOptions options = new ChromeOptions();

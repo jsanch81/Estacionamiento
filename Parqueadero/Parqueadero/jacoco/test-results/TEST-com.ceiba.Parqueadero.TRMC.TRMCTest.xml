@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.TRMC.TRMCTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-03T16:10:30" hostname="JOSE-SANCHEZ" time="1.324">
+<testsuite name="com.ceiba.Parqueadero.TRMC.TRMCTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-07-03T21:58:43" hostname="JOSE-SANCHEZ" time="0.949">
   <properties/>
-  <testcase name="TRMCtest" classname="com.ceiba.Parqueadero.TRMC.TRMCTest" time="1.324"/>
+  <testcase name="TRMCtest" classname="com.ceiba.Parqueadero.TRMC.TRMCTest" time="0.949"/>
   <system-out><![CDATA[2930.80
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

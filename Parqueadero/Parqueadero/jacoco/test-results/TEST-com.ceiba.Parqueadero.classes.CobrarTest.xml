@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.classes.CobrarTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-07-03T16:10:29" hostname="JOSE-SANCHEZ" time="0.935">
+<testsuite name="com.ceiba.Parqueadero.classes.CobrarTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-07-03T21:58:32" hostname="JOSE-SANCHEZ" time="1.212">
   <properties/>
-  <testcase name="generarCobroTestCarro" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.931"/>
-  <testcase name="generarCobroTestMoto2" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.002"/>
-  <testcase name="generarCobroTestCarro2" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.001"/>
-  <testcase name="generarCobroTestMoto" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.001"/>
+  <testcase name="generarCobroTestCarro" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="1.204"/>
+  <testcase name="generarCobroTestMoto2" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.003"/>
+  <testcase name="generarCobroTestCarro2" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.002"/>
+  <testcase name="generarCobroTestMoto" classname="com.ceiba.Parqueadero.classes.CobrarTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
