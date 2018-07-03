@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2018-06-29T12:56:02" hostname="JOSE-SANCHEZ" time="0.162">
+<testsuite name="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2018-07-03T16:10:30" hostname="JOSE-SANCHEZ" time="0.141">
   <properties/>
-  <testcase name="validateVehiculoError" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.133"/>
+  <testcase name="validateVehiculoError" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.112"/>
   <testcase name="findVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
   <testcase name="updateSalidaVehiculoTestErrorEntity" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
   <testcase name="validateNotVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
@@ -9,18 +9,19 @@
   <testcase name="findNotIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
   <testcase name="numCarsInParkingTestMoto" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
   <testcase name="NotFindVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
-  <testcase name="updateSalidaVehiculoTestErrorNull" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
-  <testcase name="vehiculosIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
+  <testcase name="updateSalidaVehiculoTestErrorNull" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="vehiculosIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
   <testcase name="updateVehiculoTestErrorNull" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
-  <testcase name="updateVehiculoTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="updateVehiculoTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
   <testcase name="numCarsInParkingTestCarro" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
   <testcase name="validateVehiculo" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
   <testcase name="updateVehiculoTestErrorGetOne" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
-  <testcase name="testNotSave" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
-  <testcase name="findIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.002"/>
+  <testcase name="testNotSave" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.003"/>
+  <testcase name="findIntoParkingTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
   <testcase name="updateSalidaVehiculoTest" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
   <testcase name="findIntoParkingTestError" classname="com.ceiba.Parqueadero.crud.VehiculoCRUDTest" time="0.001"/>
-  <system-out><![CDATA[null
+  <system-out><![CDATA[vehiculoModel
+null
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

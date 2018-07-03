@@ -1,6 +1,0 @@
-{
-  "/entrada": {
-    "target": "http://localhost:8000/entrada",
-    "secure": false
-  }
-}

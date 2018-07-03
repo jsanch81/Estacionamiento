@@ -1,0 +1,64 @@
+
+
+<style>
+
+  #table-scroll {
+    overflow-y: auto;
+    height: 300px;
+  }
+  #table-wrapper table {
+    width:100%;
+  }
+
+  .tamanoFilter{
+      width: 50%;
+  }
+
+  .divcenter{
+      float: left;
+      width: 49%;
+  }
+</style>
+<div class="divcenter">
+    <h2> Detalle de vehiculos</h2>
+    <div class="tamanoFilter">
+            <input [(ngModel)]="filter" placeholder="filtrar por placa" value=""  name="filter" class="form-control" id="filter" required>        
+    </div>
+    <br>
+       <div id="table-wrapper">
+        <div id="table-scroll">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                    <th class="hidden">placa</th>
+                    <th>placa</th>
+                    <th>fecha de ingreso</th>
+                    <th>tipo de vehiculo</th>
+                    <th>Generar salida</th>
+        
+                </tr>
+            </thead>
+                <tbody>
+                    <tr *ngFor="let vehiculo of vehiculos | myfilter:filter">
+                                    <!-- [class.selected]="vehiculo === selectedVehiculo" -->
+                        <td class="hidden"></td>
+                        <td>{{vehiculo.placa}}</td>
+                        <td>{{vehiculo.fechaIngreso}}</td>
+                        <td>{{vehiculo.tipo}}</td>
+                        <td><button id="{{vehiculo.placa}}" class="btn btn-danger" (click)="sacarVehiculo(vehiculo)" data-toggle="modal" data-target="#myModal"> Sacar Vehiculo</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="center-xs">
+            <kendo-popup [anchor]="anchor" [popupClass]="'content popup'" *ngIf="show">
+                <h1 id="Total">Total a pagar: ${{totalPagar}}</h1>
+                <button #anchor (click)="onToggle()" class="btn btn-danger">Cerrar</button>
+            </kendo-popup>
+    </div>
+</div>
+    <app-consulta-vwhiculo></app-consulta-vwhiculo>
+
+

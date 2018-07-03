@@ -1,0 +1,34 @@
+
+<style>
+  .registro{
+    float: left;
+    width: 20%;
+    border-right-width: 2px;
+    border-right-color: black;
+  }
+</style>
+<div class="col-md-6 registro">
+  <h2 class="text-center">Registrar vehiculo</h2>
+<form>
+  
+  <div class="form-group">
+    <label for="placa">Placa:</label>
+    <input [(ngModel)]="vehiculo.placa" pattern="[A-Za-z]{3}[0-9]{3}" required placeholder="placa" name="placa" value="algo" class="form-control" id="placa" >
+  </div>
+
+  <div class="form-group">
+    <label for="cilindraje">Cilindraje(En caso de ser motocicleta):</label>
+   <input [(ngModel)]="vehiculo.cilindraje" placeholder="cilindraje" value=""  name="cilindraje" class="form-control" id="cilindraje" required>
+  </div>
+
+  <button id="boton1" type="" class="btn btn-success" (click)="registrarVehiculo()">Ingresar</button>
+</form>
+<br>
+<div id="success" *ngIf="success" class="alert alert-success">
+      <strong>Success!</strong> {{registroExitoso}} 
+</div>
+<div *ngIf="falla" class="alert alert-danger">
+    <strong>Error!</strong> {{registroFallido}} 
+</div>
+</div>
+<app-list-vehiculos [vehiculos]="vehiculos"></app-list-vehiculos>
