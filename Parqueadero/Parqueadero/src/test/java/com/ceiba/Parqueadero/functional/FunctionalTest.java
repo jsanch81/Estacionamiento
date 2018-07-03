@@ -18,12 +18,17 @@ public class FunctionalTest {
 	@BeforeClass
 	public static void inicializarDriver() {
 		
-		//System.setProperty("webdriver.chrome.driver","\\Estacionamiento\\Parqueadero\\Parqueadero\\Driver\\chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
+		String sSistemaOperativo = System.getProperty("os.name");
+		if(sSistemaOperativo.indexOf("Windows")>=0) {
+			System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
+		}else {
+			System.setProperty("webdriver.chrome.driver","Driver\\chromedriver");
+		}
 		
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		driver = new ChromeDriver(options);
+
 	}
 	
 	@AfterClass
