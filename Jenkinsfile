@@ -33,7 +33,7 @@ pipeline {
 	      sh 'pwd'
 	      sh 'ls Parqueadero/Parqueadero/Driver/'
 	      echo "cat -------------------------------------------------------------------------------------------------------------------------------------------"
-	      sh 'cat Parqueadero/Parqueadero/build/reports/tests/test/index.html'
+	      sh 'cat Parqueadero/Parqueadero/build/reports/tests/test/classes/com.ceiba.Parqueadero.functional.FunctionalTest.html'
 	      echo "------------>Unit Tests<------------"
 	      
 	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
