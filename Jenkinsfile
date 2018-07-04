@@ -32,7 +32,7 @@ pipeline {
 	stage('Compile') {
 	     steps{
 		echo "------------>Compile<------------"
-		sh 'gradle --b ./build.gradle compileJava'
+		sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle compileJava'
 	     }
 	}
 
