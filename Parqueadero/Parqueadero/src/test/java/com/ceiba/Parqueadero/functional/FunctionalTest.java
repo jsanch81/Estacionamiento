@@ -33,7 +33,7 @@ public class FunctionalTest {
 			File file = new File("Driver/chromedriver.exe");
 			String path = file.getAbsolutePath();
 			System.out.println(path);
-			System.setProperty("webdriver.chrome.driver","/opt/Jenkins/workspace/CeibaInduccion/Ceiba-Estacionamiento(jose.sanchez)/Parqueadero/Parqueadero/Driver/chromedriver");
+			System.setProperty("webdriver.chrome.driver","../../../../../../../Driver/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			driver = new ChromeDriver(options);

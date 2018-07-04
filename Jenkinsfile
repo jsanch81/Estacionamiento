@@ -29,8 +29,11 @@ pipeline {
         }
         stage('Unit Tests') {
             steps{
+	      echo "path -----------------------------------------------------------------------------------------------------------------------------------------"
+	      sh 'pwd'
               echo "------------>Unit Tests<------------"
-	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test --stacktrace --debug'
+	      
+	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
             }
         }
         stage('Integration Tests') {
