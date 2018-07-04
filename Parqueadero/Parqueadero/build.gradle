@@ -33,6 +33,7 @@ repositories {
 
 testSets {
      integrationTest { dirName = 'integration-test' }
+     functionalTest { dirName = 'functional-test' }
 }
 
 
