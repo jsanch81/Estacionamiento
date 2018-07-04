@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.classes.ConsultaTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-07-03T21:58:33" hostname="JOSE-SANCHEZ" time="0.186">
+<testsuite name="com.ceiba.Parqueadero.classes.ConsultaTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-07-04T15:28:33" hostname="JOSE-SANCHEZ" time="0.155">
   <properties/>
-  <testcase name="ListVehiculos" classname="com.ceiba.Parqueadero.classes.ConsultaTest" time="0.181"/>
-  <testcase name="genConsultaTestError" classname="com.ceiba.Parqueadero.classes.ConsultaTest" time="0.002"/>
+  <testcase name="ListVehiculos" classname="com.ceiba.Parqueadero.classes.ConsultaTest" time="0.151"/>
+  <testcase name="genConsultaTestError" classname="com.ceiba.Parqueadero.classes.ConsultaTest" time="0.001"/>
   <testcase name="genConsultaTest" classname="com.ceiba.Parqueadero.classes.ConsultaTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.ceiba.Parqueadero.classes.VigilanteTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-07-03T21:58:33" hostname="JOSE-SANCHEZ" time="0.032">
+<testsuite name="com.ceiba.Parqueadero.classes.VigilanteTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-07-04T15:28:33" hostname="JOSE-SANCHEZ" time="0.027">
   <properties/>
-  <testcase name="fechaNoIngresoACarro" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.023"/>
+  <testcase name="fechaNoIngresoACarro" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.019"/>
   <testcase name="registroVigilanteMoto" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
   <testcase name="fechaNoIngresoAMoto" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
   <testcase name="fechaIngresoAMoto" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
-  <testcase name="fechaIngresoA2Moto" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.002"/>
+  <testcase name="fechaIngresoA2Moto" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
   <testcase name="fechaIngresoACarro" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
   <testcase name="registroVigilanteCarro" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
-  <testcase name="fechaIngresoA2Carro" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.002"/>
+  <testcase name="fechaIngresoA2Carro" classname="com.ceiba.Parqueadero.classes.VigilanteTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

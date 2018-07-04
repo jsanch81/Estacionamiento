@@ -1,6 +1,7 @@
 package com.ceiba.Parqueadero.functional;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -26,20 +27,17 @@ public class FunctionalTest {
 			String path = file.getAbsolutePath();
 			System.setProperty("webdriver.chrome.driver",path);
 			System.out.println(path);
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");
-			driver = new ChromeDriver(options);
+
 		}else {
 			File file = new File("Driver/chromedriver.exe");
 			String path = file.getAbsolutePath();
 			System.out.println(path);
 			System.setProperty("webdriver.chrome.driver","Driver/chromedriver");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--headless");
-			driver = new ChromeDriver(options);
 		}
 		
-
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		driver = new ChromeDriver(options);
 
 	}
 	
@@ -52,7 +50,9 @@ public class FunctionalTest {
 	public void ComprobarRegistroDeVehiculo() throws InterruptedException {
 		
 		//Arrange
-		driver.get("http://localhost:8000/");
+		Thread.sleep(5000);
+
+		driver.get("http://localhost:8080/");
 		
 		WebElement placaElement = driver.findElement(By.id("placa"));
 		placaElement.sendKeys("MNZ784");
@@ -75,9 +75,13 @@ public class FunctionalTest {
 	
 	@Test
 	public void consultar() throws InterruptedException {
+		Thread.sleep(5000);
+
 		//Arrange
-		driver.get("http://localhost:8000/");
-		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+		driver.get("http://localhost:8080/");
+
 		WebElement placaElement = driver.findElement(By.id("placa2"));
 		placaElement.sendKeys("MNZ784");
 		
