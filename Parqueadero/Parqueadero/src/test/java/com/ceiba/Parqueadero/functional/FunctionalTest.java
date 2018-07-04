@@ -22,7 +22,7 @@ public class FunctionalTest {
 		
 		String sSistemaOperativo = System.getProperty("os.name");
 		if(sSistemaOperativo.indexOf("Windows")>=0) {
-			File file = new File("Driver\\chromedriver.exe");
+			File file = new File("Driver/chromedriver.exe");
 			String path = file.getAbsolutePath();
 			System.setProperty("webdriver.chrome.driver",path);
 			System.out.println(path);
@@ -33,7 +33,7 @@ public class FunctionalTest {
 			File file = new File("Driver/chromedriver.exe");
 			String path = file.getAbsolutePath();
 			System.out.println(path);
-			System.setProperty("webdriver.chrome.driver","Driver/chromedriver");
+			System.setProperty("webdriver.chrome.driver","Parqueadero/Parqueadero/Driver/chromedriver");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--headless");
 			driver = new ChromeDriver(options);
