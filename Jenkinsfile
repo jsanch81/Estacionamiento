@@ -34,6 +34,10 @@ pipeline {
 	      sh 'ls Parqueadero/Parqueadero/Driver/'
 	      echo "cat -------------------------------------------------------------------------------------------------------------------------------------------"
 	      sh 'cat Parqueadero/Parqueadero/build/reports/tests/test/classes/com.ceiba.Parqueadero.functional.FunctionalTest.html'
+	      echo "permisos +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+	      sh 'chmod +x  Parqueadero/Parqueadero/Driver/chromedriver'
+	      sh 'ls -la Parqueadero/Parqueadero/Driver/'
+	      
 	      echo "------------>Unit Tests<------------"
 	      
 	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
