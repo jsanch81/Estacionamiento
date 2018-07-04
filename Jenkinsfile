@@ -31,10 +31,9 @@ pipeline {
             steps{
 	      echo "path -----------------------------------------------------------------------------------------------------------------------------------------"
 	      sh 'pwd'
-	      sh 'ls'
+	      sh 'ls Parqueadero/Parqueadero/Driver/'
 	      echo "cat -------------------------------------------------------------------------------------------------------------------------------------------"
-	      sh 'cat /opt/Jenkins/workspace/CeibaInduccion/Ceiba-Estacionamiento(jose.sanchez)/Parqueadero/Parqueadero/build/reports/tests/test/index.html'
-              echo "------------>Unit Tests<------------"
+	      echo "------------>Unit Tests<------------"
 	      
 	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
             }
