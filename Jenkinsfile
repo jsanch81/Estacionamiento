@@ -30,7 +30,7 @@ pipeline {
         stage('Unit Tests') {
             steps{
               echo "------------>Unit Tests<------------"
-	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test'
+	      sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle test --stacktrace --debug'
             }
         }
         stage('Integration Tests') {

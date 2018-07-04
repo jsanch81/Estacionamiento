@@ -26,16 +26,20 @@ public class FunctionalTest {
 			String path = file.getAbsolutePath();
 			System.setProperty("webdriver.chrome.driver",path);
 			System.out.println(path);
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			driver = new ChromeDriver(options);
 		}else {
 			File file = new File("Driver/chromedriver.exe");
 			String path = file.getAbsolutePath();
 			System.out.println(path);
-			System.setProperty("webdriver.chrome.driver",path);
+			System.setProperty("webdriver.chrome.driver","/opt/Jenkins/workspace/CeibaInduccion/Ceiba-Estacionamiento(jose.sanchez)/Parqueadero/Parqueadero/Driver/chromedriver");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--headless");
+			driver = new ChromeDriver(options);
 		}
 		
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		driver = new ChromeDriver(options);
+
 
 	}
 	
