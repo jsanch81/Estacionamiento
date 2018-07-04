@@ -17,7 +17,7 @@ export class VehiculoService {
 
   constructor(private http: HttpClient) {}
 
-  private userUrl = 'http://localhost:8000';
+  private userUrl = 'http://localhost:8080';
 
 
   public getVehiculos(){
