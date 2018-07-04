@@ -147,7 +147,8 @@ public class RegistroTest {
 		Assert.assertEquals("Error al guardar en la base de datos", resultado);
 	}
 	
-	public void registrarTestErroBaseDeDatos2() {
+	@Test
+	public void actualizarVehiculo() {
 		
 		//Arrage
 		String placa = "EHG441";
@@ -158,6 +159,33 @@ public class RegistroTest {
 		//Act
 		Mockito.when(carro.getPlaca()).thenReturn(placa);
 		Mockito.when(parqueadero.getTotalCars()).thenReturn((short) 1);
+		Mockito.when(parqueadero.hayCupoCarro()).thenReturn(true);
+		Mockito.doNothing().when(parqueadero).setTotalCars(Mockito.anyShort());
+		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);
+		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.validateVehiculo(Mockito.anyString())).thenReturn(false);
+		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
+		Mockito.when(vehiculoCRUD.updateVehiculo(Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(), Mockito.any(Tiempo.class))).thenReturn(true);
+		String resultado = registro.registrarCarro(parqueadero, carro, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Registro realizado", resultado);
+	}
+	
+	@Test
+	public void registrarTestErroBaseDeDatos2() {
+		
+		//Arrage
+		String placa = "EHG441";
+		short[] valor = new short[2];
+		valor[0] = 1;
+		valor [1] = 1;
+		
+		//Act
+		Mockito.when(carro.getPlaca()).thenReturn(placa);
+		Mockito.when(parqueadero.getTotalCars()).thenReturn((short) 0);
 		Mockito.when(parqueadero.hayCupoCarro()).thenReturn(true);
 		Mockito.doNothing().when(parqueadero).setTotalCars(Mockito.anyShort());
 		Mockito.when(vehiculoCRUD.numCarsInParking()).thenReturn(valor);

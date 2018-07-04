@@ -31,6 +31,9 @@ public class VigilanteTest {
 	@Mock
 	private Tiempo tiempo;
 	
+	@Mock
+	private CobroSalidaParqueadero cobro;
+	
 	@Before
 	public void initMocks() {
 		MockitoAnnotations.initMocks(this);
@@ -188,4 +191,38 @@ public class VigilanteTest {
 		//Assert
 		Assert.assertEquals("no puede ingresar porque no esta en un dia habil", resultado);
 	}
+	
+	@Test
+	public void cobrarTest() {
+		
+		// Arrange
+		String placa = "AHG44B";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		
+		//Act
+		Mockito.when(cobro.generarCobro(Mockito.anyString(), Mockito.any(Tiempo.class), Mockito.any(Parqueadero.class))).thenReturn(1000);
+		int resultado = vigilante.cobrar(new Parqueadero(), map, tiempo);
+		//Assert
+		Assert.assertEquals(1000, resultado);
+	}
+	
+	@Test
+	public void registroVigilanteNullPlaca() {
+		// Arrange
+		String placa = null;
+		String cilindraje = "125";
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		
+		//Act
+		Mockito.when(registro.registrarMoto(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
+		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
+		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		
+		//Assert
+		Assert.assertEquals("Debe de ingresar minimo la placa", resultado);
+	}
+	
 }
