@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.integracion.test;
+package com.ceiba.parqueadero.integracion.test;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -12,11 +12,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ceiba.Parqueadero.classes.Consulta;
-import com.ceiba.Parqueadero.classes.Parqueadero;
-import com.ceiba.Parqueadero.classes.Tiempo;
-import com.ceiba.Parqueadero.classes.Vigilante;
-import com.ceiba.Parqueadero.model.Vehiculos;
+import com.ceiba.parqueadero.classes.Consulta;
+import com.ceiba.parqueadero.classes.Parqueadero;
+import com.ceiba.parqueadero.classes.Tiempo;
+import com.ceiba.parqueadero.classes.Vigilante;
+import com.ceiba.parqueadero.model.Vehiculos;
 
 
 @RunWith(SpringRunner.class)

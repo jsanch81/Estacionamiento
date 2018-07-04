@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.classes;
+package com.ceiba.parqueadero.classes;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ceiba.Parqueadero.classes.Tiempo;
+import com.ceiba.parqueadero.classes.Tiempo;
 
 
 

@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.controller;
+package com.ceiba.parqueadero.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.Parqueadero.classes.Consulta;
-import com.ceiba.Parqueadero.classes.Parqueadero;
-import com.ceiba.Parqueadero.classes.Tiempo;
-import com.ceiba.Parqueadero.classes.Vigilante;
-import com.ceiba.Parqueadero.mensajes.Mensajes;
-import com.ceiba.Parqueadero.model.Vehiculos;
+import com.ceiba.parqueadero.classes.Consulta;
+import com.ceiba.parqueadero.classes.Parqueadero;
+import com.ceiba.parqueadero.classes.Tiempo;
+import com.ceiba.parqueadero.classes.Vigilante;
+import com.ceiba.parqueadero.mensajes.Mensajes;
+import com.ceiba.parqueadero.model.Vehiculos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

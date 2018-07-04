@@ -1,12 +1,12 @@
-package com.ceiba.Parqueadero.controller;
+package com.ceiba.parqueadero.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.Parqueadero.TRMC.TCRM;
-import com.ceiba.Parqueadero.model.TCRMModel;
+import com.ceiba.parqueadero.model.TCRMModel;
+import com.ceiba.parqueadero.tcrm.TCRM;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")

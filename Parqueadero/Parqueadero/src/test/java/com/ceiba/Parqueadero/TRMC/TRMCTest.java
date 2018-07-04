@@ -1,5 +1,7 @@
-package com.ceiba.Parqueadero.TRMC;
+package com.ceiba.parqueadero.TRMC;
 import org.junit.Test;
+
+import com.ceiba.parqueadero.tcrm.TCRM;
 
 import org.junit.Assert;
 

@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.classes;
+package com.ceiba.parqueadero.classes;
 
 
 
@@ -14,11 +14,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.ceiba.Parqueadero.classes.Consulta;
-import com.ceiba.Parqueadero.classes.Tiempo;
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
-import com.ceiba.Parqueadero.model.VehiculoModel;
-import com.ceiba.Parqueadero.model.Vehiculos;
+import com.ceiba.parqueadero.classes.Consulta;
+import com.ceiba.parqueadero.classes.Tiempo;
+import com.ceiba.parqueadero.crud.VehiculoCRUD;
+import com.ceiba.parqueadero.model.VehiculoModel;
+import com.ceiba.parqueadero.model.Vehiculos;
 
 
 

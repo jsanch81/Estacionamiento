@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.TRMC;
+package com.ceiba.parqueadero.tcrm;
 
 import java.rmi.RemoteException;
 import java.text.DecimalFormat;

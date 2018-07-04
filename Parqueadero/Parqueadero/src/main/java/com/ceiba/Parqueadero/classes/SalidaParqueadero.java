@@ -1,9 +1,9 @@
-package com.ceiba.Parqueadero.classes;
+package com.ceiba.parqueadero.classes;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
+import com.ceiba.parqueadero.crud.VehiculoCRUD;
 
 @Service
 public class SalidaParqueadero {

@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero;
+package com.ceiba.parqueadero;
 
 import java.rmi.RemoteException;
 import java.text.ParseException;

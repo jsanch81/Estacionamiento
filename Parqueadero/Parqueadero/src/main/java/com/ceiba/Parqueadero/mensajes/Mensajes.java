@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.mensajes;
+package com.ceiba.parqueadero.mensajes;
 
 public class Mensajes {
 	private String mensaje;

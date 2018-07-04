@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.classes;
+package com.ceiba.parqueadero.classes;
 
 import java.util.Date;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
-import com.ceiba.Parqueadero.model.VehiculoModel;
-import com.ceiba.Parqueadero.model.Vehiculos;
+import com.ceiba.parqueadero.crud.VehiculoCRUD;
+import com.ceiba.parqueadero.model.VehiculoModel;
+import com.ceiba.parqueadero.model.Vehiculos;
 
 @Service
 public class Consulta {

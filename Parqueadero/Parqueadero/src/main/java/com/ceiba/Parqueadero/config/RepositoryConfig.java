@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.config;
+package com.ceiba.parqueadero.config;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;

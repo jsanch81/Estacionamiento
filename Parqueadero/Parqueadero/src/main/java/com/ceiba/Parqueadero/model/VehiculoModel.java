@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.model;
+package com.ceiba.parqueadero.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.CreatedDate;

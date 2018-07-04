@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.classes;
+package com.ceiba.parqueadero.classes;
 
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -6,10 +6,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.ceiba.Parqueadero.classes.Parqueadero;
-import com.ceiba.Parqueadero.classes.SalidaParqueadero;
-import com.ceiba.Parqueadero.crud.VehiculoCRUD;
-import com.ceiba.Parqueadero.model.VehiculoModel;
+import com.ceiba.parqueadero.classes.Parqueadero;
+import com.ceiba.parqueadero.classes.SalidaParqueadero;
+import com.ceiba.parqueadero.crud.VehiculoCRUD;
+import com.ceiba.parqueadero.model.VehiculoModel;
 
 import java.util.Calendar;
 

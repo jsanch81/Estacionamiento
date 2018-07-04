@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.classes;
+package com.ceiba.parqueadero.classes;
 
 import java.util.Calendar;
 
@@ -10,10 +10,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.ceiba.Parqueadero.classes.CobroSalidaParqueadero;
-import com.ceiba.Parqueadero.classes.Parqueadero;
-import com.ceiba.Parqueadero.classes.SalidaParqueadero;
-import com.ceiba.Parqueadero.classes.Tiempo;
+import com.ceiba.parqueadero.classes.CobroSalidaParqueadero;
+import com.ceiba.parqueadero.classes.Parqueadero;
+import com.ceiba.parqueadero.classes.SalidaParqueadero;
+import com.ceiba.parqueadero.classes.Tiempo;
 
 public class CobrarTest {
 

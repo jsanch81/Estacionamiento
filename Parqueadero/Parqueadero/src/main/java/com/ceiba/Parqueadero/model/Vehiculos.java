@@ -1,4 +1,4 @@
-package com.ceiba.Parqueadero.model;
+package com.ceiba.parqueadero.model;
 
 
 public class Vehiculos {
