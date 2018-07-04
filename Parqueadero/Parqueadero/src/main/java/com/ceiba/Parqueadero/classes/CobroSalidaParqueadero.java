@@ -10,12 +10,12 @@ public class CobroSalidaParqueadero {
 	@Autowired
 	private SalidaParqueadero salida;
 	
-	private final int valorHoraCarro = 1000;
-	private final int valorDiaCarro = 8000;
-	private final int valorHoraMoto = 500;
-	private final int valotDiaMoto = 4000;
-	private final int MotosAltoCilindraje = 2000;
-	private final String carro = "carro";
+	private static final int valorHoraCarro = 1000;
+	private static final int valorDiaCarro = 8000;
+	private static final int valorHoraMoto = 500;
+	private static final int valotDiaMoto = 4000;
+	private static final int MotosAltoCilindraje = 2000;
+	private static final String carro = "carro";
 	/**
 	 * 
 	 * @param placa

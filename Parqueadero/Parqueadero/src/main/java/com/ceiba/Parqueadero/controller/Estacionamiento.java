@@ -35,7 +35,6 @@ public class Estacionamiento {
 	
 	private Parqueadero parqueadero;
 	
-	private Mensajes mensaje;
 	
 	private static final String EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO = "El vehiculo no esta en el parqueadero"; 
 	private static final String ERROR_AL_GENERAR_LA_SALIDA_EN_LA_BASE_DE_DATOS = "Error al generar la salida de la base de datos";
@@ -53,7 +52,7 @@ public class Estacionamiento {
     @ResponseBody @RequestMapping(value = "/entrada", method = RequestMethod.POST)
     public Mensajes entrada(@RequestBody Map<String,String> map){
     	tiempo = new Tiempo();
-        mensaje = new Mensajes(vigilante.registrar(this.parqueadero, map,tiempo));
+    	Mensajes mensaje = new Mensajes(vigilante.registrar(this.parqueadero, map,tiempo));
     	return mensaje;
     }
     

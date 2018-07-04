@@ -17,7 +17,7 @@ public class Vigilante {
 	
 	@Autowired
 	
-	private static final String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no está en un dia hábil";
+	private static final String NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL = "no puede ingresar porque no esta en un dia habil";
 	private static final String DEBE_DE_INGRESAR_MINIMO_LA_PLACA = "Debe de ingresar minimo la placa";	
 
 	

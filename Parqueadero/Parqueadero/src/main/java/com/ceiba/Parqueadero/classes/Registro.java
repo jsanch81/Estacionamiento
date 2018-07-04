@@ -13,8 +13,8 @@ public class Registro {
 	private VehiculoCRUD vehiculoCRUD;
 	
 	private static final String NO_HAY_CUPO = "No hay cupo";
-	private final String CARRO = "carro";
-	private final String MOTO = "moto";
+	private static final String CARRO = "carro";
+	private static final String MOTO = "moto";
 	private static final String REGISTRO_REALIZADO = "Registro realizado";
 	private static final String ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS = "Error al guardar en la base de datos";
 	private static final String EL_VEHICULO_YA_INGRESO = "El vehiculo ya ingreso";
@@ -41,7 +41,6 @@ public class Registro {
 			}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 
 			parqueadero.setTotalCars((short)(parqueadero.getTotalCars()+1));
-			System.out.println("Total de carros: "+parqueadero.getTotalCars());
 
 			return REGISTRO_REALIZADO;
 			
@@ -67,7 +66,6 @@ public class Registro {
 		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje(), tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
 		
 		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
-		System.out.println("Total de motos: "+parqueadero.getTotalMotorbikes());
 
 		return REGISTRO_REALIZADO;
 	}

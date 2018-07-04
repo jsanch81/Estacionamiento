@@ -12,8 +12,7 @@ public class Vehiculo {
 		return this.placa;
 	}
 
-	public boolean findIntoParking(String placa2) {
-		// TODO Auto-generated method stub
+	public boolean findIntoParking() {
 		return false;
 	}
 	
