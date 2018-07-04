@@ -109,7 +109,7 @@ public class VigilanteTest {
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
 		//Assert
-		Assert.assertEquals("no puede ingresar porque no está en un dia hábil", resultado);
+		Assert.assertEquals("no puede ingresar porque no esta en un dia habil", resultado);
 	}
 	
 	@Test
@@ -186,6 +186,6 @@ public class VigilanteTest {
 		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
 		
 		//Assert
-		Assert.assertEquals("no puede ingresar porque no está en un dia hábil", resultado);
+		Assert.assertEquals("no puede ingresar porque no esta en un dia habil", resultado);
 	}
 }
