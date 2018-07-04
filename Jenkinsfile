@@ -31,6 +31,8 @@ pipeline {
             steps{
 	      echo "path -----------------------------------------------------------------------------------------------------------------------------------------"
 	      sh 'pwd'
+	      sh 'ls'
+	      echo "cat -------------------------------------------------------------------------------------------------------------------------------------------"
 	      sh 'cat /opt/Jenkins/workspace/CeibaInduccion/Ceiba-Estacionamiento(jose.sanchez)/Parqueadero/Parqueadero/build/reports/tests/test/index.html'
               echo "------------>Unit Tests<------------"
 	      
