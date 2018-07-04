@@ -1,5 +1,7 @@
 package com.ceiba.Parqueadero.functional;
 
+import java.io.File;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -20,9 +22,15 @@ public class FunctionalTest {
 		
 		String sSistemaOperativo = System.getProperty("os.name");
 		if(sSistemaOperativo.indexOf("Windows")>=0) {
-			System.setProperty("webdriver.chrome.driver","Driver\\chromedriver.exe");
+			File file = new File("Driver\\chromedriver.exe");
+			String path = file.getAbsolutePath();
+			System.setProperty("webdriver.chrome.driver",path);
+			System.out.println(path);
 		}else {
-			System.setProperty("webdriver.chrome.driver","\\opt\\Jenkins\\workspace\\CeibaInduccion\\Ceiba-Estacionamiento(jose.sanchez)\\Parqueadero\\Parqueadero\\Driver\\chromedriver");
+			File file = new File("Driver/chromedriver.exe");
+			String path = file.getAbsolutePath();
+			System.out.println(path);
+			System.setProperty("webdriver.chrome.driver",path);
 		}
 		
 		ChromeOptions options = new ChromeOptions();
