@@ -30,12 +30,6 @@ pipeline {
         stage('Unit Tests') {
             steps{
 	      echo "path -----------------------------------------------------------------------------------------------------------------------------------------"
-	      sh 'pwd'
-	      sh 'ls Parqueadero/Parqueadero/Driver/'
-	      echo "cat -------------------------------------------------------------------------------------------------------------------------------------------"
-	      sh 'cat Parqueadero/Parqueadero/build/reports/tests/test/classes/com.ceiba.Parqueadero.functional.FunctionalTest.html'
-	      echo "permisos +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-	      sh 'chmod +x  Parqueadero/Parqueadero/Driver/chromedriver'
 	      sh 'ls -la Parqueadero/Parqueadero/Driver/'
 	      
 	      echo "------------>Unit Tests<------------"
@@ -49,6 +43,15 @@ pipeline {
 		sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle integrationTest'
             }
         }
+
+        stage('Functional Tests') {
+            steps {
+                echo "------------>Functional Tests<------------"
+		sh 'chmod +x  Parqueadero/Parqueadero/Driver/chromedriver'
+                sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle functionalTest'
+            }
+        }
+
         stage('Static Code Analysis') {
             steps{
                 echo '------------>Análisis de código estático<------------'
