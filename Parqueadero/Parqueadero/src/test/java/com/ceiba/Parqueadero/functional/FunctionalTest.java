@@ -1,7 +1,6 @@
 package com.ceiba.Parqueadero.functional;
 
 import java.io.File;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -50,10 +49,11 @@ public class FunctionalTest {
 	public void ComprobarRegistroDeVehiculo() throws InterruptedException {
 		
 		//Arrange
-		Thread.sleep(5000);
 
 		driver.get("http://localhost:8080/");
 		
+		Thread.sleep(10000);
+
 		WebElement placaElement = driver.findElement(By.id("placa"));
 		placaElement.sendKeys("MNZ784");
 		//Act
@@ -75,12 +75,11 @@ public class FunctionalTest {
 	
 	@Test
 	public void consultar() throws InterruptedException {
-		Thread.sleep(5000);
 
 		//Arrange
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 		driver.get("http://localhost:8080/");
+		Thread.sleep(10000);
 
 		WebElement placaElement = driver.findElement(By.id("placa2"));
 		placaElement.sendKeys("MNZ784");
