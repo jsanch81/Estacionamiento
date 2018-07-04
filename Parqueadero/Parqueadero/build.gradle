@@ -120,3 +120,6 @@ jacocoTestReport.dependsOn(test)
 
 check.dependsOn integrationTest
 integrationTest.mustRunAfter test
+
+check.dependsOn functionalTest
+functionalTest.mustRunAfter integrationTest

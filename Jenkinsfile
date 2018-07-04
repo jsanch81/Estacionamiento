@@ -27,7 +27,16 @@ pipeline {
 		'https://github.com/jsanch81/Estacionamiento.git']]])
             }
         }
-        stage('Unit Tests') {
+
+	
+	stage('Compile') {
+	     steps{
+		echo "------------>Compile<------------"
+		sh 'gradle --b ./build.gradle compileJava'
+	     }
+	}
+
+	stage('Unit Tests') {
             steps{
 	      echo "path -----------------------------------------------------------------------------------------------------------------------------------------"
 	      sh 'ls -la Parqueadero/Parqueadero/Driver/'
