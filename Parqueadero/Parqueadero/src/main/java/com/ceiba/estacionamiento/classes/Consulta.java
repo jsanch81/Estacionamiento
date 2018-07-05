@@ -23,7 +23,10 @@ public class Consulta {
 	 * @return
 	 */
 	public Vehiculos genConsulta(String placa, Tiempo tiempo) {
-		if(!vehiculoCRUD.findIntoParking(placa)) return null;
+		if(!vehiculoCRUD.findIntoParking(placa)) { 
+			return null;
+		}
+		
 		VehiculoModel vehiculoModel = vehiculoCRUD.findVehiculo(placa);
 		Date ejemplo = vehiculoModel.getFechaIngreso();
 		String date = tiempo.dateToString(ejemplo);

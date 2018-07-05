@@ -20,7 +20,7 @@ public class TCRMController {
 	public TCRMModel tCRMValue() {
 		
 		try {
-			return new TCRMModel(tCRM.getTRMC());
+			return new TCRMModel(tCRM.getTcrm());
 		}catch(Exception e) {
 			return new TCRMModel(ERROR_AL_OBTENER_EL_TCRM);
 		}

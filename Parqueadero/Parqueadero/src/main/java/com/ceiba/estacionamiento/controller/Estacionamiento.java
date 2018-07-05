@@ -52,8 +52,7 @@ public class Estacionamiento {
     @ResponseBody @RequestMapping(value = "/entrada", method = RequestMethod.POST)
     public Mensajes entrada(@RequestBody Map<String,String> map){
     	tiempo = new Tiempo();
-    	Mensajes mensaje = new Mensajes(vigilante.registrar(this.parqueadero, map,tiempo));
-    	return mensaje;
+    	return  new Mensajes(vigilante.registrar(this.parqueadero, map,tiempo));
     }
     
     @ResponseBody @RequestMapping(value = "/salida", method = RequestMethod.POST)

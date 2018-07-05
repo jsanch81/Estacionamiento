@@ -47,7 +47,7 @@ public class VehiculoModel implements Serializable {
 	    private long ingresoTimestamp;
 		
 	    @Autowired
-	    public VehiculoModel() {};
+	    public VehiculoModel() {}
 	    
 	    public VehiculoModel(String placa, String tipo, short cilindraje){
 	    	this.placa = placa;

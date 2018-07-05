@@ -19,7 +19,7 @@ public class TCRM {
 	private static final  String WEB_SERVICE_URL = "https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService?WSDL";
 
 	
-	public String getTRMC() throws RemoteException, ParseException {
+	public String getTcrm() throws RemoteException, ParseException {
 		//
 		// Decimal value format declaration
 		DecimalFormat decimalFormat = new DecimalFormat(VALUE_QUERY_FORMAT);

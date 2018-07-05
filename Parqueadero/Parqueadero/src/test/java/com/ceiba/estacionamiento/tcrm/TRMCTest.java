@@ -15,7 +15,7 @@ public class TRMCTest {
 			
 		String resultado = "";
 		try {
-			resultado = tMRC.getTRMC();
+			resultado = tMRC.getTcrm();
 
 		}catch(Exception e) {
 			resultado = "ERROR";

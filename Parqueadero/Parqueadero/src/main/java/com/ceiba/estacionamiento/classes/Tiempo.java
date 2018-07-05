@@ -35,7 +35,6 @@ public class Tiempo {
 		dayHoursMils[0] = (int)(diferencia/86400000);
 		dayHoursMils[1]= (int) ((diferencia%86400000)/3600000);
 		dayHoursMils[2]= (int) ((diferencia%86400000)%3600000);
-		System.out.println("Dias: "+dayHoursMils[0]+" horas: "+dayHoursMils[1]+" mils: "+dayHoursMils[2]);
 		return dayHoursMils;
 	}
 	

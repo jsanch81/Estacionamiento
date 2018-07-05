@@ -28,17 +28,29 @@ public class Registro {
 	 */
 	public String registrarCarro(Parqueadero parqueadero, Carro carro, Tiempo tiempo) {
 		String placa = carro.getPlaca();
-		if(parqueadero.getTotalCars()==0 ) parqueadero.setTotalCars(vehiculoCRUD.numCarsInParking()[1]);
+		if(parqueadero.getTotalCars()==0 ) {
+			parqueadero.setTotalCars(vehiculoCRUD.numCarsInParking()[1]);
+		}
 
-		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) return EL_VEHICULO_YA_INGRESO;
+		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) { 
+			return EL_VEHICULO_YA_INGRESO;
+		}
 		
-			if(!parqueadero.hayCupoCarro()) return NO_HAY_CUPO;
-			short cilindrajeCarro = 0;
+		if(!parqueadero.hayCupoCarro()) {
+			return NO_HAY_CUPO;
+		}
+		short cilindrajeCarro = 0;
 			
-			if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-				if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(MOTO)) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_MOTO;
-				if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
-			}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
+			if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(MOTO)) { 
+				return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_MOTO;
+			}
+			if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) { 
+				return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+			}
+		}else if(!vehiculoCRUD.save(placa, CARRO, cilindrajeCarro, tiempo)) {
+			return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		}
 
 			parqueadero.setTotalCars((short)(parqueadero.getTotalCars()+1));
 
@@ -51,19 +63,31 @@ public class Registro {
 	public String registrarMoto(Parqueadero parqueadero, Moto moto, Tiempo tiempo) {
 		String placa = moto.getPlaca();
 		
-		if(parqueadero.getTotalMotorbikes()==0) parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
+		if(parqueadero.getTotalMotorbikes()==0) {
+			parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
+		}
 
-		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) return EL_VEHICULO_YA_INGRESO;
+		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) {
+			return EL_VEHICULO_YA_INGRESO;
+		}
 		
 		
-		if(!parqueadero.hayCupoMoto()) return NO_HAY_CUPO;
+		if(!parqueadero.hayCupoMoto()) {
+			return NO_HAY_CUPO;
+		}
 		
 	
 		
 		if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
-			if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(CARRO)) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO;
-			if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
-		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje(), tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+			if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(CARRO)) {
+				return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO;
+			}
+			if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) {
+				return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+			}
+		}else if(!vehiculoCRUD.save(placa, MOTO,  moto.getCilindraje(), tiempo)) {
+			return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		}
 		
 		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
 
