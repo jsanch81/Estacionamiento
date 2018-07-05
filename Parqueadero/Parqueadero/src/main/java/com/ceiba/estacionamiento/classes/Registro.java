@@ -70,7 +70,7 @@ public class Registro {
 		return REGISTRO_REALIZADO;
 	}
 	
-	
+	/*
 	public String registrarVehiculo(Parqueadero parqueadero, Vehiculo vehiculo, Tiempo tiempo) {
 		String placa = vehiculo.getPlaca();
 		
@@ -91,6 +91,6 @@ public class Registro {
 		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
 
 		return REGISTRO_REALIZADO;
-	}
+	}*/
 	
 }
