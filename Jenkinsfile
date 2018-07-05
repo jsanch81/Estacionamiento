@@ -72,7 +72,7 @@ pipeline {
         stage('Build') {
             steps {
                  echo "------------>Build<------------"
-		 sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle -x test'	 
+		 sh 'gradle --b ./Parqueadero/Parqueadero/build.gradle build -x test'	 
 	    }
         }
     }

@@ -107,12 +107,28 @@ jar {
 	}
 }
 
-
 test{
 	jacoco{
-		append = false
-		destinationFile = file("build/jacoco/jacocoTest.exec")
+		append=false
+		destinationFile =file("build/jacoco/jacocoUnitTest.exec")
 	}
+	reports.junitXml.destination=file("build/jacoco/test-results/unitTest")
+}
+
+integrationTest{
+	jacoco{
+		append=false
+		destinationFile =file("build/jacoco/jacocoIntegrationTest.exec")
+	}
+	reports.junitXml.destination=file("build/jacoco/test-results/integrationTest")
+}
+
+functionalTest{
+	jacoco{
+		append=false
+		destinationFile =file("build/jacoco/jacocoFunctionalTest.exec")
+	}
+	reports.junitXml.destination=file("build/jacoco/test-results/functionalTest")
 }
 
 jacocoTestReport.dependsOn(test)
