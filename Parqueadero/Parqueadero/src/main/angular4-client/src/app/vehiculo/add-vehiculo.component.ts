@@ -37,14 +37,22 @@ export class AddVehiculoComponent {
         this.falla = false;
         this.success = true;
         this.registroExitoso = res.mensaje;
+        this.delay(5000).then(any=>{
+          this.success = false;
+        });
       }else{
         this.falla = true;
         this.success = false;
         this.registroFallido = res.mensaje;
+        this.delay(5000).then(any=>{
+          this.falla = false;
+        });
       }
 
     });
   }
+
+
 
 }
 

@@ -55,10 +55,7 @@ public class CobrarTest {
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		int valor = cobrar.generarCobro(placa, tiempo, parqueadero);
 
-		int esperado = dayHoursMils[0] * 8000;
-		esperado += (dayHoursMils[1] < 9) ? dayHoursMils[1] * 1000 : 8000;
-		esperado += (dayHoursMils[2] > 0) ? 1000 : 0;
-
+		int esperado = 11000;
 		// Assert
 		Assert.assertEquals(esperado, valor);
 
