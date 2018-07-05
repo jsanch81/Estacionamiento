@@ -33,6 +33,9 @@ public class CobroSalidaParqueadero {
 		int[] dayHoursMils = new int[3];
 		dayHoursMils = tiempo.calculateDaysHoursMils(ingreso, tiempo.getTimestamp());
 		int total;
+		
+		
+		
 		if(tipo.equals(carro)) {
 			total = dayHoursMils[0]*valorDiaCarro;
 			total += (dayHoursMils[1]<9)?dayHoursMils[1]*valorHoraCarro:valorDiaCarro;

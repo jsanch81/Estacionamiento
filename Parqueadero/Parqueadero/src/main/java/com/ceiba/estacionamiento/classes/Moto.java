@@ -2,6 +2,7 @@ package com.ceiba.estacionamiento.classes;
 
 public class Moto extends Vehiculo{
 	private short cilndraje;
+	private String tipoVehiculo =  "moto";
 	
 	public Moto(String placa, short cilindraje) {
 		super(placa);
@@ -10,5 +11,10 @@ public class Moto extends Vehiculo{
 	
 	public short getCilindraje() {
 		return this.cilndraje;
+	}
+
+	@Override
+	public String getTipoVehiculo() {
+		return tipoVehiculo;
 	}
 }

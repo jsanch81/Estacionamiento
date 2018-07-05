@@ -71,6 +71,26 @@ public class Registro {
 	}
 	
 	
-	 
+	public String registrarVehiculo(Parqueadero parqueadero, Vehiculo vehiculo, Tiempo tiempo) {
+		String placa = vehiculo.getPlaca();
+		
+		if(parqueadero.getTotalMotorbikes()==0) parqueadero.setTotalMotorbikes(vehiculoCRUD.numCarsInParking()[0]);
+
+		if(vehiculoCRUD.findIntoParking(placa)&&vehiculoCRUD.validateVehiculo(placa)) return EL_VEHICULO_YA_INGRESO;
+		
+		
+		if(!parqueadero.hayCupoMoto()) return NO_HAY_CUPO;
+		
+	
+		
+		if(vehiculoCRUD.findIntoParking(placa)&&!vehiculoCRUD.validateVehiculo(placa)) {
+			if(vehiculoCRUD.findVehiculo(placa).getTipo().equals(CARRO)) return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_CARRO;
+			if(!vehiculoCRUD.updateVehiculo(placa, tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		}else if(!vehiculoCRUD.save(placa, vehiculo.getTipoVehiculo(),  vehiculo.getCilindraje(), tiempo)) return ERROR_AL_GUARDAR_EN_LA_BASE_DE_DATOS;
+		
+		parqueadero.setTotalMotorbikes((short)(parqueadero.getTotalMotorbikes()+1));
+
+		return REGISTRO_REALIZADO;
+	}
 	
 }

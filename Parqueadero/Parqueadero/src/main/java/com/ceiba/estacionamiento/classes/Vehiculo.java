@@ -1,9 +1,9 @@
 package com.ceiba.estacionamiento.classes;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
 	private String placa;
-	
+		
 	public Vehiculo(String placa) {
 		this.placa = placa;
 	}
@@ -15,5 +15,9 @@ public class Vehiculo {
 	public boolean findIntoParking() {
 		return false;
 	}
+	
+	public abstract short getCilindraje();
+	
+	public abstract String getTipoVehiculo();
 	
 }
