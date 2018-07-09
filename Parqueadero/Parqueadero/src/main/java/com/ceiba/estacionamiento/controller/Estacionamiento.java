@@ -45,7 +45,7 @@ public class Estacionamiento {
 	
     
     /**
-     * 
+     * This method receives the necessary data to make the register a vehicle
      * @param vehiculo Objects of body that receive from a post
      * @return status
      */
@@ -55,6 +55,11 @@ public class Estacionamiento {
     	return  new Mensajes(vigilante.realizarRegistro(this.parqueadero, vehiculo,tiempo));
     }
     
+    /**
+     * This method receives the necessary data to make the payment and make the effective exit.
+     * @param vehiculo
+     * @return
+     */
     @ResponseBody @RequestMapping(value = "/salida", method = RequestMethod.POST)
     public String salida(@RequestBody Map<String,String> vehiculo) {
     	tiempo = new Tiempo();
@@ -68,11 +73,20 @@ public class Estacionamiento {
     	}
     }
     
+    /**
+     * This method receives whit a post the necessary data to make a query of a specific vehicle. 
+     * @param vehiculo
+     * @return
+     */
     @ResponseBody @RequestMapping(value = "/consulta", method = RequestMethod.POST)
     public Vehiculos consulta(@RequestBody Map<String,String> vehiculo) {
     	return consulta.generarConsulta(vehiculo.get("placa").toUpperCase(), tiempo);
     }
     
+    /**
+     * This method receives the necessary data to make a query of the vehicles that are into the parking.
+     * @return
+     */
     @RequestMapping(value = "/vehiculos", method = RequestMethod.GET)
     public List<Vehiculos> vehiculos(){
     	return consulta.consultarVehiculosParqueados(tiempo);

@@ -25,7 +25,7 @@ public class VehiculoCRUD {
 	private List<VehiculoModel> listaVehiculos;
 	
 	/**
-	 * 
+	 * This method saves a new vehicle in the database.
 	 * @param placa
 	 * @param tipo
 	 * @param cilindraje
@@ -45,7 +45,7 @@ public class VehiculoCRUD {
 	}
 	
 	/**
-	 * 
+	 * This method makes a query to know if a vehicle exists in the data base.
 	 * @param placa
 	 * @return true if the car or motorbike exist in the data base
 	 */
@@ -58,7 +58,7 @@ public class VehiculoCRUD {
 	}
 	
 	/**
-	 * 
+	 * This method validates if a vehicle is in the parking
 	 * @param placa
 	 * @return validate the state of the car or motorbike, if it is in or out of the parking
 	 */
@@ -73,7 +73,7 @@ public class VehiculoCRUD {
 	}
 	
 	/**
-	 * 
+	 * This method searches a vehicle in the database and return it.
 	 * @param placa
 	 * @return the car o motorbike
 	 */
@@ -86,7 +86,7 @@ public class VehiculoCRUD {
 	}
 	
 	/**
-	 * 
+	 * This method updates the state of a vehicle and date of get in. 
 	 * @param placa
 	 * @return true if the update was success
 	 */
@@ -103,7 +103,11 @@ public class VehiculoCRUD {
 		}
 	}
 	
-	
+	/**
+	 * This method change the state of the vehicle in the data base.
+	 * @param placa
+	 * @return
+	 */
 	public boolean updateSalidaVehiculo(String placa) {
 		
 		try {
@@ -117,14 +121,15 @@ public class VehiculoCRUD {
 
 
 	}
+	
 	/**
-	 * 
+	 * This method calculates the values of motorbikes and cars are into the parking
 	 * @param estado
 	 * @return
 	 */
 	public short[] numCarsInParking() {
 		listaVehiculos = parqueaderoRepository.findAll();
-		short vehiculos[] = new short[2];
+		short[] vehiculos = new short[2];
 		for(VehiculoModel dato: listaVehiculos) {
 			if("true".equals(dato.getEstado())) {
 				if("moto".equals(dato.getTipo())) {
@@ -137,7 +142,12 @@ public class VehiculoCRUD {
 		return vehiculos;
 	}
 	
-	public List<Vehiculos> vehiculosIntoParking(Tiempo tiempo) {
+	/**
+	 * This method get the list of cars and motorbikes are into the parking
+	 * @param tiempo
+	 * @return
+	 */
+	public List<Vehiculos> vehiculosParqueados(Tiempo tiempo) {
 		List<Vehiculos> listIntoVehiculos = new ArrayList<>();
 		listaVehiculos = parqueaderoRepository.findAll();
 		for(VehiculoModel dato: listaVehiculos) {
@@ -150,12 +160,4 @@ public class VehiculoCRUD {
 		return listIntoVehiculos;
 	}
 	
-	//paraTests
-	public void setParqueaderoRepository(ParqueaderoRepository parqueaderoRepository) {
-		this.parqueaderoRepository = parqueaderoRepository;
-	}
-	
-	public void setVehiculoModel(VehiculoModel vehiculoModel) {
-		this.vehiculoModel = vehiculoModel;
-	}
 }

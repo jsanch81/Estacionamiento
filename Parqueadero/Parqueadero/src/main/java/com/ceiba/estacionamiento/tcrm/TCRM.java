@@ -18,7 +18,12 @@ public class TCRM {
 	 */
 	private static final  String WEB_SERVICE_URL = "https://www.superfinanciera.gov.co/SuperfinancieraWebServiceTRM/TCRMServicesWebService/TCRMServicesWebService?WSDL";
 
-	
+	/**
+	 * This method get the TCRM from the page superfinanciera, and return it value.
+	 * @return
+	 * @throws RemoteException
+	 * @throws ParseException
+	 */
 	public String getTcrm() throws RemoteException, ParseException {
 		//
 		// Decimal value format declaration

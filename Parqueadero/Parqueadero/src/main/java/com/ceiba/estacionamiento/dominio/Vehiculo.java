@@ -12,10 +12,6 @@ public abstract class Vehiculo {
 		return this.placa;
 	}
 
-	public boolean findIntoParking() {
-		return false;
-	}
-	
 	public abstract short getCilindraje();
 	
 	public abstract String getTipoVehiculo();

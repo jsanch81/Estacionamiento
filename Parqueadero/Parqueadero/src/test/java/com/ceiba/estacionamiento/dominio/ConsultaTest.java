@@ -77,7 +77,7 @@ public class ConsultaTest {
 		//Arrange
 		List<Vehiculos> listVehiculos = new ArrayList<Vehiculos>();
 		//Act
-		Mockito.when(vehiculoCRUD.vehiculosIntoParking(Mockito.any(Tiempo.class))).thenReturn(listVehiculos);
+		Mockito.when(vehiculoCRUD.vehiculosParqueados(Mockito.any(Tiempo.class))).thenReturn(listVehiculos);
 		List<Vehiculos> result = consulta.consultarVehiculosParqueados(tiempo);
 		//Assert
 		Assert.assertEquals(listVehiculos, result);

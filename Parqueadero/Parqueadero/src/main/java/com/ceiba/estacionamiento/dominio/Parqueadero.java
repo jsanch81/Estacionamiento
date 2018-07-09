@@ -30,7 +30,12 @@ public class Parqueadero {
 	}
 	
 	
-	
+	/**
+	 * this method validate if there are spaces in the parking to motorbikes of cars.
+	 * @param vehiculosDentroDelParqueadero
+	 * @param tipo
+	 * @return
+	 */
 	public boolean hayCupoVehiulo(short [] vehiculosDentroDelParqueadero, String tipo) {
 		if("moto".equals(tipo)) {
 			return vehiculosDentroDelParqueadero[0]<this.cupoMaximoMotos;

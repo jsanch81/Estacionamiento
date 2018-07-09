@@ -9,12 +9,23 @@ import com.ceiba.estacionamiento.productos.PrecioParqueoVehiculo;
 public class CostoTotal {
 
 	private CostoParqueoVehiculoFactory costoFactory =  new CostoParqueoVehiculos();
-	private TiempoParqueado tiempoParqeuado;
+	private TiempoParqueado tiempoParqueado;
 	private static final  int HORA_INICIO_DIA = 9;
 	
+	
+	/**
+	 * this method make the calculations of the total cost that the client has to pay. it calculates
+	 * this cost depending of time and the price which depends of the type vehicle.
+	 * @param tipo
+	 * @param fechaIngreso
+	 * @param fechaSalida
+	 * @param tiempo
+	 * @param cilindraje
+	 * @return
+	 */
 	public int generarCosto(String tipo, long fechaIngreso, long fechaSalida, Tiempo tiempo, short cilindraje) {
 	
-		tiempoParqeuado = tiempo.calcularDiasHorasMils(fechaIngreso, fechaSalida);
+		tiempoParqueado = tiempo.calcularDiasHorasMils(fechaIngreso, fechaSalida);
 		PrecioParqueoVehiculo costoProducto = costoFactory.createProducto(tipo, cilindraje);
 		
 		int costoVehiculoDia = costoProducto.getCostoDia();
@@ -22,9 +33,9 @@ public class CostoTotal {
 		int costoVehiculoExtra = costoProducto.getCostoExtra();
 		int total = 0;
 		
-		total = tiempoParqeuado.getDias()*costoVehiculoDia;
-		total += (tiempoParqeuado.getHoras()<HORA_INICIO_DIA)?tiempoParqeuado.getHoras()*costoVehiculoHora:costoVehiculoHora;
-		total += (tiempoParqeuado.getMilis()>0)?costoVehiculoHora:0;
+		total = tiempoParqueado.getDias()*costoVehiculoDia;
+		total += (tiempoParqueado.getHoras()<HORA_INICIO_DIA)?tiempoParqueado.getHoras()*costoVehiculoHora:costoVehiculoHora;
+		total += (tiempoParqueado.getMilis()>0)?costoVehiculoHora:0;
 		total += costoVehiculoExtra;
 		return total;
 	}

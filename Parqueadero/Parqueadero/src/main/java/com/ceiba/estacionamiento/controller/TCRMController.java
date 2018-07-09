@@ -14,7 +14,9 @@ public class TCRMController {
 
 	private TCRM tCRM = new TCRM(); 
 	
-	
+	/**
+	 * This method sends the data to show in the front end the TRM.
+	 */
 	private static final String ERROR_AL_OBTENER_EL_TCRM = "Error al obtener el TCRM"; 
 	@RequestMapping(value = "/TCRM", method = RequestMethod.GET)
 	public TCRMModel tCRMValue() {

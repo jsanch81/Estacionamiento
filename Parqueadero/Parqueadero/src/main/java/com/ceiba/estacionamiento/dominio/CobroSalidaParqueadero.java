@@ -13,7 +13,8 @@ public class CobroSalidaParqueadero {
 	private CostoTotal costoTotal = new CostoTotal();
 
 	/**
-	 * 
+	 * this method will make the payment to the cars or motorbikes which will go out of the parking,
+	 * it will return -1 when there are some error in the moment that it make the payment.
 	 * @param placa
 	 * @param tiempo
 	 * @param parqueadero

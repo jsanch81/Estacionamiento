@@ -6,7 +6,11 @@ import java.text.ParseException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+/**
+ * 
+ * @author jose.sanchez
+ *
+ */
 @SpringBootApplication
 public class ParqueaderoApplication {
 

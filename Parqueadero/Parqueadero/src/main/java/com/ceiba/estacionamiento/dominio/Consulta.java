@@ -17,7 +17,8 @@ public class Consulta {
 	private VehiculoCRUD vehiculoCRUD;
 		
 	/**
-	 * 
+	 * This method will do the query in the data base with the placa of some vehicle and this will show 
+	 * the last date when the vehicle got in in the parking, the placa and the type of vehicle.
 	 * @param placa
 	 * @param tiempo
 	 * @return
@@ -34,12 +35,12 @@ public class Consulta {
 	}
 	
 	/**
-	 * 
+	 * This method will query all the cars that are into the parking
 	 * @param tiempo
 	 * @return
 	 */
 	public List<Vehiculos> consultarVehiculosParqueados(Tiempo tiempo){
-		 return vehiculoCRUD.vehiculosIntoParking(tiempo);
+		 return vehiculoCRUD.vehiculosParqueados(tiempo);
 	}
 	
 }

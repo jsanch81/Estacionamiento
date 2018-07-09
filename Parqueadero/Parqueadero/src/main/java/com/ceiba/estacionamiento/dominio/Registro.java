@@ -21,7 +21,8 @@ public class Registro {
 
 	
 	/**
-	 * 
+	 * This method make the registrations of vehicles, but it make too some validations 
+	 * to see if there are quota into the parking
 	 * @param parqueadero
 	 * @param vehiculo
 	 * @param tiempo

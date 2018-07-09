@@ -2,7 +2,13 @@ package com.ceiba.estacionamiento.dominio;
 
 public class FabricaVehiculos {
 	
-	
+	/**
+	 * This method create a vehicle depending of its type.
+	 * @param cilindraje
+	 * @param placa
+	 * @param tipo
+	 * @return
+	 */
 	public Vehiculo crearVehiculo(String cilindraje, String placa, String tipo) {
 		Vehiculo vehiculo = null;
 		if("carro".equals(tipo)) {

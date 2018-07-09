@@ -24,7 +24,8 @@ public class Vigilante {
 	
 	
 	/**
-	 * 
+	 * This method make the register of a vehicle with the placa, date, type of vehicle and displacement
+	 * and validate if the user sends the correct data. 
 	 * @param parqueadero
 	 * @param map
 	 */
@@ -49,12 +50,25 @@ public class Vigilante {
         return registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 	}
 	
+	/**
+	 * Make the payment.
+	 * @param map
+	 * @param tiempo
+	 * @return
+	 */
 	public int realizarCobro(Map<String , String> map, Tiempo tiempo) {
 		String placa = map.get("placa");
 		return cobrar.generarCobro(placa, tiempo);
 	}
 
 	
+	/**
+	 * This method validates if the cars or motorbikes can get in parking. This is exclusive to placas which start 
+	 * with the word A
+	 * @param placa
+	 * @param tiempo
+	 * @return
+	 */
 	private boolean noPuedeParquear(String placa, Tiempo tiempo) {
 		return (placa.toUpperCase().charAt(0)=='A' && tiempo.getDiaSemana() != 1 &&  tiempo.getDiaSemana() != 2);
 	}

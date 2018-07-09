@@ -284,7 +284,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
 		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 
 		//Act
@@ -301,7 +300,6 @@ public class VehiculoCRUDTest {
 		
 		//Arrange
 		String placa = "EHG44B";
-		vehiculoCRUD.setVehiculoModel(vehiculoModel);
 
 		//Act
 		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
@@ -327,7 +325,7 @@ public class VehiculoCRUDTest {
 		 Mockito.when(vehiculoModel.getPlaca()).thenReturn("EHG44B");
 		 Mockito.when(vehiculoModel.getTipo()).thenReturn("carro");
 		 Mockito.when(tiempo.dateToString(Mockito.any(Date.class))).thenReturn("24/08/1997");
-		 List<Vehiculos> resultado = vehiculoCRUD.vehiculosIntoParking(tiempo);
+		 List<Vehiculos> resultado = vehiculoCRUD.vehiculosParqueados(tiempo);
 		 
 		 //Assert
 		 Assert.assertEquals(listVehiculos.get(0).getPlaca(), resultado.get(0).getPlaca());
