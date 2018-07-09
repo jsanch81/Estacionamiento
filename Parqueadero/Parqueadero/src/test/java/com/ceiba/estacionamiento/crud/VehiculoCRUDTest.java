@@ -55,7 +55,7 @@ public class VehiculoCRUDTest {
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
-		boolean resultado = vehiculoCRUD.save(placa, tipo, cilindraje, tiempo);
+		boolean resultado = vehiculoCRUD.guardar(placa, tipo, cilindraje, tiempo);
 		
 		//Assert
 		Assert.assertTrue(resultado);
@@ -75,7 +75,7 @@ public class VehiculoCRUDTest {
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenThrow(NullPointerException.class);
-		boolean resultado = vehiculoCRUD.save(placa, tipo, cilindraje, tiempo);
+		boolean resultado = vehiculoCRUD.guardar(placa, tipo, cilindraje, tiempo);
 		
 		//Assert
 		Assert.assertFalse(resultado);
@@ -90,7 +90,7 @@ public class VehiculoCRUDTest {
 
 		//Act
 		Mockito.when(parqueaderoRepository.existsById(placa)).thenReturn(true);
-		boolean resultado = vehiculoCRUD.findIntoParking(placa);
+		boolean resultado = vehiculoCRUD.vehiculoRegistrado(placa);
 		
 		//Assert
 		Assert.assertTrue(resultado);
@@ -105,7 +105,7 @@ public class VehiculoCRUDTest {
 
 		//Act
 		Mockito.when(parqueaderoRepository.existsById(placa)).thenThrow(IllegalArgumentException.class);
-		boolean resultado = vehiculoCRUD.findIntoParking(placa);
+		boolean resultado = vehiculoCRUD.vehiculoRegistrado(placa);
 		
 		//Assert
 		Assert.assertFalse(resultado);
@@ -120,7 +120,7 @@ public class VehiculoCRUDTest {
 
 		//Act
 		Mockito.when(parqueaderoRepository.existsById(placa)).thenReturn(false);
-		boolean resultado = vehiculoCRUD.findIntoParking(placa);
+		boolean resultado = vehiculoCRUD.vehiculoRegistrado(placa);
 		
 		//Assert
 		Assert.assertFalse(resultado);
@@ -137,7 +137,7 @@ public class VehiculoCRUDTest {
 		//Act
 		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
-		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
+		boolean resultado = vehiculoCRUD.vehiculoParqueado(placa);
 		
 		//Assert
 		
@@ -154,7 +154,7 @@ public class VehiculoCRUDTest {
 		//Act
 		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("true");
-		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
+		boolean resultado = vehiculoCRUD.vehiculoParqueado(placa);
 		
 		//Assert
 		
@@ -172,7 +172,7 @@ public class VehiculoCRUDTest {
 		//Act
 		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
 		Mockito.when(vehiculoModel.getEstado()).thenReturn("false");
-		boolean resultado = vehiculoCRUD.validateVehiculo(placa);
+		boolean resultado = vehiculoCRUD.vehiculoParqueado(placa);
 		
 		//Assert	
 		Assert.assertFalse(resultado);
@@ -186,7 +186,7 @@ public class VehiculoCRUDTest {
 		Optional<VehiculoModel> vehiculoM = Optional.of(vehiculoModel);
 		//Act
 		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenReturn(vehiculoM);
-		VehiculoModel resultado = vehiculoCRUD.findVehiculo(placa);
+		VehiculoModel resultado = vehiculoCRUD.buscarVehiculo(placa);
 		System.out.println(resultado);
 		//Assert
 		Assert.assertNotNull(resultado);
@@ -200,7 +200,7 @@ public class VehiculoCRUDTest {
 		
 		//Act
 		Mockito.when(parqueaderoRepository.findById(Mockito.anyString())).thenThrow(IllegalArgumentException.class);
-		VehiculoModel resultado = vehiculoCRUD.findVehiculo(placa);
+		VehiculoModel resultado = vehiculoCRUD.buscarVehiculo(placa);
 		System.out.println(resultado);
 		
 		//Assert
@@ -220,7 +220,7 @@ public class VehiculoCRUDTest {
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
-		boolean resultado = vehiculoCRUD.updateVehiculo(placa, tiempo);
+		boolean resultado = vehiculoCRUD.actualizarVehiculo(placa, tiempo);
 		
 		//Assert
 		Assert.assertTrue(resultado);
@@ -238,7 +238,7 @@ public class VehiculoCRUDTest {
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenReturn(vehiculoModel);
-		boolean resultado = vehiculoCRUD.updateVehiculo(placa, tiempo);
+		boolean resultado = vehiculoCRUD.actualizarVehiculo(placa, tiempo);
 		
 		//Assert
 		Assert.assertFalse(resultado);
@@ -257,7 +257,7 @@ public class VehiculoCRUDTest {
 		Mockito.when(tiempo.getDate()).thenReturn(calendar.getTime());
 		Mockito.when(tiempo.getTimestamp()).thenReturn(calendar.getTimeInMillis());
 		Mockito.when(parqueaderoRepository.save(Mockito.any(VehiculoModel.class))).thenThrow(NullPointerException.class);
-		boolean resultado = vehiculoCRUD.updateVehiculo(placa, tiempo);
+		boolean resultado = vehiculoCRUD.actualizarVehiculo(placa, tiempo);
 		
 		//Assert
 		Assert.assertFalse(resultado);

@@ -31,7 +31,7 @@ public class TiempoTest {
 		long value2 = calendar.getTimeInMillis();
 		
 		//Act
-		TiempoParqueado resultado=tiempo.calculateDaysHoursMils(value1, value2);
+		TiempoParqueado resultado=tiempo.calcularDiasHorasMils(value1, value2);
 		
 		//Assert
 		Assert.assertThat(salida, samePropertyValuesAs(resultado));

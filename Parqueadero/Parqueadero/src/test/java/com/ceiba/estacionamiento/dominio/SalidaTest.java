@@ -50,7 +50,7 @@ public class SalidaTest {
 		
 		//Act
 		Mockito.when(validaciones.validarSalidaVehiculo(placa)).thenReturn((long) 0);
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 
 		long resultado = salida.generarSalida(placa);
@@ -70,7 +70,7 @@ public class SalidaTest {
 		//Act
 		//Act
 		Mockito.when(validaciones.validarSalidaVehiculo(placa)).thenReturn((long) 0);
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 
 		long resultado = salida.generarSalida(placa);
@@ -89,7 +89,7 @@ public class SalidaTest {
 		
 		//Act
 		Mockito.when(validaciones.validarSalidaVehiculo(placa)).thenReturn((long) -1);
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 
 		long resultado = salida.generarSalida(placa);
@@ -107,7 +107,7 @@ public class SalidaTest {
 		
 		//Act
 		Mockito.when(validaciones.validarSalidaVehiculo(placa)).thenReturn((long) -1);
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 
 		long resultado = salida.generarSalida(placa);
@@ -126,7 +126,7 @@ public class SalidaTest {
 		
 		//Act
 		Mockito.when(validaciones.validarSalidaVehiculo(placa)).thenReturn((long) -2);
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getIngresoTimestamp()).thenReturn(calendar.getTimeInMillis());
 
 		long resultado = salida.generarSalida(placa);
@@ -142,7 +142,7 @@ public class SalidaTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 		String resultado = salida.tipoVehiculo(placa);
 		
@@ -155,7 +155,7 @@ public class SalidaTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(Mockito.anyString())).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getCilindraje()).thenReturn((short) 125);
 		short resultado = salida.getCilindraje(placa);
 		

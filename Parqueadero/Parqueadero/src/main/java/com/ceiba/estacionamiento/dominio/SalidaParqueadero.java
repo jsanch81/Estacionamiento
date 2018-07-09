@@ -27,7 +27,7 @@ public class SalidaParqueadero {
 			return valorValidacionesSalida;
 		}
 		
-		return vehiculoCRUD.findVehiculo(placa).getIngresoTimestamp();
+		return vehiculoCRUD.buscarVehiculo(placa).getIngresoTimestamp();
 	}
 	
 	/**
@@ -36,7 +36,7 @@ public class SalidaParqueadero {
 	 * @return
 	 */
 	public String tipoVehiculo(String placa) {
-		return vehiculoCRUD.findVehiculo(placa).getTipo();
+		return vehiculoCRUD.buscarVehiculo(placa).getTipo();
 	}
 	/**
 	 * 
@@ -44,7 +44,7 @@ public class SalidaParqueadero {
 	 * @return
 	 */
 	public short getCilindraje(String placa) {
-		return vehiculoCRUD.findVehiculo(placa).getCilindraje();
+		return vehiculoCRUD.buscarVehiculo(placa).getCilindraje();
 	}
 
 }

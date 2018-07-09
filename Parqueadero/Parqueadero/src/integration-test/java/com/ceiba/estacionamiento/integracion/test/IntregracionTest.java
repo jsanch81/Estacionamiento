@@ -52,10 +52,10 @@ public class IntregracionTest {
 
 		
 		//Act
-		vigilante.registrar(parqueadero, map, tiempo);		
+		vigilante.realizarRegistro(parqueadero, map, tiempo);		
 		date.add(Calendar.DAY_OF_YEAR, 1);
 		tiempo = new Tiempo(date);
-		int resultado2 = vigilante.cobrar(map, tiempo);
+		int resultado2 = vigilante.realizarCobro(map, tiempo);
 		//Assert
 		Assert.assertEquals(4000, resultado2);
 	}
@@ -73,7 +73,7 @@ public class IntregracionTest {
 		map.put("tipo", tipo);
 		
 		//Act
-		String resultado = vigilante.registrar(parqueadero, map, tiempo);		
+		String resultado = vigilante.realizarRegistro(parqueadero, map, tiempo);		
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -93,7 +93,7 @@ public class IntregracionTest {
 		
 		
 		//Act
-		String resultado = vigilante.registrar(parqueadero, map, tiempo);		
+		String resultado = vigilante.realizarRegistro(parqueadero, map, tiempo);		
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -115,8 +115,8 @@ public class IntregracionTest {
 		map.put("tipo", tipo);
 
 		//Act
-		vigilante.registrar(parqueadero, map, tiempo);	
-		Vehiculos vehiculo = consulta.genConsulta(placa, tiempo);
+		vigilante.realizarRegistro(parqueadero, map, tiempo);	
+		Vehiculos vehiculo = consulta.generarConsulta(placa, tiempo);
 		
 		//Assert
 		Assert.assertNotNull(vehiculo);

@@ -4,7 +4,7 @@ package com.ceiba.estacionamiento.dominio;
 import com.ceiba.estacionamiento.factory.CostoParqueoVehiculoFactory;
 import com.ceiba.estacionamiento.factory.CostoParqueoVehiculos;
 import com.ceiba.estacionamiento.modelos.TiempoParqueado;
-import com.ceiba.estacionamiento.productos.CostoParqueoVehiculo;
+import com.ceiba.estacionamiento.productos.PrecioParqueoVehiculo;
 
 public class CostoTotal {
 
@@ -14,8 +14,8 @@ public class CostoTotal {
 	
 	public int generarCosto(String tipo, long fechaIngreso, long fechaSalida, Tiempo tiempo, short cilindraje) {
 	
-		tiempoParqeuado = tiempo.calculateDaysHoursMils(fechaIngreso, fechaSalida);
-		CostoParqueoVehiculo costoProducto = costoFactory.createProducto(tipo, cilindraje);
+		tiempoParqeuado = tiempo.calcularDiasHorasMils(fechaIngreso, fechaSalida);
+		PrecioParqueoVehiculo costoProducto = costoFactory.createProducto(tipo, cilindraje);
 		
 		int costoVehiculoDia = costoProducto.getCostoDia();
 		int costoVehiculoHora = costoProducto.getCostoHora();

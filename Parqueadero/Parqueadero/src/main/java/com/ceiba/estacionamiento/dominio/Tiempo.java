@@ -19,7 +19,7 @@ public class Tiempo {
 		this.date = date;
 	}
 	
-	public int getDayWeek() {
+	public int getDiaSemana() {
 		return date.get(Calendar.DAY_OF_WEEK);
 	}
 	
@@ -31,7 +31,7 @@ public class Tiempo {
 		return date.getTimeInMillis();
 	}
 	
-	public TiempoParqueado calculateDaysHoursMils(long ingreso, long salida) {
+	public TiempoParqueado calcularDiasHorasMils(long ingreso, long salida) {
 		long diferencia = salida-ingreso;
 		int dias = (int)(diferencia/86400000);
 		int horas = (int) ((diferencia%86400000)/3600000);

@@ -1,12 +1,12 @@
 package com.ceiba.estacionamiento.productos;
 
-public abstract class CostoParqueoVehiculo {
+public abstract class PrecioParqueoVehiculo {
 	
 	private int costoDia;
 	private int costoHora;
 	private int costoExtra;
 	
-	public CostoParqueoVehiculo(){}
+	public PrecioParqueoVehiculo(){}
 
 	public int getCostoDia() {
 		return costoDia;

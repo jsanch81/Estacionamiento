@@ -1,19 +1,19 @@
 package com.ceiba.estacionamiento.factory;
 
-import com.ceiba.estacionamiento.productos.CostoParqueoCarro;
-import com.ceiba.estacionamiento.productos.CostoParqueoMoto;
-import com.ceiba.estacionamiento.productos.CostoParqueoVehiculo;
+import com.ceiba.estacionamiento.productos.PrecioParqueoCarro;
+import com.ceiba.estacionamiento.productos.PrecioParqueoMoto;
+import com.ceiba.estacionamiento.productos.PrecioParqueoVehiculo;
 
 public class CostoParqueoVehiculos extends CostoParqueoVehiculoFactory{
 	
 	@Override
-	public CostoParqueoVehiculo createProducto(String tipo, short cilindraje) {
-		CostoParqueoVehiculo costoParqueoVehiculo = null;
+	public PrecioParqueoVehiculo createProducto(String tipo, short cilindraje) {
+		PrecioParqueoVehiculo costoParqueoVehiculo = null;
 		
 		if("carro".equals(tipo)) {
-			costoParqueoVehiculo = new CostoParqueoCarro();
+			costoParqueoVehiculo = new PrecioParqueoCarro();
 		}else if("moto".equals(tipo)) {
-				costoParqueoVehiculo = new CostoParqueoMoto(cilindraje);
+				costoParqueoVehiculo = new PrecioParqueoMoto(cilindraje);
 		}
 		return costoParqueoVehiculo;
 	}

@@ -1,7 +1,7 @@
 package com.ceiba.estacionamiento.productos;
 
-public class CostoParqueoCarro extends CostoParqueoVehiculo {
-	public CostoParqueoCarro() {
+public class PrecioParqueoCarro extends PrecioParqueoVehiculo {
+	public PrecioParqueoCarro() {
 		setCostoDia(8000);
 		setCostoHora(1000);
 		setCostoExtra(0);

@@ -31,7 +31,7 @@ public class Registro {
 		String placa = vehiculo.getPlaca();
 		String tipo = vehiculo.getTipoVehiculo();
 		
-		String resultadoValidacionVehiculo = validaciones.validarVehiculosEnParqueadero(placa, parqueadero, tipo);
+		String resultadoValidacionVehiculo = validaciones.validarVehiculosParqueados(placa, parqueadero, tipo);
 		if(resultadoValidacionVehiculo!=null) {
 			return resultadoValidacionVehiculo;
 		}
@@ -42,7 +42,7 @@ public class Registro {
 			return mensajeActulizarVehiculo;
 		}
 		
-		vehiculoCRUD.save(placa, vehiculo.getTipoVehiculo(),  vehiculo.getCilindraje(), tiempo);
+		vehiculoCRUD.guardar(placa, vehiculo.getTipoVehiculo(),  vehiculo.getCilindraje(), tiempo);
 		
 		return REGISTRO_REALIZADO;
 	}

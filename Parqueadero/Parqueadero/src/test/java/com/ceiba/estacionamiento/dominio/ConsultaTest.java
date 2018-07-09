@@ -47,8 +47,8 @@ public class ConsultaTest {
 		//Arrange
 		String placa = "ASD123";
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
-		Vehiculos resultado = consulta.genConsulta(placa, tiempo);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(false);
+		Vehiculos resultado = consulta.generarConsulta(placa, tiempo);
 		//Assert
 		Assert.assertNull(resultado);
 	}
@@ -60,14 +60,14 @@ public class ConsultaTest {
 		Date date = new Date();
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(placa)).thenReturn(vehiculoModel);
 		Mockito.when(tiempo.dateToString(Mockito.any(Date.class))).thenReturn("25-06-2018 08:03:27");
 		Mockito.when(vehiculoModel.getFechaIngreso()).thenReturn(date);
 		Mockito.when(vehiculoModel.getPlaca()).thenReturn(placa);
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
 
-		Vehiculos resultado = consulta.genConsulta(placa, tiempo);
+		Vehiculos resultado = consulta.generarConsulta(placa, tiempo);
 		//Assert
 		Assert.assertNotNull(resultado);
 	}
@@ -78,7 +78,7 @@ public class ConsultaTest {
 		List<Vehiculos> listVehiculos = new ArrayList<Vehiculos>();
 		//Act
 		Mockito.when(vehiculoCRUD.vehiculosIntoParking(Mockito.any(Tiempo.class))).thenReturn(listVehiculos);
-		List<Vehiculos> result = consulta.consultarVehiculosEnElParqueadero(tiempo);
+		List<Vehiculos> result = consulta.consultarVehiculosParqueados(tiempo);
 		//Assert
 		Assert.assertEquals(listVehiculos, result);
 	}

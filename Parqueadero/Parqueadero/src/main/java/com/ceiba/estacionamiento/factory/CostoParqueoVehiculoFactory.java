@@ -1,7 +1,7 @@
 package com.ceiba.estacionamiento.factory;
 
-import com.ceiba.estacionamiento.productos.CostoParqueoVehiculo;
+import com.ceiba.estacionamiento.productos.PrecioParqueoVehiculo;
 
 public abstract class CostoParqueoVehiculoFactory {
-	public abstract CostoParqueoVehiculo createProducto(String tipo, short cilindrage);
+	public abstract PrecioParqueoVehiculo createProducto(String tipo, short cilindrage);
 }

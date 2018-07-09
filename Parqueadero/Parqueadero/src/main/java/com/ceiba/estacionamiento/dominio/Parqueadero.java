@@ -1,15 +1,15 @@
 package com.ceiba.estacionamiento.dominio;
 
 public class Parqueadero {
-	private short maxMotorbike;
-	private short maxCars;
+	private short cupoMaximoMotos;
+	private short cupoMaximoCarros;
 	
 	/**
 	 * initialize the attributes of the parking
 	 */
 	public Parqueadero() {
-		this.maxCars = 20;
-		this.maxMotorbike = 10;
+		this.cupoMaximoCarros = 20;
+		this.cupoMaximoMotos = 10;
 
 	}
 	
@@ -17,25 +17,25 @@ public class Parqueadero {
 	 * 
 	 * @return  return the limit of motorbikes that the parking can receive
 	 */
-	public short getMaxMotorbike() {
-		return this.maxMotorbike;
+	public short getMaximoMotos() {
+		return this.cupoMaximoMotos;
 	}
 	
 	/**
 	 * 
 	 * @return return the limit of cars that the parking can receive
 	 */
-	public short getMaxCars() {
-		return this.maxCars;
+	public short getMaximoCarros() {
+		return this.cupoMaximoCarros;
 	}
 	
 	
 	
 	public boolean hayCupoVehiulo(short [] vehiculosDentroDelParqueadero, String tipo) {
 		if("moto".equals(tipo)) {
-			return vehiculosDentroDelParqueadero[0]<this.maxMotorbike;
+			return vehiculosDentroDelParqueadero[0]<this.cupoMaximoMotos;
 		}else {
-			return vehiculosDentroDelParqueadero[1]<this.maxCars;
+			return vehiculosDentroDelParqueadero[1]<this.cupoMaximoCarros;
 		}
 	}
 }

@@ -15,7 +15,7 @@ public class ParqueaderoTest {
 		//Arrange
 		short valorEsperado = 10;
 		//Act
-		short resultado = parqueadero.getMaxMotorbike();
+		short resultado = parqueadero.getMaximoMotos();
 		//Assert
 		Assert.assertEquals(valorEsperado, resultado);
 	}
@@ -25,7 +25,7 @@ public class ParqueaderoTest {
 		//Arrange
 		short valorEsperado = 20;
 		//Act
-		short resultado = parqueadero.getMaxCars();
+		short resultado = parqueadero.getMaximoCarros();
 		//Assert
 		Assert.assertEquals(valorEsperado, resultado);
 	}

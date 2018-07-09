@@ -3,9 +3,9 @@ package com.ceiba.estacionamiento.factory;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ceiba.estacionamiento.productos.CostoParqueoVehiculo;
+import com.ceiba.estacionamiento.productos.PrecioParqueoVehiculo;
 
-public class CostoParqueoVehiculosTest {
+public class PrecioParqueoVehiculosTest {
 
 	private CostoParqueoVehiculos costoParqueoVehiculos = new CostoParqueoVehiculos();
 	
@@ -15,7 +15,7 @@ public class CostoParqueoVehiculosTest {
 		String tipo = "carro";
 		short cilindraje = 0;
 		//Act
-		CostoParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
+		PrecioParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
 		
 		//Assert
 		Assert.assertNotNull(resultado);
@@ -28,7 +28,7 @@ public class CostoParqueoVehiculosTest {
 		String tipo = "moto";
 		short cilindraje = 125;
 		//Act
-		CostoParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
+		PrecioParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
 		
 		//Assert
 		Assert.assertNotNull(resultado);
@@ -41,7 +41,7 @@ public class CostoParqueoVehiculosTest {
 		String tipo = "moto";
 		short cilindraje = 600;
 		//Act
-		CostoParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
+		PrecioParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
 		
 		//Assert
 		Assert.assertNotNull(resultado);
@@ -54,7 +54,7 @@ public class CostoParqueoVehiculosTest {
 		String tipo = "avion";
 		short cilindraje = 600;
 		//Act
-		CostoParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
+		PrecioParqueoVehiculo resultado = costoParqueoVehiculos.createProducto(tipo, cilindraje);
 		
 		//Assert
 		Assert.assertNull(resultado);

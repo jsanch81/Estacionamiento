@@ -40,7 +40,7 @@ public class ValidacionesTest {
 		//Act
 		Mockito.when(parqueadero.hayCupoVehiulo(Mockito.any(), Mockito.anyString())).thenReturn(false);
 		
-		String resultado = validaciones.validarVehiculosEnParqueadero(placa, parqueadero, tipo);
+		String resultado = validaciones.validarVehiculosParqueados(placa, parqueadero, tipo);
 		
 		//Assert
 		Assert.assertEquals("No hay cupo", resultado);
@@ -56,9 +56,9 @@ public class ValidacionesTest {
 		
 		//Act
 		Mockito.when(parqueadero.hayCupoVehiulo(Mockito.any(), Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(true);
-		String resultado = validaciones.validarVehiculosEnParqueadero(placa, parqueadero, tipo);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(true);
+		String resultado = validaciones.validarVehiculosParqueados(placa, parqueadero, tipo);
 		
 		//Assert
 		Assert.assertEquals("El vehiculo ya ingreso", resultado);
@@ -74,8 +74,8 @@ public class ValidacionesTest {
 		
 		//Act
 		Mockito.when(parqueadero.hayCupoVehiulo(Mockito.any(), Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
-		String resultado = validaciones.validarVehiculosEnParqueadero(placa, parqueadero, tipo);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(false);
+		String resultado = validaciones.validarVehiculosParqueados(placa, parqueadero, tipo);
 		
 		//Assert
 		Assert.assertNull(resultado);
@@ -91,10 +91,10 @@ public class ValidacionesTest {
 		
 		//Act
 		Mockito.when(parqueadero.hayCupoVehiulo(Mockito.any(), Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(false);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(false);
 
-		String resultado = validaciones.validarVehiculosEnParqueadero(placa, parqueadero, tipo);
+		String resultado = validaciones.validarVehiculosParqueados(placa, parqueadero, tipo);
 		
 		//Assert
 		Assert.assertNull(resultado);
@@ -108,9 +108,9 @@ public class ValidacionesTest {
 		String placa = "EHG44B";
 		String tipo = "moto";
 		//Act
-		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(placa)).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getTipo()).thenReturn("moto");
-		boolean resultado = validaciones.validarVehiculosYaRegistrados(placa, tipo);
+		boolean resultado = validaciones.validarVehiculosRegistradosPorTipo(placa, tipo);
 		//Assert
 		Assert.assertTrue(resultado);
 	
@@ -122,9 +122,9 @@ public class ValidacionesTest {
 		String placa = "EHG44B";
 		String tipo = "moto";
 		//Act
-		Mockito.when(vehiculoCRUD.findVehiculo(placa)).thenReturn(vehiculoModel);
+		Mockito.when(vehiculoCRUD.buscarVehiculo(placa)).thenReturn(vehiculoModel);
 		Mockito.when(vehiculoModel.getTipo()).thenReturn(null);
-		boolean resultado = validaciones.validarVehiculosYaRegistrados(placa, tipo);
+		boolean resultado = validaciones.validarVehiculosRegistradosPorTipo(placa, tipo);
 		//Assert
 		Assert.assertFalse(resultado);
 	
@@ -135,10 +135,10 @@ public class ValidacionesTest {
 		//Arrange
 		String placa = "EHG44B";
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(false);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(false);
 		
-		boolean resultado = validaciones.validarVehiculosIngresadosAntes(placa);
+		boolean resultado = validaciones.validarVehiculosRegistradosNoParqueados(placa);
 		//Assert
 		Assert.assertTrue(resultado);
 	}
@@ -148,9 +148,9 @@ public class ValidacionesTest {
 		//Arrange
 		String placa = "EHG44B";
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(false);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(false);
 		
-		boolean resultado = validaciones.validarVehiculosIngresadosAntes(placa);
+		boolean resultado = validaciones.validarVehiculosRegistradosNoParqueados(placa);
 		//Assert
 		Assert.assertFalse(resultado);
 	}
@@ -160,10 +160,10 @@ public class ValidacionesTest {
 		//Arrange
 		String placa = "EHG44B";
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(Mockito.anyString())).thenReturn(true);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(Mockito.anyString())).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(true);
 
-		boolean resultado = validaciones.validarVehiculosIngresadosAntes(placa);
+		boolean resultado = validaciones.validarVehiculosRegistradosNoParqueados(placa);
 		//Assert
 		Assert.assertFalse(resultado);
 	}
@@ -174,8 +174,8 @@ public class ValidacionesTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(placa)).thenReturn(false);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(false);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(placa)).thenReturn(false);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(false);
 		
 		long resultado = validaciones.validarSalidaVehiculo(placa);
 		//Assert
@@ -187,8 +187,8 @@ public class ValidacionesTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(placa)).thenReturn(false);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(placa)).thenReturn(false);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(true);
 		
 		long resultado = validaciones.validarSalidaVehiculo(placa);
 		//Assert
@@ -201,8 +201,8 @@ public class ValidacionesTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(placa)).thenReturn(true);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(placa)).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(true);
 		Mockito.when(vehiculoCRUD.updateSalidaVehiculo(placa)).thenReturn(false);
 		long resultado = validaciones.validarSalidaVehiculo(placa);
 		//Assert
@@ -215,8 +215,8 @@ public class ValidacionesTest {
 		String placa = "EHG44B";
 		
 		//Act
-		Mockito.when(vehiculoCRUD.findIntoParking(placa)).thenReturn(true);
-		Mockito.when(vehiculoCRUD.validateVehiculo(placa)).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoRegistrado(placa)).thenReturn(true);
+		Mockito.when(vehiculoCRUD.vehiculoParqueado(placa)).thenReturn(true);
 		Mockito.when(vehiculoCRUD.updateSalidaVehiculo(placa)).thenReturn(true);
 		long resultado = validaciones.validarSalidaVehiculo(placa);
 		//Assert

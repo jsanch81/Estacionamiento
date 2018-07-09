@@ -46,19 +46,19 @@ public class Estacionamiento {
     
     /**
      * 
-     * @param map Objects of body that receive from a post
+     * @param vehiculo Objects of body that receive from a post
      * @return status
      */
     @ResponseBody @RequestMapping(value = "/entrada", method = RequestMethod.POST)
-    public Mensajes entrada(@RequestBody Map<String,String> map){
+    public Mensajes entrada(@RequestBody Map<String,String> vehiculo){
     	tiempo = new Tiempo();
-    	return  new Mensajes(vigilante.registrar(this.parqueadero, map,tiempo));
+    	return  new Mensajes(vigilante.realizarRegistro(this.parqueadero, vehiculo,tiempo));
     }
     
     @ResponseBody @RequestMapping(value = "/salida", method = RequestMethod.POST)
-    public String salida(@RequestBody Map<String,String> map) {
+    public String salida(@RequestBody Map<String,String> vehiculo) {
     	tiempo = new Tiempo();
-    	int resultado = vigilante.cobrar(map, tiempo);
+    	int resultado = vigilante.realizarCobro(vehiculo, tiempo);
     	if(resultado == -1) {
     		return EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO;
     	}else if(resultado == -2) {
@@ -69,13 +69,13 @@ public class Estacionamiento {
     }
     
     @ResponseBody @RequestMapping(value = "/consulta", method = RequestMethod.POST)
-    public Vehiculos consulta(@RequestBody Map<String,String> map) {
-    	return consulta.genConsulta(map.get("placa").toUpperCase(), tiempo);
+    public Vehiculos consulta(@RequestBody Map<String,String> vehiculo) {
+    	return consulta.generarConsulta(vehiculo.get("placa").toUpperCase(), tiempo);
     }
     
     @RequestMapping(value = "/vehiculos", method = RequestMethod.GET)
     public List<Vehiculos> vehiculos(){
-    	return consulta.consultarVehiculosEnElParqueadero(tiempo);
+    	return consulta.consultarVehiculosParqueados(tiempo);
     }
 
     

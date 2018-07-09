@@ -1,7 +1,7 @@
 package com.ceiba.estacionamiento.productos;
 
-public class CostoParqueoMoto extends CostoParqueoVehiculo{
-	public CostoParqueoMoto(short cilindraje) {
+public class PrecioParqueoMoto extends PrecioParqueoVehiculo{
+	public PrecioParqueoMoto(short cilindraje) {
 		if(cilindraje>500) {
 			setCostoDia(4000);
 			setCostoHora(500);

@@ -22,12 +22,12 @@ public class Consulta {
 	 * @param tiempo
 	 * @return
 	 */
-	public Vehiculos genConsulta(String placa, Tiempo tiempo) {
-		if(!vehiculoCRUD.findIntoParking(placa)) { 
+	public Vehiculos generarConsulta(String placa, Tiempo tiempo) {
+		if(!vehiculoCRUD.vehiculoRegistrado(placa)) { 
 			return null;
 		}
 		
-		VehiculoModel vehiculoModel = vehiculoCRUD.findVehiculo(placa);
+		VehiculoModel vehiculoModel = vehiculoCRUD.buscarVehiculo(placa);
 		Date ejemplo = vehiculoModel.getFechaIngreso();
 		String date = tiempo.dateToString(ejemplo);
 		return new Vehiculos(vehiculoModel.getPlaca(),date, vehiculoModel.getTipo());
@@ -38,7 +38,7 @@ public class Consulta {
 	 * @param tiempo
 	 * @return
 	 */
-	public List<Vehiculos> consultarVehiculosEnElParqueadero(Tiempo tiempo){
+	public List<Vehiculos> consultarVehiculosParqueados(Tiempo tiempo){
 		 return vehiculoCRUD.vehiculosIntoParking(tiempo);
 	}
 	

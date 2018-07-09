@@ -19,11 +19,11 @@ public class ActualizarVehiculo {
 
 	public String actualizar(String placa, String tipo, Tiempo tiempo) {
 		
-		if(validaciones.validarVehiculosIngresadosAntes(placa)) {
-			if(!validaciones.validarVehiculosYaRegistrados(placa, tipo)) {
+		if(validaciones.validarVehiculosRegistradosNoParqueados(placa)) {
+			if(!validaciones.validarVehiculosRegistradosPorTipo(placa, tipo)) {
 				return ESTE_VEHICULO_YA_SE_REGISTRO_COMO_UN_TIPO_DIFERENTE;
 			}
-			vehiculoCRUD.updateVehiculo(placa, tiempo);
+			vehiculoCRUD.actualizarVehiculo(placa, tiempo);
 			return REGISTRO_REALIZADO;
 		}
 		return null;

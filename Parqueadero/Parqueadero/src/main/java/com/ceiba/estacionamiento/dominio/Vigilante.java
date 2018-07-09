@@ -28,7 +28,7 @@ public class Vigilante {
 	 * @param parqueadero
 	 * @param map
 	 */
-	public String registrar(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
+	public String realizarRegistro(Parqueadero parqueadero, Map<String , String> map, Tiempo tiempo) {
 		String placa = map.get("placa");
 		
 		if(placa == null || "".equals(placa)) {
@@ -40,7 +40,7 @@ public class Vigilante {
         String tipo = map.get("tipo");
         String cilindraje = map.get("cilindraje");
         
-        if(canPark(placa,tiempo)) {
+        if(noPuedeParquear(placa,tiempo)) {
         	return NO_PUEDE_INGRESAR_PORQUE_NO_ESTA_EN_UN_DIA_HABIL;
         }
         
@@ -49,13 +49,13 @@ public class Vigilante {
         return registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 	}
 	
-	public int cobrar(Map<String , String> map, Tiempo tiempo) {
+	public int realizarCobro(Map<String , String> map, Tiempo tiempo) {
 		String placa = map.get("placa");
 		return cobrar.generarCobro(placa, tiempo);
 	}
 
 	
-	private boolean canPark(String placa, Tiempo tiempo) {
-		return (placa.toUpperCase().charAt(0)=='A' && tiempo.getDayWeek() != 1 &&  tiempo.getDayWeek() != 2);
+	private boolean noPuedeParquear(String placa, Tiempo tiempo) {
+		return (placa.toUpperCase().charAt(0)=='A' && tiempo.getDiaSemana() != 1 &&  tiempo.getDiaSemana() != 2);
 	}
 }

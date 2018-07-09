@@ -53,8 +53,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(null);
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -75,8 +75,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("El vehiculo ya ingreso");
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("El vehiculo ya ingreso");
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(null);
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -97,8 +97,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("No hay cupo");
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("No hay cupo");
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(null);
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -120,8 +120,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -143,8 +143,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(null);
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -165,8 +165,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("El vehiculo ya ingreso");
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("El vehiculo ya ingreso");
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(null);
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -187,8 +187,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("No hay cupo");
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn("No hay cupo");
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(null);
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -210,8 +210,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn("Este vehiculo ya se registro como un carro");
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		
@@ -232,8 +232,8 @@ public class RegistroTest {
 		valor [1] = 1;
 		
 		//Act
-		Mockito.when(validaciones.validarVehiculosEnParqueadero(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
-		Mockito.when(vehiculoCRUD.save(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
+		Mockito.when(validaciones.validarVehiculosParqueados(Mockito.anyString(),Mockito.any(Parqueadero.class),Mockito.anyString())).thenReturn(null);
+		Mockito.when(vehiculoCRUD.guardar(Mockito.anyString(), Mockito.anyString(), Mockito.anyShort(),  Mockito.any(Tiempo.class))).thenReturn(true);
 		Mockito.when(actualizarVehiculo.actualizar(Mockito.anyString(), Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn("Este vehiculo ya se registro como una moto");
 		String resultado = registro.registrarVehiculo(parqueadero, vehiculo, tiempo);
 		

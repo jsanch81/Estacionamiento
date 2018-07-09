@@ -58,10 +58,10 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(6);	
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(6);	
 		Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
 
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -82,10 +82,10 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(1);
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(1);
 		Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
 
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -105,9 +105,9 @@ public class VigilanteTest {
 				Vehiculo vehiculo = new FabricaVehiculos().crearVehiculo(cilindraje, placa, tipo);
 				//Act
 				Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-				Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
+				Mockito.when(tiempo.getDiaSemana()).thenReturn(6);		
 				Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
-				String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+				String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 				
 		
 		//Assert
@@ -126,8 +126,8 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Moto.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(3);		
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(3);		
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("no puede ingresar porque no esta en un dia habil", resultado);
@@ -147,9 +147,9 @@ public class VigilanteTest {
 		Vehiculo vehiculo = new FabricaVehiculos().crearVehiculo(cilindraje, placa, tipo);
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(6);		
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(6);		
 		Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -170,10 +170,10 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(1);
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(1);
 		Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
 
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -194,10 +194,10 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(2);	
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(2);	
 		Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
 
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Registro realizado", resultado);
@@ -218,10 +218,10 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(registro.registrarVehiculo(Mockito.any(Parqueadero.class), Mockito.any(Carro.class), Mockito.any(Tiempo.class))).thenReturn("Registro realizado");
-		Mockito.when(tiempo.getDayWeek()).thenReturn(3);
+		Mockito.when(tiempo.getDiaSemana()).thenReturn(3);
 		Mockito.when(fabricaVehiculo.crearVehiculo(Mockito.anyString(), Mockito.anyString(), Mockito.anyString())).thenReturn(vehiculo);
 
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("no puede ingresar porque no esta en un dia habil", resultado);
@@ -237,7 +237,7 @@ public class VigilanteTest {
 		
 		//Act
 		Mockito.when(cobro.generarCobro(Mockito.anyString(), Mockito.any(Tiempo.class))).thenReturn(1000);
-		int resultado = vigilante.cobrar(map, tiempo);
+		int resultado = vigilante.realizarCobro(map, tiempo);
 		//Assert
 		Assert.assertEquals(1000, resultado);
 	}
@@ -252,7 +252,7 @@ public class VigilanteTest {
 		map.put("cilindraje", cilindraje);
 		
 		//Act
-		String resultado = vigilante.registrar(new Parqueadero(), map, tiempo);
+		String resultado = vigilante.realizarRegistro(new Parqueadero(), map, tiempo);
 		
 		//Assert
 		Assert.assertEquals("Debe de ingresar minimo la placa", resultado);
