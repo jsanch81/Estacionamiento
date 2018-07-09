@@ -12,12 +12,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-import com.ceiba.estacionamiento.classes.Consulta;
-import com.ceiba.estacionamiento.classes.Parqueadero;
-import com.ceiba.estacionamiento.classes.Tiempo;
-import com.ceiba.estacionamiento.classes.Vigilante;
-import com.ceiba.estacionamiento.model.Vehiculos;
+import com.ceiba.estacionamiento.dominio.Consulta;
+import com.ceiba.estacionamiento.dominio.Parqueadero;
+import com.ceiba.estacionamiento.dominio.Tiempo;
+import com.ceiba.estacionamiento.dominio.Vigilante;
+import com.ceiba.estacionamiento.modelos.Vehiculos;
 
 
 @RunWith(SpringRunner.class)
@@ -42,30 +41,56 @@ public class IntregracionTest {
 		
 		//Arrange
 		String placa = "MMM445";
-		tiempo = new Tiempo(date);
+		String tipo = "moto";
 		String cilindraje = "125";
+		tiempo = new Tiempo(date);
+
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
+		map.put("tipo", tipo);
+
 		
 		//Act
 		vigilante.registrar(parqueadero, map, tiempo);		
 		date.add(Calendar.DAY_OF_YEAR, 1);
 		tiempo = new Tiempo(date);
-		int resultado2 = vigilante.cobrar(parqueadero, map, tiempo);
+		int resultado2 = vigilante.cobrar(map, tiempo);
 		//Assert
 		Assert.assertEquals(4000, resultado2);
 	}
 	
 	@Test
-	public void registrar() {
+	public void registrarMoto() {
 		//Arrange
 		String placa = "MMM446";
-		tiempo = new Tiempo(date);
 		String cilindraje = "125";
+		String tipo = "moto";
+		tiempo = new Tiempo(date);
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
+		map.put("tipo", tipo);
+		
+		//Act
+		String resultado = vigilante.registrar(parqueadero, map, tiempo);		
+		
+		//Assert
+		Assert.assertEquals("Registro realizado", resultado);
+
+	}
+	@Test
+	public void registrarCarro() {
+		//Arrange
+		String placa = "MMM455";
+		String cilindraje = "125";
+		String tipo = "carro";
+		tiempo = new Tiempo(date);
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("placa", placa);
+		map.put("cilindraje", cilindraje);
+		map.put("tipo", tipo);
+		
 		
 		//Act
 		String resultado = vigilante.registrar(parqueadero, map, tiempo);		
@@ -80,12 +105,15 @@ public class IntregracionTest {
 	public void consultar() {
 		//Arrange
 		String placa = "MMM447";
-		tiempo = new Tiempo();
 		String cilindraje = "125";
+		String tipo = "carro";
+		tiempo = new Tiempo();
+
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("placa", placa);
 		map.put("cilindraje", cilindraje);
-		
+		map.put("tipo", tipo);
+
 		//Act
 		vigilante.registrar(parqueadero, map, tiempo);	
 		Vehiculos vehiculo = consulta.genConsulta(placa, tiempo);

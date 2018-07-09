@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
-import com.ceiba.estacionamiento.classes.Tiempo;
-import com.ceiba.estacionamiento.model.VehiculoModel;
-import com.ceiba.estacionamiento.model.Vehiculos;
+import com.ceiba.estacionamiento.dominio.Tiempo;
+import com.ceiba.estacionamiento.modelos.VehiculoModel;
+import com.ceiba.estacionamiento.modelos.Vehiculos;
 import com.ceiba.estacionamiento.repository.ParqueaderoRepository;
 
 

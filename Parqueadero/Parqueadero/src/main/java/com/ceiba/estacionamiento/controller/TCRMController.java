@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.estacionamiento.model.TCRMModel;
+import com.ceiba.estacionamiento.modelos.TCRMModel;
 import com.ceiba.estacionamiento.tcrm.TCRM;
 
 @RestController

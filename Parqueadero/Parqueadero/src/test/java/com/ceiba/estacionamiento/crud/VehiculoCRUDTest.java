@@ -7,10 +7,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.ceiba.estacionamiento.classes.Tiempo;
 import com.ceiba.estacionamiento.crud.VehiculoCRUD;
-import com.ceiba.estacionamiento.model.VehiculoModel;
-import com.ceiba.estacionamiento.model.Vehiculos;
+import com.ceiba.estacionamiento.dominio.Tiempo;
+import com.ceiba.estacionamiento.modelos.VehiculoModel;
+import com.ceiba.estacionamiento.modelos.Vehiculos;
 import com.ceiba.estacionamiento.repository.ParqueaderoRepository;
 
 import java.util.ArrayList;

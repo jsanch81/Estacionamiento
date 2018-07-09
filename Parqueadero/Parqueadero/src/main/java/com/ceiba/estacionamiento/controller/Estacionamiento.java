@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ceiba.estacionamiento.classes.Consulta;
-import com.ceiba.estacionamiento.classes.Parqueadero;
-import com.ceiba.estacionamiento.classes.Tiempo;
-import com.ceiba.estacionamiento.classes.Vigilante;
+import com.ceiba.estacionamiento.dominio.Consulta;
+import com.ceiba.estacionamiento.dominio.Parqueadero;
+import com.ceiba.estacionamiento.dominio.Tiempo;
+import com.ceiba.estacionamiento.dominio.Vigilante;
 import com.ceiba.estacionamiento.mensajes.Mensajes;
-import com.ceiba.estacionamiento.model.Vehiculos;
+import com.ceiba.estacionamiento.modelos.Vehiculos;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -58,7 +58,7 @@ public class Estacionamiento {
     @ResponseBody @RequestMapping(value = "/salida", method = RequestMethod.POST)
     public String salida(@RequestBody Map<String,String> map) {
     	tiempo = new Tiempo();
-    	int resultado = vigilante.cobrar(parqueadero, map, tiempo);
+    	int resultado = vigilante.cobrar(map, tiempo);
     	if(resultado == -1) {
     		return EL_VEHICULO_NO_ESTA_EN_EL_PARQUEADERO;
     	}else if(resultado == -2) {

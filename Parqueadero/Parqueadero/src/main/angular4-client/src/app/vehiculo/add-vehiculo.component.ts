@@ -23,6 +23,7 @@ export class AddVehiculoComponent {
   }
   vehiculos: Vehiculo2[];
 
+  tipoVehiculo: String[] = ["moto","carro"];
 
   async delay(ms: number) {
     await new Promise( resolve => setTimeout(resolve, ms) );
