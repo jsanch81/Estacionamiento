@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -45,7 +46,7 @@ public class FunctionalTest {
 		driver = new ChromeDriver(options);
 
 	}
-	
+
 	@AfterClass
 	public static void destroy() {
 		driver.quit();
@@ -60,6 +61,11 @@ public class FunctionalTest {
 		
 		Thread.sleep(10000);
 
+		WebElement mySelectElement = driver.findElement(By.id("tipo"));
+		Select dropdown= new Select(mySelectElement);
+		
+		dropdown.selectByVisibleText("carro");
+		
 		WebElement placaElement = driver.findElement(By.id("placa"));
 		placaElement.sendKeys("MNZ784");
 		//Act
