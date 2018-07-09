@@ -13,12 +13,13 @@ public class CostoTotal {
 	private static final  int HORA_INICIO_DIA = 9;
 	
 	public int generarCosto(String tipo, long fechaIngreso, long fechaSalida, Tiempo tiempo, short cilindraje) {
+	
+		tiempoParqeuado = tiempo.calculateDaysHoursMils(fechaIngreso, fechaSalida);
 		CostoParqueoVehiculo costoProducto = costoFactory.createProducto(tipo, cilindraje);
 		
 		int costoVehiculoDia = costoProducto.getCostoDia();
 		int costoVehiculoHora = costoProducto.getCostoHora();
 		int costoVehiculoExtra = costoProducto.getCostoExtra();
-		tiempoParqeuado = tiempo.calculateDaysHoursMils(fechaIngreso, fechaSalida);
 		int total = 0;
 		
 		total = tiempoParqeuado.getDias()*costoVehiculoDia;
